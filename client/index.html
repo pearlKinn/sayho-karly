@@ -15,12 +15,107 @@
   </head>
 
   <body>
-    <h1
-      class="mx-auto bg-gradient-to-r from-cyan-500 to-indigo-700 bg-clip-text text-7xl font-black text-transparent drop-shadow-lg"
-    >
-      Javascript project
-    </h1>
+    <div id="header-wrapper">
+      <header class="header">
+        <section class="top-container">
+          <div class="logo-box">
+            <div class="logo-wrapper">
+              <h1 class="logo-box__title">
+                <img src="./assets/img/header/logo.png" alt="마켓칼리 로고" />
+                <!-- 접근성 태그 추가 필요 -->
+                <a href="/" class="logo-box__market">마켓칼리</a>
+              </h1>
+              <!-- 가상요소 | 추가 필요 / HTML 마크업, CSS 가상요소 뭐가 더 좋을지? -->
+              <h2 class="logo-box__beauty-wrapper">
+                <a href="/" class="logo-box__beauty">뷰티칼리</a>
+              </h2>
+            </div>
+          </div>
 
-    <a href="./login.html">link</a>
+          <form action="#" method="get" class="search-form">
+            <fieldset>
+              <legend class="a11y-hidden">검색폼</legend>
+              <div class="search-form__box">
+                <label for="search" class="a11y-hidden search-form__label"
+                  >검색어</label
+                >
+                <input
+                  type="search"
+                  id="search"
+                  name="search"
+                  required
+                  class="search-form__input"
+                  placeholder="검색어를 입력하세요."
+                />
+                <button type="submit" class="search-form__button">
+                  <img src="./assets/img/header/group.png" alt="" />
+                </button>
+              </div>
+            </fieldset>
+          </form>
+
+          <section class="sub-menu">
+            <a
+              href="/"
+              class="sub-menu__map sub-menu__item"
+              aria-label="배송지 추가"
+            >
+              <img src="./assets/img/header/Location.png" alt="" />
+            </a>
+            <a
+              href="/"
+              class="sub-menu__like sub-menu__item"
+              aria-label="찜 목록"
+            >
+              <img src="./assets/img/header/Heart.png" alt=""
+            /></a>
+            <a
+              href="./views/orderList.html"
+              class="sub-menu__wish sub-menu__item"
+              aria-label="장바구니 메뉴"
+            >
+              <img src="./assets/img/header/Cart-1.png" alt=""
+            /></a>
+          </section>
+        </section>
+
+        <ul class="member">
+          <!-- 가상요소 | 추가 필요 -->
+          <li class="member__item">
+            <a href="/">회원가입</a>
+          </li>
+          <li class="member__item"><a href="./views/login.html">로그인</a></li>
+          <li class="member__item"><a href="/">고객센터</a></li>
+        </ul>
+
+        <div id="nav-wrapper">
+          <nav class="menu-container">
+            <div class="category">
+              <img
+                src="./assets/img/header/hanburger_black.png"
+                alt="카테고리 펼치기"
+              />
+              <span class="category__text">카테고리</span>
+            </div>
+            <ul class="menu">
+              <li class="menu__item"><a href="/">신상품</a></li>
+              <li class="menu__item">
+                <a href="/">베스트</a>
+              </li>
+              <li class="menu__item"><a href="/">알뜰쇼핑</a></li>
+              <li class="menu__item">
+                <a href="/">특가/혜택</a>
+              </li>
+            </ul>
+            <div class="menu__post">
+              <a href="#">
+                <span>샛별・택배</span>
+                <span>배송안내</span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </header>
+    </div>
   </body>
 </html>
