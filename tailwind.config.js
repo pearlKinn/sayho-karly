@@ -3,6 +3,9 @@ module.exports = {
   content: ['./client/**/*.html'],
   theme: {
     extend: {
+      backgroundImage:{
+        toggleOn: "url('./assets/img/orderList/Check.png') no-repeat -4px -4px/100%"
+      },
       colors: {
         /* Colors */
         black: '#000000',
