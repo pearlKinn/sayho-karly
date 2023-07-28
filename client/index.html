@@ -16,27 +16,37 @@
 
   <body>
     <div id="header-wrapper">
-      <header class="header">
-        <section class="top-container">
+      <header class="header mx-auto flex w-[1050px] flex-col">
+        <section class="top-container mb-11 flex items-center justify-between">
           <div class="logo-box">
-            <div class="logo-wrapper">
+            <div class="logo-wrapper mt-16 flex space-x-2">
+              <img src="./assets/img/header/logo.png" alt="마켓칼리 로고" />
               <h1 class="logo-box__title">
-                <img src="./assets/img/header/logo.png" alt="마켓칼리 로고" />
                 <!-- 접근성 태그 추가 필요 -->
-                <a href="/" class="logo-box__market">마켓칼리</a>
+                <a
+                  href="/"
+                  class="logo-box__market leading-150 mx-1 text-[21px] font-bold text-primary"
+                  >마켓칼리</a
+                >
               </h1>
               <!-- 가상요소 | 추가 필요 / HTML 마크업, CSS 가상요소 뭐가 더 좋을지? -->
               <h2 class="logo-box__beauty-wrapper">
-                <a href="/" class="logo-box__beauty">뷰티칼리</a>
+                <a
+                  href="/"
+                  class="logo-box__beauty mx-1 text-[21px] font-bold text-gray-400"
+                  >뷰티칼리</a
+                >
               </h2>
             </div>
           </div>
 
           <form action="#" method="get" class="search-form">
             <fieldset>
-              <legend class="a11y-hidden">검색폼</legend>
-              <div class="search-form__box">
-                <label for="search" class="a11y-hidden search-form__label"
+              <legend class="a11yHidden">검색폼</legend>
+              <div
+                class="search-form__box md:px-21 md:py-21 w-400 h-50 flex cursor-pointer items-center justify-between rounded-md border border-primary px-5 py-14"
+              >
+                <label for="search" class="search-form__label a11yHidden"
                   >검색어</label
                 >
                 <input
@@ -54,7 +64,7 @@
             </fieldset>
           </form>
 
-          <section class="sub-menu">
+          <section class="sub-menu flex">
             <a
               href="/"
               class="sub-menu__map sub-menu__item"
@@ -79,17 +89,21 @@
           </section>
         </section>
 
-        <ul class="member">
+        <ul class="member mb-21 -order-1 mt-12 flex justify-end">
           <!-- 가상요소 | 추가 필요 -->
           <li class="member__item">
             <a href="/">회원가입</a>
           </li>
-          <li class="member__item"><a href="./views/login.html">로그인</a></li>
-          <li class="member__item"><a href="/">고객센터</a></li>
+          <li class="member__item flex items-center">
+            <a href="./views/login.html" class="my-10 text-xs">로그인</a>
+          </li>
+          <li class="member__item flex items-center">
+            <a href="/" class="my-10 text-xs">고객센터</a>
+          </li>
         </ul>
 
         <div id="nav-wrapper">
-          <nav class="menu-container">
+          <nav class="menu-container my-5 flex justify-between font-medium">
             <div class="category">
               <img
                 src="./assets/img/header/hanburger_black.png"
@@ -97,19 +111,25 @@
               />
               <span class="category__text">카테고리</span>
             </div>
-            <ul class="menu">
-              <li class="menu__item"><a href="/">신상품</a></li>
-              <li class="menu__item">
+            <ul class="menu ml-50 flex items-center justify-center">
+              <li class="menu__item w-150 flex justify-center">
+                <a href="/">신상품</a>
+              </li>
+              <li class="menu__item w-150 flex justify-center">
                 <a href="/">베스트</a>
               </li>
-              <li class="menu__item"><a href="/">알뜰쇼핑</a></li>
-              <li class="menu__item">
+              <li class="menu__item w-150 flex justify-center">
+                <a href="/">알뜰쇼핑</a>
+              </li>
+              <li class="menu__item w-150 flex justify-center">
                 <a href="/">특가/혜택</a>
               </li>
             </ul>
-            <div class="menu__post">
+            <div
+              class="menu__post w-132 border-primary-color rounded-16 mr-8 flex h-32 items-center justify-center border text-base"
+            >
               <a href="#">
-                <span>샛별・택배</span>
+                <span class="font-semibold text-primary">샛별・택배</span>
                 <span>배송안내</span>
               </a>
             </div>
