@@ -3,16 +3,4 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer utilities {
-  .a11yHidden {
-    @apply
-      overflow-hidden
-      absolute !important
-      clip-rect(0, 0, 0, 0)
-      inset-px(50)
-      w-1
-      h-1
-      -m-1;
-  }
-}
+  
