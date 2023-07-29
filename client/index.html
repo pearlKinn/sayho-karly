@@ -15,127 +15,270 @@
   </head>
 
   <body>
-    <div id="header-wrapper">
-      <header class="header mx-auto flex w-[1050px] flex-col">
-        <section class="top-container mb-11 flex items-center justify-between">
-          <div class="logo-box">
-            <div class="logo-wrapper mt-16 flex space-x-2">
-              <img src="./assets/img/header/logo.png" alt="마켓칼리 로고" />
-              <h1 class="logo-box__title">
-                <!-- 접근성 태그 추가 필요 -->
-                <a
-                  href="/"
-                  class="logo-box__market leading-150 mx-1 text-[21px] font-bold text-primary"
-                  >마켓칼리</a
+    <header class="header">
+      <h1 class="sr-only">Karly</h1>
+      <!-- 맨 위 보라색 안내바   -->
+      <div class="topBar h-[50px] bg-[#5f0080]">
+        <div
+          class="topBar__div mx-auto flex h-[2.625rem] w-[1050px] flex-row items-center justify-center"
+        >
+          <a href="/" class="block">
+            <span class="topBar__word block text-white"
+              >지금 가입하고 인기상품 100원에 받아가세요!</span
+            >
+          </a>
+          <button
+            class="topBar__X h-[30px] w-[30px] bg-[url('/assets/img/cart/close.png')] bg-auto bg-center bg-no-repeat text-white"
+          ></button>
+        </div>
+      </div>
+
+      <div class="headerBox mx-auto w-[1050px] pb-5">
+        <!-- 상단 우측 회원가입 | 로그인 | 고객센터 창 -->
+
+        <div class="ulType memberSystem mb-3 mt-3 flex flex-nowrap justify-end">
+          <ul class="div__memberSystem flex flex-nowrap">
+            <li class="memberSystem__first font-semibold text-[#5f0080]">
+              <a href="./views/join.html">회원가입　</a>
+            </li>
+            <li class="memberSystem__second">
+              <span class="divider" aria-hidden="true">ㅣ</span
+              ><a href="./views/login.html">　로그인　</a>
+            </li>
+            <li class="memberSystem__third">
+              <span class="divider" aria-hidden="true">ㅣ</span
+              ><span>　고객센터 ▼</span>
+            </li>
+          </ul>
+        </div>
+
+        <div
+          class="headerBox__middle mt-8 flex h-[60px] w-[1050px] items-center justify-between"
+        >
+          <!-- 헤더부분 좌측 중앙  -->
+
+          <ul class="ulType logo flex w-[267px] items-center">
+            <li class="logo__image h-[42px]; w-[82px]">
+              <img src="./assets/img/header/logo.png" alt="칼리로고" />
+            </li>
+            <li
+              class="logo__market pl-3 text-[21.3px] font-bold text-[#5f0080]"
+            >
+              <span>마켓칼리</span>
+            </li>
+            <li class="logo__beauty text-[21.3px]">
+              <span class="divider" aria-hidden="true">ㅣ</span
+              ><span class="text-[#898989]">뷰티칼리</span>
+            </li>
+          </ul>
+
+          <fieldset class="searchForm z-[1] mx-auto flex w-[360px] pr-[150px]">
+            <legend class="sr-only">검색 폼</legend>
+            <div class="searchForm__group">
+              <div class="formInput flex items-center">
+                <div
+                  class="flex h-[60px] w-[400px] items-center rounded-[5px] border border-[solid] px-3 py-5"
                 >
-              </h1>
-              <!-- 가상요소 | 추가 필요 / HTML 마크업, CSS 가상요소 뭐가 더 좋을지? -->
-              <h2 class="logo-box__beauty-wrapper">
-                <a
-                  href="/"
-                  class="logo-box__beauty mx-1 text-[21px] font-bold text-gray-400"
-                  >뷰티칼리</a
-                >
-              </h2>
+                  <label for="search" class="formInput__label sr-only"
+                    >검색어</label
+                  >
+                  <input
+                    type="search"
+                    id="search"
+                    name="search"
+                    required
+                    class="formInput__input outline-none"
+                    placeholder="검색어를 입력해 주세요."
+                  />
+                  <button
+                    type="submit"
+                    class="button button__fillSecondary ml-auto h-9 w-9 cursor-pointer border-[none] bg-[url('/assets/img/header/group.png')]"
+                  ></button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- 헤더부분 우측중앙 이모티콘 3개 -->
+
+          <ul class="ulType imoji flex">
+            <li class="imoji__location pr-5">
+              <img src="./assets/img/header/Location.png" alt="장소 이모지" />
+            </li>
+            <li class="iomji__heart">
+              <img src="./assets/img/header/Heart.png" alt="하트모양 이모지" />
+            </li>
+            <li class="imoji__shopping pl-5">
+              <a href="/">
+                <img
+                  src="./assets/img/header/Cart-1.png"
+                  alt="장바구니 이모지"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </header>
+
+    <!-- 네비게이션 부분 -->
+
+    <nav
+      class="nav mx-auto flex h-[72px] w-[1050px] items-center justify-between"
+    >
+      <!-- 카테고리 -->
+
+      <div class="category flex h-6 w-[84px] items-center">
+        <img
+          src="././assets/img/header/hanburger_black.png"
+          alt=""
+          class="category__image pr-3"
+        />
+        <span class="category__word font-semibold">카테고리</span>
+        <div class="categoryHover hidden h-[880px] w-[247px]">
+          <div class="menu__div">
+            <div class="menu__icon present">
+              <span class="menu__word">선물하기</span>
             </div>
           </div>
-
-          <form action="#" method="get" class="search-form">
-            <fieldset>
-              <legend class="a11yHidden">검색폼</legend>
-              <div
-                class="search-form__box md:px-21 md:py-21 w-400 h-50 flex cursor-pointer items-center justify-between rounded-md border border-primary px-5 py-14"
-              >
-                <label for="search" class="search-form__label a11yHidden"
-                  >검색어</label
-                >
-                <input
-                  type="search"
-                  id="search"
-                  name="search"
-                  required
-                  class="search-form__input"
-                  placeholder="검색어를 입력하세요."
-                />
-                <button type="submit" class="search-form__button">
-                  <img src="./assets/img/header/group.png" alt="" />
-                </button>
-              </div>
-            </fieldset>
-          </form>
-
-          <section class="sub-menu flex">
-            <a
-              href="/"
-              class="sub-menu__map sub-menu__item"
-              aria-label="배송지 추가"
-            >
-              <img src="./assets/img/header/Location.png" alt="" />
-            </a>
-            <a
-              href="/"
-              class="sub-menu__like sub-menu__item"
-              aria-label="찜 목록"
-            >
-              <img src="./assets/img/header/Heart.png" alt=""
-            /></a>
-            <a
-              href="./views/orderList.html"
-              class="sub-menu__wish sub-menu__item"
-              aria-label="장바구니 메뉴"
-            >
-              <img src="./assets/img/header/Cart-1.png" alt=""
-            /></a>
-          </section>
-        </section>
-
-        <ul class="member mb-21 -order-1 mt-12 flex justify-end">
-          <!-- 가상요소 | 추가 필요 -->
-          <li class="member__item">
-            <a href="/">회원가입</a>
-          </li>
-          <li class="member__item flex items-center">
-            <a href="./views/login.html" class="my-10 text-xs">로그인</a>
-          </li>
-          <li class="member__item flex items-center">
-            <a href="/" class="my-10 text-xs">고객센터</a>
-          </li>
-        </ul>
-
-        <div id="nav-wrapper">
-          <nav class="menu-container my-5 flex justify-between font-medium">
-            <div class="category">
-              <img
-                src="./assets/img/header/hanburger_black.png"
-                alt="카테고리 펼치기"
-              />
-              <span class="category__text">카테고리</span>
+          <div class="menu__div">
+            <div class="menu__icon vegetable">
+              <span class="menu__word">채소</span>
             </div>
-            <ul class="menu ml-50 flex items-center justify-center">
-              <li class="menu__item w-150 flex justify-center">
-                <a href="/">신상품</a>
-              </li>
-              <li class="menu__item w-150 flex justify-center">
-                <a href="/">베스트</a>
-              </li>
-              <li class="menu__item w-150 flex justify-center">
-                <a href="/">알뜰쇼핑</a>
-              </li>
-              <li class="menu__item w-150 flex justify-center">
-                <a href="/">특가/혜택</a>
-              </li>
-            </ul>
-            <div
-              class="menu__post w-132 border-primary-color rounded-16 mr-8 flex h-32 items-center justify-center border text-base"
-            >
-              <a href="#">
-                <span class="font-semibold text-primary">샛별・택배</span>
-                <span>배송안내</span>
-              </a>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon fruit">
+              <span class="menu__word">과일ㆍ견과ㆍ쌀</span>
             </div>
-          </nav>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon fish">
+              <span class="menu__word">수산ㆍ해산ㆍ건어물</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon meat">
+              <span class="menu__word">정육ㆍ계란</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon soup">
+              <span class="menu__word">국ㆍ반찬ㆍ메인요리</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon salad">
+              <span class="menu__word">샐러드ㆍ간편식</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon noodle">
+              <span class="menu__word">면ㆍ양념ㆍ오일</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon water">
+              <span class="menu__word">생수ㆍ음료ㆍ우유ㆍ커피</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon snack">
+              <span class="menu__word">간식ㆍ과자ㆍ떡</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon bread">
+              <span class="menu__word">베이커리ㆍ치즈ㆍ델리</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon healthFood">
+              <span class="menu__word">건강식품</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon wine">
+              <span class="menu__word">와인</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon koreanAlcohol">
+              <span class="menu__word">전통주</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon living">
+              <span class="menu__word">생활용품ㆍ리빙ㆍ캠핑</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon skinCare">
+              <span class="menu__word">스킨케어ㆍ메이크업</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon hair">
+              <span class="menu__word">헤어ㆍ바디ㆍ구강</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon kitchen">
+              <span class="menu__word">주방용품</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon homeApplience">
+              <span class="menu__word">가전제품</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon pet">
+              <span class="menu__word">반려동물</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon baby">
+              <span class="menu__word">베이비ㆍ키즈ㆍ완구</span>
+            </div>
+          </div>
+          <div class="menu__div">
+            <div class="menu__icon travel">
+              <span class="menu__word">여행ㆍ티켓</span>
+            </div>
+          </div>
         </div>
-      </header>
-    </div>
+      </div>
+
+      <!-- 네비게이션 중앙 바 -->
+
+      <div
+        class="navCenter flex h-10 w-[600px] py-2 text-center text-base font-semibold leading-[150%]"
+      >
+        <a href="./productList.html" class="navCenter__new h-6 w-[150px]"
+          ><span class="navCenter__new__hover">신상품</span></a
+        >
+        <a href="./productList.html" class="navCenter__best h-6 w-[150px]"
+          ><span class="navCenter__best__hover">베스트</span></a
+        >
+        <a href="./productList.html" class="navCenter__hotdeal h-6 w-[150px]"
+          ><span class="navCenter__hotdeal__hover">알뜰쇼핑</span></a
+        >
+        <a href="./productList.html" class="navCenter__special h-6 w-[150px]"
+          ><span class="navCenter__special__hover">특가/혜택</span></a
+        >
+      </div>
+
+      <!-- 네비게이션 우측 박스 -->
+
+      <div
+        class="morningDelivery flex h-[27px] w-[95px] items-center justify-center rounded-2xl border border-solid border-neutral-400 p-0 py-1 text-xs leading-[160%]"
+      >
+        <span
+          class="morningDelivery__first font-[12px] tracking-tighter text-[#5f0080]"
+          >샛별ㆍ낮&nbsp;</span
+        >
+        <span class="morningDelivery__second">배송안내</span>
+      </div>
+    </nav>
   </body>
 </html>
