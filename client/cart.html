@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+      type="image/xml+svg"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="./js/main.js" type="module"></script>
+    <title>project</title>
+  </head>
+
+  <body>
+    <section class="karlyCart mx-auto mb-[80px] tracking-tighter">
+      <h2
+        class="mb-[50px] mt-[80px] text-center text-[21.3px] font-semibold leading-6"
+      >
+        장바구니
+      </h2>
+      <div
+        class="cart mx-auto flex w-[1050px] justify-between gap-6 bg-blue-400"
+      >
+        <!-- 왼쪽 영역 -->
+        <div class="cart__left bg-yellowgreen w-[742px] bg-pink-200">
+          <!-- 선택부분 -->
+          <div class="cartSelectAll border-b border-black">
+            <div class="py-auto flex h-14 gap-2 bg-red-400">
+              <div class="flex items-center gap-2">
+                <div
+                  class="h-[24px] w-[24px] bg-orange-300 bg-cover"
+                  style="background-image: url('./assets/img/cart/checked.png')"
+                ></div>
+                <!-- flex와 items-center 클래스를 추가하여 세로로 중앙 정렬 -->
+                <label for="cartCheckbox1" class="cartCheckbox cursor-pointer">
+                  <span
+                    class="cartChoice block flex h-14 items-center bg-blue-600 leading-normal"
+                    >전체선택 (3/3)</span
+                  >
+                  <!-- flex와 items-center 클래스 추가 -->
+                </label>
+                <input type="checkbox" id="cartCheckbox1" class="hidden" />
+              </div>
+              <div class="flex items-center">
+                <span aria-hidden="true" class="block">ㅣ</span>
+                <button type="submit" class="cartButton bg-cyan-500">
+                  선택삭제
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 냉장 식품 -->
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
