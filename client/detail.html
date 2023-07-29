@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+      type="image/xml+svg"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script src="./js/main.js" type="module"></script>
+    <title>마켓컬리</title>
+  </head>
+  <body class="h-[200vh]">
+    <!-- margin-top 40px로 맞추기 -->
+    <main class="mx-auto mt-16 flex h-[1021px] w-[1050px] justify-between">
+      <div class="imgWrapper">
+        <img
+          src="/assets/tangtang/detail_view.jpg"
+          alt=""
+          class="h-[514px] w-[400px]"
+        />
+      </div>
+      <section class="infoWrapper w-[560px]">
+        <div class="flex flex-col pb-5">
+          <div class="mb-4 text-[21.3px] text-gray500">샛별배송</div>
+          <div class="mb-4">
+            <h1 class="itemName text-[28.43px] font-semibold">
+              [풀무원] 탱탱쫄면 (4개입)
+            </h1>
+            <h2 class="text-[16px] text-gray400">
+              튀기지 않아 부담 없는 매콤함
+            </h2>
+          </div>
+          <div class="pirce mb-4">
+            <span class="text-[28.43px] font-semibold">4,980 </span>
+            <span class="font-bold">원</span>
+          </div>
+          <div class="font-semibold text-primary">
+            로그인 후, 적립 헤택이 제공됩니다.
+          </div>
+        </div>
+
+        <div class="detailWrapper border-y border-solid border-gray100 text-xs">
+          <dl class="flex py-4">
+            <dt class="h-[26px] w-[128px]">배송</dt>
+            <dd class="h-[58px]">
+              <p>샛별배송</p>
+              <p>
+                23시 전 주문 시 내일 아침 7시 전 도착 <br />(대구 부산 울산
+                샛별배송 운영시간 별도 확인)
+              </p>
+            </dd>
+          </dl>
+          <dl class="flex items-center border-y border-solid py-4">
+            <dt class="h-[26px] w-[128px]">판매자</dt>
+            <dd class="h-[26px]">
+              <p>칼리</p>
+            </dd>
+          </dl>
+          <dl class="flex py-4">
+            <dt class="h-[26px] w-[128px]">포장타입</dt>
+            <dd class="h-[40px]">
+              <p>상온 (종이포장)</p>
+              <p>택배배송은 에코 포장이 스티로폼으로 대체됩니다.</p>
+            </dd>
+          </dl>
+          <dl class="flex border-y border-solid py-4">
+            <dt class="h-[26px] w-[128px]">판매단위</dt>
+            <dd class="h-[26px]">
+              <p>1봉</p>
+            </dd>
+          </dl>
+          <dl class="flex py-4">
+            <dt class="h-[26px] w-[128px]">중량/용량</dt>
+            <dd class="h-[26px]">
+              <p>123g*4봉</p>
+            </dd>
+          </dl>
+          <dl class="flex border-y border-solid py-4">
+            <dt class="h-[26px] w-[128px]">원산지</dt>
+            <dd class="h-[26px]">
+              <p>상세페이지 별도표기</p>
+            </dd>
+          </dl>
+          <dl class="flex justify-between border-b border-solid py-4">
+            <dt class="w-[128px]] h-[26px]">알레르기정보</dt>
+            <dd class="h-[54px]">
+              <p>-대두, 밀, 쇠고기 함유</p>
+              <p>
+                -계란, 우유, 메밀, 땅콩, 고등어, 게, 돼지고기, 새우, 복숭아,
+                토마토, 아황산류, 호두, 잣, 닭고<br />
+                기, 오징어, 조개류(굴, 전복, 홍합 포함)를 사용한 제품과 같은
+                제조시설에서 제조
+              </p>
+            </dd>
+          </dl>
+          <dl class="flex py-4">
+            <dt class="h-[26px] w-[128px]">상품선택</dt>
+            <dd>
+              <div
+                class="cartWrapper flex h-[84px] w-[432px] flex-col border border-solid border-gray100 px-4 py-3"
+              >
+                <div class="nameBox mb-3">
+                  <span class="itemName">[풀무원] 탱탱쫄면 (4개입)</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <div
+                    class="btnBox flex h-[30px] w-[84px] items-center justify-between border border-solid"
+                  >
+                    <button aria-label="수량내리기" class="h-[30px] w-[30px]">
+                      <div
+                        class="h-[30px] w-[30px] bg-[url('/img/detail/minusss_white.png')] bg-center bg-no-repeat"
+                      ></div>
+                      <!-- <img src="./img/detail/Minus.png" alt="" /> -->
+                    </button>
+                    <div id="count mx-2">1</div>
+                    <button aria-label="수량올리기" class="h-[30px] w-[30px]">
+                      <div
+                        class="h-[30px] w-[30px] bg-[url('/img/detail/plusss.png')] bg-center bg-no-repeat"
+                      ></div>
+                      <!-- <img src="./img/detail/Minus.png" alt="" /> -->
+                    </button>
+                  </div>
+                  <div class="font-semibold">
+                    <span>4,980</span>
+                    <span>원</span>
+                  </div>
+                </div>
+              </div>
+            </dd>
+          </dl>
+        </div>
+
+        <div class="priceWrapper flex h-[131px] w-[560px] flex-col items-end">
+          <div class="py-7">
+            <div class="price mb-2 font-semibold">
+              <span class="mr-4">총 상품금액:</span>
+              <span class="text-[28.43px]">4,990</span>
+              <span class="font-bold">원</span>
+            </div>
+            <div class="flex">
+              <div
+                class="mr-2 flex h-[24px] w-[34px] items-center justify-center rounded-xl bg-[#fa622f] px-1 py-1"
+              >
+                <span class="text-[10px] font-normal text-white">적립</span>
+              </div>
+              <span class="font-semibold">로그인 후, 적립 혜택 제공</span>
+            </div>
+          </div>
+
+          <div
+            class="cartBtnWrapper flex w-[560px] items-center justify-between"
+          >
+            <button
+              class="flex h-[56px] w-[56px] items-center justify-center rounded border border-solid p-1"
+            >
+              <span aria-label="찜목록추가">
+                <img src="./img/header/Heart.png" alt="" />
+              </span>
+            </button>
+            <button
+              class="flex h-[56px] w-[56px] items-center justify-center rounded border border-solid p-1"
+            >
+              <span aria-label="상품 알림설정">
+                <img src="./img/detail/Group.png" alt="" />
+              </span>
+            </button>
+            <button class="h-[54px] w-[424px] rounded bg-primary">
+              <span class="font-semibold text-white">장바구니 담기</span>
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
