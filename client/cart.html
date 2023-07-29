@@ -23,8 +23,8 @@
       </h2>
       <div class="cart mx-auto flex w-[1050px] justify-between gap-6">
         <!-- 왼쪽 영역 -->
-        <div class="cart__left bg-yellowgreen w-[742px] bg-pink-200">
-          <!-- 선택부분 -->
+        <div class="cart__left bg-yellowgreen w-[742px]">
+          <!-- 선택부분 ------------------------------------------->
           <div class="cartSelectAll border-b border-black">
             <div class="py-auto flex h-14 gap-2">
               <div class="flex items-center gap-2">
@@ -33,8 +33,7 @@
                 ></div>
                 <!-- flex와 items-center 클래스를 추가하여 세로로 중앙 정렬 -->
                 <label for="cartCheckbox1" class="cartCheckbox cursor-pointer">
-                  <span
-                    class="cartChoice block flex h-14 items-center leading-normal"
+                  <span class="cartChoice h-14 items-center leading-normal"
                     >전체선택 (3/3)</span
                   >
                   <!-- flex와 items-center 클래스 추가 -->
@@ -48,7 +47,7 @@
             </div>
           </div>
 
-          <!-- 냉장 식품 -->
+          <!-- 냉장 식품 --------------------------------------------->
           <div class="water h-[62px]">
             <div class="water__continer flex h-[62px] items-center">
               <div
@@ -56,40 +55,55 @@
               ></div>
               <h4 class="waterH mr-auto">냉장 식품</h4>
               <button
-                class="norep h-[30px] w-[30px] bg-orange-300 bg-[url('/assets/img/cart/allow.png')] bg-contain bg-center bg-no-repeat"
-                style="background-size: auto"
+                class="norep h-[30px] w-[30px] bg-[url('/assets/img/cart/allow.png')] bg-auto bg-center bg-no-repeat"
               ></button>
             </div>
-            <div class="water__list bg-purple-200">
-              <ul class="">
-                <li class="btnList flex items-center gap-2">
-                  <div
-                    class="h-[24px] w-[24px] bg-orange-300 bg-[url('/assets/img/cart/checked.png')] bg-cover"
-                  ></div>
-                  <img src="./assets/img/cart/cart.png" alt="상품 탱탱쫄면" />
-                  <span class="btnList__h">[풀무원] 탱탱쫄면 (4개입)</span>
-                  <div class="btnGroup flex items-center gap-2">
-                    <button
-                      type="button"
-                      class="btnList__remove h-[30px] w-[30px] bg-orange-300 bg-[url('/assets/img/cart/minus.png')] bg-cover"
-                    ></button>
-                    <span>1</span>
-                    <button
-                      type="button"
-                      class="btnList__add btnList__remove h-[30px] w-[30px] bg-orange-300 bg-[url('/assets/img/cart/plus.png')] bg-cover"
-                    ></button>
-                  </div>
-                  <span class="btnList__won ml-auto">4,980원</span>
-                  <button
-                    type="button"
-                    class="btnList__cancel h-[12px] w-[12px] bg-orange-300 bg-[url('/assets/img/cart/close.png')] bg-cover"
-                  ></button>
-                </li>
-              </ul>
+          </div>
+          <!--  토글영역 -->
+
+          <!-- 냉동식품  --------------------------------------------->
+          <div class="water__continer flex h-[62px] items-center">
+            <div
+              class="ml-1 mr-3 h-[24px] w-[18px] bg-[url('/assets/img/cart/frozen.png')] bg-cover"
+            ></div>
+            <h4 class="waterH mr-auto">냉동 식품</h4>
+            <button
+              class="norep h-[30px] w-[30px] bg-[url('/assets/img/cart/allow.png')] bg-auto bg-center bg-no-repeat"
+            ></button>
+          </div>
+          <!-- 상온식품  --------------------------------------------->
+          <div class="water__continer flex h-[62px] items-center">
+            <div
+              class="ml-1 mr-3 h-[24px] w-[18px] bg-[url('/assets/img/cart/sun.png')] bg-cover"
+            ></div>
+            <h4 class="waterH mr-auto">상온 식품</h4>
+            <button
+              class="norep h-[30px] w-[30px] bg-[url('/assets/img/cart/allow.png')] bg-auto bg-center bg-no-repeat"
+            ></button>
+          </div>
+          <!-- 선택부분 ------------------------------------------->
+          <div class="cartSelectAll border-t border-black">
+            <div class="py-auto flex h-14 gap-2">
+              <div class="flex items-center gap-2">
+                <div
+                  class="h-[24px] w-[24px] bg-[url('/assets/img/cart/checked.png')] bg-cover"
+                ></div>
+                <!-- flex와 items-center 클래스를 추가하여 세로로 중앙 정렬 -->
+                <label for="cartCheckbox1" class="cartCheckbox cursor-pointer">
+                  <span class="cartChoice h-14 items-center leading-normal"
+                    >전체선택 (3/3)</span
+                  >
+                  <!-- flex와 items-center 클래스 추가 -->
+                </label>
+                <input type="checkbox" id="cartCheckbox1" class="hidden" />
+              </div>
+              <div class="flex items-center">
+                <span aria-hidden="true" class="block">ㅣ</span>
+                <button type="submit" class="cartButton ml-1">선택삭제</button>
+              </div>
             </div>
           </div>
         </div>
-
         <!-- 오른쪽 영역 -->
         <div class="cart__right bg-cornsilk w-[284px]">
           <div class="cartAddress border border-gray-300 bg-white p-5">
