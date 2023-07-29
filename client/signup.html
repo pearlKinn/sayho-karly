@@ -10,8 +10,8 @@
       type="image/xml+svg"
     />
     <link rel="stylesheet" href="./css/main.css" />
-    <script src="./js/main.js" type="module"></script>
-    <title>project</title>
+    <script src="./js/signup.js" type="module"></script>
+    <title>회원가입</title>
   </head>
 
   <body>
@@ -33,19 +33,25 @@
                   아이디
                   <sup class="font-semibold text-infoError">*</sup>
                 </label>
-                <input
-                  type="text"
-                  class="signup__input h-[44px] w-[333px] rounded border border-gray-300 px-[20px]"
-                  id="userID"
-                  name="userID"
-                  placeholder="아이디를 입력해주세요"
-                  required
-                  aria-invalid="false"
-                  aria-describedby="userIDError"
-                  aria-live="assertive"
-                />
-                <div class="errorMessage hidden h-[44px]" id="userIDError">
-                  영문 또는 영문, 숫자 조합 6~12자리
+                <div class="inputErrorWrapper flex flex-col">
+                  <input
+                    type="text"
+                    class="userIdInput h-[44px] w-[333px] rounded border border-gray-300 px-[20px] focus:border-black focus:outline-none"
+                    id="userID"
+                    name="userID"
+                    placeholder="아이디를 입력해주세요"
+                    required
+                    maxlength="12"
+                    aria-invalid="false"
+                    aria-describedby="userIDError"
+                    aria-live="assertive"
+                  />
+                  <div
+                    class="errorMessage hidden text-[12.003px] font-semibold text-infoError"
+                    id="userIDError"
+                  >
+                    영문 또는 영문, 숫자 조합 6~12자리 입력
+                  </div>
                 </div>
                 <button
                   type="submit"
@@ -62,21 +68,28 @@
                     >*</sup
                   ></label
                 >
-                <input
-                  type="password"
-                  class="signup__input h-[44px] w-[333px] rounded border border-gray-300 px-[20px]"
-                  id="userPwd"
-                  name="userPwd"
-                  placeholder="비밀번호를 입력해주세요"
-                  required
-                  aria-invalid="false"
-                  aria-describedby="userPwdError"
-                  aria-live="assertive"
-                />
-                <div class="errorMessage hidden" id="userPwdError">
-                  영문, 특수문자(~!@#$%^&*) 조합 6~16자리
+                <div class="inputErrorWrapper flex flex-col">
+                  <input
+                    type="password"
+                    class="userPasswordInput h-[44px] w-[333px] rounded border border-gray-300 px-[20px] focus:border-black focus:outline-none"
+                    id="userPwd"
+                    name="userPwd"
+                    placeholder="비밀번호를 입력해주세요"
+                    maxlength="16"
+                    required
+                    aria-invalid="false"
+                    aria-describedby="userPwdError"
+                    aria-live="assertive"
+                  />
+                  <div
+                    class="errorMessage hidden text-[12.003px] font-semibold text-infoError"
+                    id="userPwdError"
+                  >
+                    영문, 특수문자(~!@#$%^&*) 포함 6~16자리 입력
+                  </div>
                 </div>
               </div>
+
               <div class="flex gap-[8px] py-[20px]">
                 <label
                   for="userPwdConfirm"
@@ -85,19 +98,25 @@
                     >*</sup
                   ></label
                 >
-                <input
-                  type="password"
-                  class="signup__input h-[44px] w-[333px] rounded border border-gray-300 px-[20px]"
-                  id="userPwdConfirm"
-                  name="userPwdConfirm"
-                  placeholder="비밀번호를 한번 더 입력해주세요"
-                  required
-                  aria-invalid="false"
-                  aria-describedby="userPwdConfirmError"
-                  aria-live="assertive"
-                />
-                <div class="errorMessage hidden" id="userPwdConfirmError">
-                  비밀번호가 일치하지 않습니다.
+                <div class="inputErrorWrapper">
+                  <input
+                    type="password"
+                    class="userCheckInput h-[44px] w-[333px] rounded border border-gray-300 px-[20px] focus:border-black focus:outline-none"
+                    id="userPwdConfirm"
+                    name="userPwdConfirm"
+                    placeholder="비밀번호를 한번 더 입력해주세요"
+                    required
+                    maxlength="16"
+                    aria-invalid="false"
+                    aria-describedby="userPwdConfirmError"
+                    aria-live="assertive"
+                  />
+                  <div
+                    class="errorMessage hidden text-[12.003px] font-semibold text-infoError"
+                    id="userPwdConfirmError"
+                  >
+                    비밀번호가 일치하지 않습니다.
+                  </div>
                 </div>
               </div>
               <div class="flex gap-[8px] py-[20px]">
@@ -106,19 +125,24 @@
                   class="flex h-[44px] w-[139px] items-center font-semibold"
                   >이름<sup class="font-semibold text-infoError">*</sup></label
                 >
-                <input
-                  type="email"
-                  class="signup__input h-[44px] w-[333px] rounded border border-gray-300 px-[20px]"
-                  id="userName"
-                  name="userName"
-                  placeholder="이름을 입력해주세요"
-                  required
-                  aria-invalid="false"
-                  aria-describedby="userNameError"
-                  aria-live="assertive"
-                />
-                <div class="errorMessage hidden" id="userNameError">
-                  이름을 입력해주세요
+                <div class="inputErrorWrapper">
+                  <input
+                    type="text"
+                    class="userNameInput h-[44px] w-[333px] rounded border border-gray-300 px-[20px] focus:border-black focus:outline-none"
+                    id="userName"
+                    name="userName"
+                    placeholder="이름을 입력해주세요"
+                    required
+                    aria-invalid="false"
+                    aria-describedby="userNameError"
+                    aria-live="assertive"
+                  />
+                  <div
+                    class="errorMessage hidden text-[12.003px] font-semibold text-infoError"
+                    id="userNameError"
+                  >
+                    이름을 입력해주세요
+                  </div>
                 </div>
               </div>
               <div class="flex gap-[8px] py-[20px]">
@@ -129,19 +153,24 @@
                     >*</sup
                   ></label
                 >
-                <input
-                  type="email"
-                  class="signup__input h-[44px] w-[333px] rounded border border-gray-300 px-[20px]"
-                  id="userEmail"
-                  name="userEmail"
-                  placeholder="예) marketkarly@karly.com "
-                  required
-                  aria-invalid="false"
-                  aria-describedby="userEmailError"
-                  aria-live="assertive"
-                />
-                <div class="errorMessage hidden" id="userEmailError">
-                  이메일 형식으로 입력해주세요.
+                <div class="inputErrorWrapper">
+                  <input
+                    type="email"
+                    class="userEmailInput h-[44px] w-[333px] rounded border border-gray-300 px-[20px] focus:border-black focus:outline-none"
+                    id="userEmail"
+                    name="userEmail"
+                    placeholder="예) marketkarly@karly.com "
+                    required
+                    aria-invalid="false"
+                    aria-describedby="userEmailError"
+                    aria-live="assertive"
+                  />
+                  <div
+                    class="errorMessage hidden text-[12.003px] font-semibold text-infoError"
+                    id="userEmailError"
+                  >
+                    이메일 형식으로 입력해주세요.
+                  </div>
                 </div>
                 <button
                   type="submit"
@@ -152,25 +181,35 @@
               </div>
               <div class="flex gap-[8px] py-[20px]">
                 <label
-                  for="userEmail"
+                  for="userPhone"
                   class="flex h-[44px] w-[139px] items-center font-semibold"
                   >휴대폰<sup class="font-semibold text-infoError"
                     >*</sup
                   ></label
                 >
-                <input
-                  type="text"
-                  class="signup__input h-[44px] w-[333px] rounded border border-gray-300 px-[20px]"
-                  id="userPhone"
-                  name="userPhone"
-                  placeholder="숫자만 입력해주세요"
-                  required
-                  aria-invalid="false"
-                  aria-live="assertive"
-                />
+                <div class="inputErrorWrapper">
+                  <input
+                    type="tel"
+                    class="userPhoneInput h-[44px] w-[333px] rounded border border-gray-300 px-[20px] focus:border-black focus:outline-none"
+                    id="userPhone"
+                    name="userPhone"
+                    placeholder="숫자만 입력해주세요"
+                    required
+                    aria-invalid="false"
+                    aria-describedby="userPhoneError"
+                    aria-live="assertive"
+                  />
+                  <!-- <div
+                    class="errorMessage hidden text-[12.003px] font-semibold text-infoError"
+                    id="userPhoneError"
+                  >
+                    휴대폰 번호를 입력해주세요
+                  </div> -->
+                </div>
                 <button
                   type="submit"
-                  class="flex h-[44px] w-[143px] items-center justify-center rounded border border-primary font-semibold text-primary"
+                  class="authBtn flex h-[44px] w-[143px] items-center justify-center rounded border border-primary font-semibold text-primary disabled:border-gray-300 disabled:font-semibold disabled:text-gray-300"
+                  disabled
                 >
                   인증번호 받기
                 </button>
@@ -233,7 +272,7 @@
               </div>
               <div class="birthWrapper flex gap-[8px] py-[20px]">
                 <label
-                  class="block flex h-[44px] w-[139px] items-center font-semibold"
+                  class="flex h-[44px] w-[139px] items-center font-semibold"
                   >생년월일</label
                 >
                 <div
@@ -243,7 +282,7 @@
                     type="text"
                     name="birthYear"
                     placeholder="YYYY"
-                    class="placeholder:after:content-['\'] w-full text-center outline-none"
+                    class="w-full text-center outline-none"
                   />
                   <p class="absolute left-[33%] top-[22%]">/</p>
                   <input
@@ -310,8 +349,11 @@
                     type="checkbox"
                     id="agreeAll"
                     name="agreeCheck"
-                    class="check h-[24px] w-[24px] bg-toggleOn"
+                    class="checkAgree h-[24px] w-[24px] appearance-none bg-toggleOn"
                     required
+                    style="
+                      background-image: url(./assets/img/register/isChecked=false.svg);
+                    "
                   />
                   <div class="checkAllContainer flex flex-col">
                     <span class="text-[21.328px] font-semibold text-content"
@@ -328,8 +370,11 @@
                     <input
                       type="checkbox"
                       name="agreeCheck"
-                      class="check h-[24px] w-[24px]"
+                      class="checkAgree h-[24px] w-[24px] appearance-none"
                       required
+                      style="
+                        background-image: url(./assets/img/register/isChecked=false.svg);
+                      "
                     />
                     <span class="agree tracking-tight text-content"
                       >이용약관 동의 (필수)
@@ -356,8 +401,11 @@
                     <input
                       type="checkbox"
                       name="agreeCheck"
-                      class="check h-[24px] w-[24px]"
+                      class="checkAgree h-[24px] w-[24px] appearance-none"
                       required
+                      style="
+                        background-image: url(./assets/img/register/isChecked=false.svg);
+                      "
                     />
                     <span class="agree tracking-tight text-content"
                       >개인정보 수집 · 이용 동의 (필수)</span
@@ -386,11 +434,14 @@
                     <input
                       type="checkbox"
                       name="agreeCheck"
-                      class="check h-[24px] w-[24px]"
+                      class="checkAgree h-[24px] w-[24px] appearance-none"
                       required
+                      style="
+                        background-image: url(./assets/img/register/isChecked=false.svg);
+                      "
                     />
-                    <span class="agree tracking-tight text-content"
-                      >무료배송, 할인쿠폰 등 혜택/정보 수신 동의 (선택)</span
+                    <label class="agree tracking-tight text-content"
+                      >무료배송, 할인쿠폰 등 혜택/정보 수신 동의 (선택)</label
                     >
                   </div>
                   <div class="flex items-center">
@@ -414,12 +465,19 @@
                     <input
                       type="checkbox"
                       name="agreeCheck"
-                      class="check h-[24px] w-[24px]"
+                      class="checkAgree block h-[24px] w-[24px] appearance-none"
                       required
+                      style="
+                        background-image: url(./assets/img/register/isChecked=false.svg);
+                      "
                     />
-                    <span class="agree tracking-tight text-content"
-                      >본인은 만 14세 이상입니다. (필수)</span
-                    >
+
+                    <label class="agree block tracking-tight text-content">
+                      <!-- <span
+                        class="check-box inline-block h-[24px] w-[24px]"
+                      ></span> -->
+                      본인은 만 14세 이상입니다. (필수)
+                    </label>
                   </div>
                   <div class="flex items-center">
                     <a
