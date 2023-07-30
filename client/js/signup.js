@@ -1,6 +1,14 @@
-import { addClass, getNode, removeClass, saveStorage } from '../lib/index.js';
+import {
+  addClass,
+  getNode,
+  loadStorage,
+  refError,
+  removeClass,
+  saveStorage,
+} from '../lib/index.js';
 
 const authBtn = getNode('.authBtn');
+const signupBtn = getNode('.signupBtn');
 const IdInput = getNode('.userIdInput');
 const nameInput = getNode('.userNameInput');
 const emailInput = getNode('.userEmailInput');
@@ -60,12 +68,27 @@ function handleCheckNumeric(e) {
   }
 }
 
+function handleRegister() {
+  const Id = IdInput.value;
+  const password = passwordInput.value;
+  const UID = generateRandomID(10);
 
-// function handleCreateNum() {
-//   let key =  emailInput.value
-//   saveStorage(,{generateRandomID(10)})
-  
-// }
+  if (!Id || !password || !emailInput || !nameInput || !PhoneInput) {
+    refError('필수 입력값을 입력해주세요');
+  } else {
+    saveStorage(Id, { pwd: password, uniqueID: UID });
+  }
+}
+
+function handleCheckDuplicate() {
+  const Id = IdInput.value
+  loadStorage(Id).then((res) => {
+    if(!res) {
+      return
+    }
+    alert('이미 사용 중인 아이디입니다. 다른 아이디를 입력해주세요.');
+  });
+}
 
 
 function openLinkInPopup(e) {
@@ -85,7 +108,7 @@ function hasNumber(text) {
 
 function emailReg(text) {
   const RegExr =
-  // eslint-disable-next-line no-useless-escape
+    // eslint-disable-next-line no-useless-escape
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   return RegExr.test(String(text).toLowerCase());
@@ -96,14 +119,15 @@ function pwReg(text) {
   return RegExr.test(String(text).toLowerCase());
 }
 
+addValidateForInputEvent(IdInput, emailReg);
+addValidateForInputEvent(passwordInput, pwReg);
+addValidateForInputEvent(emailInput, emailReg);
 passwordCheckInput.addEventListener('input', handleCheckPwd);
 nameInput.addEventListener('input', handleCheckValidation);
 PhoneInput.addEventListener('input', handleCheckNumeric);
 searchAddress.addEventListener('click', openLinkInPopup);
-// checkDuplicate.addEventListener('click', handleCreateNum);
-addValidateForInputEvent(IdInput, emailReg);
-addValidateForInputEvent(passwordInput, pwReg);
-addValidateForInputEvent(emailInput, emailReg);
+signupBtn.addEventListener('click', handleRegister);
+checkDuplicate.addEventListener('click', handleCheckDuplicate)
 
 function generateRandomID(length) {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
@@ -116,15 +140,3 @@ function generateRandomID(length) {
 
   return randomID;
 }
-
-// const generateRandomID = (length) => {
-//   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-//   let randomID = '';
-
-//   for (let i = 0; i < length; i++) {
-//     const randomIndex = Math.floor(Math.random() * characters.length);
-//     randomID += characters[randomIndex];
-//   }
-
-//   return randomID;
-// }
