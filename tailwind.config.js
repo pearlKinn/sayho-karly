@@ -3,6 +3,9 @@ module.exports = {
   content: ['./client/**/*.html'],
   theme: {
     extend: {
+      backgroundImage:{
+        toggleOn: "url('./assets/img/orderList/Check.png') no-repeat -4px -4px/100%"
+      },
       colors: {
         /* Colors */
         black: '#000000',
@@ -32,24 +35,6 @@ module.exports = {
         blue900: '#001433',
         infoError: '#f03f40',
       },
-      fontFamily: {
-        /* Fonts */
-        'heading-medium': ['Pretendard', 'sans-serif'],
-        'heading-large': ['Pretendard', 'sans-serif'],
-        'heading-xl': ['Pretendard', 'sans-serif'],
-        'heading-xxl': ['Pretendard', 'sans-serif'],
-        'heading-xxxl': ['Pretendard', 'sans-serif'],
-        'label-small': ['Pretendard', 'sans-serif'],
-        'label-medium': ['Pretendard', 'sans-serif'],
-        'label-large': ['Pretendard', 'sans-serif'],
-        'label-xl': ['Pretendard', 'sans-serif'],
-        'label-xxl': ['Pretendard', 'sans-serif'],
-        'paragraph-small': ['Pretendard', 'sans-serif'],
-        'paragraph-medium': ['Pretendard', 'sans-serif'],
-        'paragraph-large': ['Pretendard', 'sans-serif'],
-        'paragraph-xl': ['Pretendard', 'sans-serif'],
-      },
-      
     },
   },
   plugins: [],
