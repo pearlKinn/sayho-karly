@@ -5,6 +5,9 @@ import {
   refError,
   removeClass,
   saveStorage,
+  addValidateForInputEvent,
+  emailReg,
+  pwReg,
 } from '../lib/index.js';
 
 const authBtn = getNode('.authBtn');
@@ -18,14 +21,6 @@ const passwordInput = getNode('.userPasswordInput');
 const checkDuplicate = getNode('.checkDuplicateBtn');
 const passwordCheckInput = getNode('.userCheckInput');
 
-function validateInput(inputElement, validationFunction, target) {
-  if (validationFunction(inputElement.value) || !inputElement.value) {
-    addClass(target, 'hidden');
-  } else {
-    removeClass(target, 'hidden');
-  }
-}
-
 function handleCheckPwd(e) {
   const errorMessage = e.target.nextElementSibling;
   if (passwordInput.value !== passwordCheckInput.value) {
@@ -33,11 +28,6 @@ function handleCheckPwd(e) {
   } else {
     addClass(errorMessage, 'hidden');
   }
-}
-function addValidateForInputEvent(input, inputReg) {
-  return input.addEventListener('input', () =>
-    validateInput(input, inputReg, input.nextElementSibling)
-  );
 }
 
 function handleCheckValidation(e) {
@@ -68,28 +58,33 @@ function handleCheckNumeric(e) {
   }
 }
 
-function handleRegister() {
-  const Id = IdInput.value;
+function handleRegister(e) {
+  e.preventDefault();
+  const id = IdInput.value;
   const password = passwordInput.value;
   const UID = generateRandomID(10);
 
-  if (!Id || !password || !emailInput || !nameInput || !PhoneInput) {
-    refError('필수 입력값을 입력해주세요');
+  if (!id || !password || !emailInput || !nameInput || !PhoneInput) {
+    alert('필수 입력값을 입력해주세요');
   } else {
-    saveStorage(Id, { pwd: password, uniqueID: UID });
+    if (!emailReg(id) || !pwReg(password)) {
+      alert('알맞은 양식을 지켜주세요');
+    } else {
+      saveStorage(id, { pwd: password, uniqueID: UID });
+    }
   }
 }
 
-function handleCheckDuplicate() {
-  const Id = IdInput.value
-  loadStorage(Id).then((res) => {
-    if(!res) {
-      return
+function handleCheckDuplicate(e) {
+  e.preventDefault();
+  const id = IdInput.value;
+  loadStorage(id).then((res) => {
+    if (!res) {
+      return;
     }
     alert('이미 사용 중인 아이디입니다. 다른 아이디를 입력해주세요.');
   });
 }
-
 
 function openLinkInPopup(e) {
   e.preventDefault();
@@ -106,19 +101,6 @@ function hasNumber(text) {
   return regex.test(text);
 }
 
-function emailReg(text) {
-  const RegExr =
-    // eslint-disable-next-line no-useless-escape
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-  return RegExr.test(String(text).toLowerCase());
-}
-
-function pwReg(text) {
-  const RegExr = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#$%^*+=-]).{6,16}$/;
-  return RegExr.test(String(text).toLowerCase());
-}
-
 addValidateForInputEvent(IdInput, emailReg);
 addValidateForInputEvent(passwordInput, pwReg);
 addValidateForInputEvent(emailInput, emailReg);
@@ -127,7 +109,7 @@ nameInput.addEventListener('input', handleCheckValidation);
 PhoneInput.addEventListener('input', handleCheckNumeric);
 searchAddress.addEventListener('click', openLinkInPopup);
 signupBtn.addEventListener('click', handleRegister);
-checkDuplicate.addEventListener('click', handleCheckDuplicate)
+checkDuplicate.addEventListener('click', handleCheckDuplicate);
 
 function generateRandomID(length) {
   const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
