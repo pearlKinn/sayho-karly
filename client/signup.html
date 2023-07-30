@@ -9,6 +9,12 @@
       href="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
       type="image/xml+svg"
     />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard-dynamic-subset.css"
+    />
     <link rel="stylesheet" href="./css/main.css" />
     <script src="./js/signup.js" type="module"></script>
     <title>회원가입</title>
@@ -16,15 +22,17 @@
 
   <body>
     <section class="signup mx-auto flex w-[640px] flex-col pt-[80px]">
-      <h2 class="signup__title self-center">회원가입</h2>
-      <p class="signup__notice self-end">
+      <h2 class="signup__title self-center text-[21.328px] font-semibold">
+        회원가입
+      </h2>
+      <p class="signup__notice self-end text-[12.003px] font-semibold">
         <sup class="text-infoError">*</sup>필수입력사항
       </p>
       <form action="URL" class="signup__Form" method="post">
         <fieldset>
           <legend class="sr-only">회원가입 폼</legend>
           <div class="signup__container">
-            <section class="userInfo">
+            <section class="userInfo border-b border-t border-content">
               <div class="flex gap-[8px] py-[20px]">
                 <label
                   for="userID"
@@ -55,7 +63,7 @@
                 </div>
                 <button
                   type="submit"
-                  class="flex h-[44px] w-[143px] items-center justify-center rounded border border-primary font-semibold text-primary"
+                  class="checkDuplicateBtn flex h-[44px] w-[143px] items-center justify-center rounded border border-primary font-semibold text-primary"
                 >
                   중복확인
                 </button>
@@ -85,7 +93,7 @@
                     class="errorMessage hidden text-[12.003px] font-semibold text-infoError"
                     id="userPwdError"
                   >
-                    영문, 특수문자(~!@#$%^&*) 포함 6~16자리 입력
+                    영문, 숫자, 특수문자(~!@#$%^&*) 포함 6~16자리 입력
                   </div>
                 </div>
               </div>
@@ -196,7 +204,6 @@
                     placeholder="숫자만 입력해주세요"
                     required
                     aria-invalid="false"
-                    aria-describedby="userPhoneError"
                     aria-live="assertive"
                   />
                   <!-- <div
@@ -220,13 +227,11 @@
                   class="flex h-[44px] w-[139px] items-center font-semibold"
                   >주소<sup class="font-semibold text-infoError">*</sup></label
                 >
-                <a
-                  href="/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="searchAdress flex h-[44px] w-[333px] items-center justify-center rounded border border-primary font-semibold text-primary"
-                  >주소 검색</a
+                <button
+                  class="searchAddressBtn h-[44px] w-[333px] items-center justify-center rounded border border-primary font-semibold text-primary"
                 >
+                  주소 검색
+                </button>
               </div>
               <div class="selectGender flex gap-[8px] py-[20px]">
                 <label
@@ -336,7 +341,6 @@
                 </div>
               </div>
             </section>
-            <hr />
             <section class="termsOfUse flex gap-[8px] py-[20px]">
               <span class="allAgree h-[44px] w-[139px] font-semibold"
                 >이용약관동의<sup class="font-semibold text-infoError"

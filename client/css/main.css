@@ -434,6 +434,10 @@ video {
   display: none;
 }
 
+html {
+  font-family: Pretendard, system-ui, sans-serif;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -759,6 +763,19 @@ video {
   border-width: 1px;
 }
 
+.border-b {
+  border-bottom-width: 1px;
+}
+
+.border-t {
+  border-top-width: 1px;
+}
+
+.border-content {
+  --tw-border-opacity: 1;
+  border-color: rgb(51 51 51 / var(--tw-border-opacity));
+}
+
 .border-gray-300 {
   --tw-border-opacity: 1;
   border-color: rgb(209 213 219 / var(--tw-border-opacity));
@@ -772,10 +789,6 @@ video {
 .bg-primary {
   --tw-bg-opacity: 1;
   background-color: rgb(95 0 128 / var(--tw-bg-opacity));
-}
-
-.bg-\[url\(\'\.\/assets\/img\/register\/isChecked\=false\.svg\'\)\] {
-  background-image: url('./assets/img/register/isChecked=false.svg');
 }
 
 .bg-toggleOn {
@@ -886,11 +899,6 @@ video {
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-
-.focus\:border-blue-500:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(59 130 246 / var(--tw-border-opacity));
 }
 
 .focus\:border-black:focus {
