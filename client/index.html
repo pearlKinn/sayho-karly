@@ -57,17 +57,17 @@
         >
           <!-- 헤더부분 좌측 중앙  -->
 
-          <ul class="ulType logo flex w-[267px] items-center">
+          <ul class="ulType logo flex items-center">
             <li class="logo__image h-[42px]; w-[82px]">
               <img src="./assets/img/header/logo.png" alt="칼리로고" />
             </li>
             <li
               class="logo__market pl-3 text-[21.3px] font-bold text-[#5f0080]"
             >
-              <span>마켓칼리</span>
+              <span class="">마켓칼리</span>
             </li>
             <li class="logo__beauty text-[21.3px]">
-              <span class="divider" aria-hidden="true">ㅣ</span
+              <span class="divider text-gray-200" aria-hidden="true">ㅣ</span
               ><span class="text-[#898989]">뷰티칼리</span>
             </li>
           </ul>
@@ -87,7 +87,7 @@
                     id="search"
                     name="search"
                     required
-                    class="formInput__input outline-none"
+                    class="formInput__input w-[300px] outline-none"
                     placeholder="검색어를 입력해 주세요."
                   />
                   <button
@@ -128,7 +128,7 @@
     >
       <!-- 카테고리 -->
 
-      <div class="category flex h-6 w-[84px] items-center">
+      <div class="category flex h-6 items-center">
         <img
           src="././assets/img/header/hanburger_black.png"
           alt=""
@@ -271,7 +271,7 @@
       <!-- 네비게이션 우측 박스 -->
 
       <div
-        class="morningDelivery flex h-[27px] w-[95px] items-center justify-center rounded-2xl border border-solid border-neutral-400 p-0 py-1 text-xs leading-[160%]"
+        class="morningDelivery flex h-[27px] items-center justify-center rounded-2xl border border-solid border-neutral-400 px-[8px] py-1 text-xs"
       >
         <span
           class="morningDelivery__first font-[12px] tracking-tighter text-[#5f0080]"
@@ -375,47 +375,67 @@
           </ul>
         </div>
       </address>
-      <ul class="color-gray100 mt-10 border-t">
-        <li>
-          <img src="./assets/img/footer/logo_isms.png" alt="인증범위 로고" />
-          <span>&#91;인증범위&#93; 마켓칼리 쇼핑몰 서비스 개발 운영</span>
-          <span>&#40;심사받지 않은 물리적 인프라 제외&#41;</span>
-          <span>&#91;유효기간&#93; 2022.01.19 &#126; 2025.01.18</span>
-        </li>
-        <li>
+      <ul
+        class="color-gray100 mx-auto flex w-[1050px] justify-between border-t pb-[32px] pt-[24px] text-[10px]"
+      >
+        <li class="flex gap-[8px]">
           <img
+            src="./assets/img/footer/logo_isms.png"
+            alt="인증범위"
+            class="h-[34px] w-[34px]"
+          />
+          <span class="whitespace-nowrap"
+            >&#91;인증범위&#93; 마켓칼리 쇼핑몰 서비스 개발 운영 <br />
+            &#40;심사받지 않은 물리적 인프라 제외&#41;<br />
+            &#91;유효기간&#93; 2022.01.19 &#126; 2025.01.18</span
+          >
+        </li>
+        <li class="flex gap-[8px]">
+          <img
+            class="h-[34px] w-[34px]"
             src="./assets/img/footer/logo_privacy.png"
-            alt="개인정보보호 우수 웹사이트 로고"
+            alt="개인정보보호 우수 웹사이트"
           />
-          <span>개인정보보호 우수 웹사이트</span>
-          <span>개인정보처리시스템 인증 &#40;ePRIVACY PLUS&#41;</span>
+          <span class="whitespace-nowrap"
+            >개인정보보호 우수 웹사이트 <br />
+            개인정보처리시스템 인증 &#40;ePRIVACY PLUS&#41;</span
+          >
         </li>
-        <li>
+        <li class="flex gap-[8px]">
           <img
+            class="h-[32px] w-[102px]"
             src="./assets/img/footer/logo_tosspayments.png"
-            alt="토스페이먼츠 로고"
+            alt="토스페이먼츠"
           />
-          <span
+          <span class="w-[160px]"
             >토스페이먼츠 구매안전&#40;에스크로&#41; 서비스를 이용하실 수
             있습니다.</span
           >
         </li>
-        <li>
+        <li class="flex gap-[8px]">
           <img
             src="./assets/img/footer/logo_wooriBank.png"
-            alt="우리은행 로고"
+            alt="우리은행"
+            class="h-[34px] w-[34px]"
           />
-          <span
+          <span class="w-[241px]"
             >고객님이 현금으로 결제한 금액에 대해 우리은행과 채무지급보증 계약을
             체결하여 안전거래를 보장하고 있습니다.</span
           >
         </li>
       </ul>
-      <small>
-        <span>
+      <small
+        class="flex w-full flex-col items-center bg-gray-50 pb-[32px] pt-[20px] text-gray-400"
+      >
+        <span class="text-center text-[10px]">
           마켓컬리에서 판매되는 상품 중에는 마켓컬리에 입점한 개별 판매자가
           판매하는 마켓플레이스 &#40;오픈마켓&#41;상품이 포함되어 있습니다.
+          <br />
+          마켓플레이스(오픈마켓) 상품의 경우 컬리는 통신판매중개자로서
+          통신판매의 당사자가 아닙니다. 컬리는 해당 상품의 주문, 품질, 교환/환불
+          등 의무와 책임을 부담하지 않습니다.
         </span>
+        <br />
         <span>&#64; KURLY CORP. ALL RIGHTS RESERVED</span>
       </small>
     </footer>
