@@ -577,6 +577,10 @@ input::-webkit-search-decoration,
   bottom: 230px;
 }
 
+.left-0 {
+  left: 0px;
+}
+
 .left-\[33\%\] {
   left: 33%;
 }
@@ -617,6 +621,10 @@ input::-webkit-search-decoration,
   right: 40px;
 }
 
+.top-0 {
+  top: 0px;
+}
+
 .top-1\/2 {
   top: 50%;
 }
@@ -631,6 +639,10 @@ input::-webkit-search-decoration,
 
 .top-\[258px\] {
   top: 258px;
+}
+
+.z-\[1000\] {
+  z-index: 1000;
 }
 
 .z-\[1\] {
@@ -1043,6 +1055,10 @@ input::-webkit-search-decoration,
   height: 898px;
 }
 
+.h-full {
+  height: 100%;
+}
+
 .w-20 {
   width: 5rem;
 }
@@ -1097,6 +1113,10 @@ input::-webkit-search-decoration,
 
 .w-\[18px\] {
   width: 18px;
+}
+
+.w-\[1920px\] {
+  width: 1920px;
 }
 
 .w-\[1px\] {
@@ -1281,6 +1301,10 @@ input::-webkit-search-decoration,
   align-items: center;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
 .justify-end {
   justify-content: flex-end;
 }
@@ -1384,6 +1408,11 @@ input::-webkit-search-decoration,
   border-color: rgb(196 196 196 / var(--tw-border-opacity));
 }
 
+.border-\[\#c6c3c3\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(198 195 195 / var(--tw-border-opacity));
+}
+
 .border-\[none\] {
   border-color: none;
 }
@@ -1447,6 +1476,11 @@ input::-webkit-search-decoration,
   background-color: rgb(250 98 47 / var(--tw-bg-opacity));
 }
 
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
+}
+
 .bg-gray-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(243 244 246 / var(--tw-bg-opacity));
@@ -1485,6 +1519,10 @@ input::-webkit-search-decoration,
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-opacity-40 {
+  --tw-bg-opacity: 0.4;
 }
 
 .bg-\[url\(\'\/assets\/img\/cart\/allow\.png\'\)\] {
@@ -1535,12 +1573,21 @@ input::-webkit-search-decoration,
   background-image: url('/assets/img/header/group.png');
 }
 
+<<<<<<< HEAD
 .bg-\[url\(\'\/img\/cart\/close\.png\'\)\] {
   background-image: url('/img/cart/close.png');
 }
 
 .bg-\[url\(\'\/img\/header\/group\.png\'\)\] {
   background-image: url('/img/header/group.png');
+=======
+.bg-\[url\(\'\/img\/detail\/minusss_white\.png\'\)\] {
+  background-image: url('/img/detail/minusss_white.png');
+}
+
+.bg-\[url\(\'\/img\/detail\/plusss\.png\'\)\] {
+  background-image: url('/img/detail/plusss.png');
+>>>>>>> develop
 }
 
 .bg-toggleOn {
