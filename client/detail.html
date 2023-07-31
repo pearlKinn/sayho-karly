@@ -26,7 +26,7 @@
             >
           </a>
           <button
-            class="topBar__X absolute right-[10px] top-[10px] h-[30px] w-[30px] bg-[url('/assets/img/cart/close.png')] bg-auto bg-center bg-no-repeat text-white"
+            class="topBar__X absolute right-[10px] top-[10px] h-[30px] w-[30px] bg-auto bg-center bg-no-repeat text-white"
           ></button>
         </div>
       </div>
@@ -287,6 +287,7 @@
             src="/assets/tangtang/detail_view.jpg"
             alt=""
             class="h-[514px] w-[400px]"
+            id="itemMainImg"
           />
         </div>
         <section class="infoWrapper w-[560px]">
@@ -296,12 +297,12 @@
               <h1 class="itemName text-[28.43px] font-semibold">
                 [풀무원] 탱탱쫄면 (4개입)
               </h1>
-              <h2 class="text-[16px] text-gray400">
+              <h2 class="itemDesc text-[16px] text-gray400">
                 튀기지 않아 부담 없는 매콤함
               </h2>
             </div>
             <div class="pirce mb-4">
-              <span class="text-[28.43px] font-semibold">4,980 </span>
+              <span class="itemPrice text-[28.43px] font-semibold">4,980</span>
               <span class="font-bold">원</span>
             </div>
             <div class="font-semibold text-primary">
@@ -399,7 +400,7 @@
                       </button>
                     </div>
                     <div class="font-semibold">
-                      <span>4,980</span>
+                      <span class="itemPrice">4,980</span>
                       <span>원</span>
                     </div>
                   </div>
@@ -412,7 +413,7 @@
             <div class="py-7">
               <div class="price mb-2 font-semibold">
                 <span class="mr-4">총 상품금액:</span>
-                <span class="text-[28.43px]">4,990</span>
+                <span class="itemPrice totalPrice text-[28.43px]">4,980</span>
                 <span class="font-bold">원</span>
               </div>
               <div class="flex">
@@ -442,7 +443,9 @@
                   <img src="/assets/img/header/group.png" alt="" />
                 </span>
               </button>
-              <button class="h-[54px] w-[424px] rounded bg-primary">
+              <button
+                class="shoppingCart h-[54px] w-[424px] rounded bg-primary"
+              >
                 <span class="font-semibold text-white">장바구니 담기</span>
               </button>
             </div>
@@ -491,19 +494,21 @@
         <section class="mx-auto mb-24 w-[1050px]">
           <div class="mx-auto mb-20 w-[1050px]">
             <img
-              class="w-[1050px]"
+              class="itemBanner w-[1050px]"
               src="/assets/tangtang/detail_banner.jpg"
               alt="풀무원상품 탱탱쫄면의 이미지"
             />
           </div>
 
-          <div class="h-[256px]">
-            <h3
-              class="flex flex-col items-center justify-center pb-9 text-[50px] font-bold text-content"
+          <div class="flex h-[256px] flex-col">
+            <small
+              class="itemDesc text-center text-[28.43px] font-semibold text-content"
+              >튀기지 않아 부담 없는 매콤함</small
             >
-              <small class="text-[28.43px] font-semibold text-content"
-                >튀기지 않아 부담 없는 매콤함</small
-              >
+
+            <h3
+              class="itemName flex flex-col items-center justify-center pb-9 text-[50px] font-bold text-content"
+            >
               [풀무원] 탱탱쫄면
             </h3>
             <p
@@ -540,8 +545,12 @@
                 alt=""
               />
             </div>
-            <div class="h-[1066px]">
-              <img src="/assets/tangtang/detail_info.jpg" alt="" />
+            <div class="mt-20 h-[1066px]">
+              <img
+                class="itemInfo"
+                src="/assets/tangtang/detail_info.jpg"
+                alt=""
+              />
             </div>
             <img src="/assets/img/detail/karly_frame.png" alt="" />
           </div>
@@ -639,7 +648,9 @@
               </div>
 
               <div class="text-xs font-normal">
-                <h5 class="mb-5 text-gray500">[풀무원] 탱탱쫄면 (4개입)</h5>
+                <h5 class="itemName mb-5 text-gray500">
+                  [풀무원] 탱탱쫄면 (4개입)
+                </h5>
                 <p class="mb-5">
                   너무 맛있어여~ <br />면이 쫄깃하고 양념도 짱맛나요!!
                 </p>
@@ -668,7 +679,9 @@
               </div>
 
               <div class="text-xs font-normal">
-                <h5 class="mb-5 text-gray500">[풀무원] 탱탱쫄면 (4개입)</h5>
+                <h5 class="itemName mb-5 text-gray500">
+                  [풀무원] 탱탱쫄면 (4개입)
+                </h5>
                 <p class="mb-5">
                   너무 맛있어여~ <br />면이 쫄깃하고 양념도 짱맛나요!!
                 </p>
@@ -697,7 +710,9 @@
               </div>
 
               <div class="text-xs font-normal">
-                <h5 class="mb-5 text-gray500">[풀무원] 탱탱쫄면 (4개입)</h5>
+                <h5 class="itemName mb-5 text-gray500">
+                  [풀무원] 탱탱쫄면 (4개입)
+                </h5>
                 <p class="mb-5">
                   너무 맛있어여~ <br />면이 쫄깃하고 양념도 짱맛나요!!
                 </p>
