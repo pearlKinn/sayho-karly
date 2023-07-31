@@ -365,7 +365,7 @@
                 </p>
               </dd>
             </dl>
-            <dl class="flex py-4">
+            <dl class="flex py-4" id="itemSelect">
               <dt class="h-[26px] w-[128px]">상품선택</dt>
               <dd>
                 <div
@@ -378,16 +378,22 @@
                     <div
                       class="btnBox flex h-[30px] w-[84px] items-center justify-between border border-solid"
                     >
-                      <button aria-label="수량내리기" class="h-[30px] w-[30px]">
+                      <button
+                        aria-label="수량내리기"
+                        class="itemDown h-[30px] w-[30px]"
+                      >
                         <span
-                          class="block h-[30px] w-[30px] bg-[url('/img/detail/minusss_white.png')] bg-center bg-no-repeat"
+                          class="block h-[30px] w-[30px] bg-[url('/assets/img/detail/minusss_white.png')] bg-center bg-no-repeat"
                         ></span>
                         <!-- <img src="./img/detail/Minus.png" alt="" /> -->
                       </button>
-                      <div class="mx-2">1</div>
-                      <button aria-label="수량올리기" class="h-[30px] w-[30px]">
+                      <div class="mx-2" id="itemQuantity">1</div>
+                      <button
+                        aria-label="수량올리기"
+                        class="itemUp h-[30px] w-[30px]"
+                      >
                         <span
-                          class="block h-[30px] w-[30px] bg-[url('/img/detail/plusss.png')] bg-center bg-no-repeat"
+                          class="block h-[30px] w-[30px] bg-[url('/assets/img/detail/plusss.png')] bg-center bg-no-repeat"
                         ></span>
                         <!-- <img src="./img/detail/Minus.png" alt="" /> -->
                       </button>
@@ -426,14 +432,14 @@
                 class="flex h-[56px] w-[56px] items-center justify-center rounded border border-solid p-1"
               >
                 <span aria-label="찜목록추가">
-                  <img src="./img/header/Heart.png" alt="" />
+                  <img src="/assets/img/header/Heart.png" alt="" />
                 </span>
               </button>
               <button
                 class="flex h-[56px] w-[56px] items-center justify-center rounded border border-solid p-1"
               >
                 <span aria-label="상품 알림설정">
-                  <img src="./img/detail/Group.png" alt="" />
+                  <img src="/assets/img/header/group.png" alt="" />
                 </span>
               </button>
               <button class="h-[54px] w-[424px] rounded bg-primary">
@@ -486,7 +492,7 @@
           <div class="mx-auto mb-20 w-[1050px]">
             <img
               class="w-[1050px]"
-              src="/assets/img/tangtang/detail_banner.jpg"
+              src="/assets/tangtang/detail_banner.jpg"
               alt="풀무원상품 탱탱쫄면의 이미지"
             />
           </div>
@@ -530,14 +536,14 @@
             <div class="h-[283px]">
               <img
                 class="mx-auto mb-24 w-[1010px]"
-                src="./img/detail/karly_point.png"
+                src="/assets/img/detail/karly_point.png"
                 alt=""
               />
             </div>
             <div class="h-[1066px]">
-              <img src="./assets/tangtang/detail_info.jpg" alt="" />
+              <img src="/assets/tangtang/detail_info.jpg" alt="" />
             </div>
-            <img src="./img/detail/karly_frame.png" alt="" />
+            <img src="/assets/img/detail/karly_frame.png" alt="" />
           </div>
         </section>
       </article>
@@ -705,12 +711,12 @@
               <button
                 class="mr-2 flex h-[56px] w-[56px] items-center justify-center rounded border border-solid border-gray100 p-1"
               >
-                <img src="/img/detail/WhiteArrow_btn.png" alt="" />
+                <img src="/assets/img/detail/wihiteArrow.png" alt="" />
               </button>
               <button
                 class="ml-2 flex h-[56px] w-[56px] items-center justify-center rounded border border-solid border-gray100 p-1"
               >
-                <img src="/img/detail/arrow_btn.png" alt="" />
+                <img src="/assets/img/detail/pri_arrow.png" alt="" />
               </button>
             </div>
           </div>
@@ -789,7 +795,7 @@
                     >
                       <div class="mb-10 flex">
                         <span class="mr-4">
-                          <img src="/img/detail/question.png" alt="" />
+                          <img src="/assets/img/detail/question.png" alt="" />
                         </span>
                         <p>
                           스티로폼 박스도 손상되어 있어 포장이 터져 엉망이네요
@@ -799,7 +805,7 @@
                       </div>
                       <div class="flex">
                         <span class="mr-4">
-                          <img src="/img/detail/answer.png" alt="" />
+                          <img src="/assets/img/detail/answer.png" alt="" />
                         </span>
                         <div>
                           <p>
@@ -829,7 +835,7 @@
                           비밀글입니다.
                           <img
                             class="ml-4"
-                            src="/img/detail/rockk.png"
+                            src="/assets/img/detail/rock.png"
                             alt=""
                           />
                         </div>
@@ -848,7 +854,7 @@
                           비밀글입니다.
                           <img
                             class="ml-4"
-                            src="/img/detail/rockk.png"
+                            src="/assets/img/detail/rock.png"
                             alt=""
                           />
                         </div>
@@ -867,7 +873,7 @@
                           비밀글입니다.
                           <img
                             class="ml-4"
-                            src="/img/detail/rockk.png"
+                            src="/assets/img/detail/rock.png"
                             alt=""
                           />
                         </div>
@@ -886,7 +892,7 @@
                           비밀글입니다.
                           <img
                             class="ml-4"
-                            src="/img/detail/rockk.png"
+                            src="/assets/img/detail/rock.png"
                             alt=""
                           />
                         </div>

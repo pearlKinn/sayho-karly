@@ -1523,20 +1523,20 @@ input::-webkit-search-decoration,
   background-image: url('/assets/img/cart/waterDrop.png');
 }
 
+.bg-\[url\(\'\/assets\/img\/detail\/minusss_white\.png\'\)\] {
+  background-image: url('/assets/img/detail/minusss_white.png');
+}
+
+.bg-\[url\(\'\/assets\/img\/detail\/plusss\.png\'\)\] {
+  background-image: url('/assets/img/detail/plusss.png');
+}
+
 .bg-\[url\(\'\/assets\/img\/header\/group\.png\'\)\] {
   background-image: url('/assets/img/header/group.png');
 }
 
 .bg-\[url\(\'\/img\/cart\/close\.png\'\)\] {
   background-image: url('/img/cart/close.png');
-}
-
-.bg-\[url\(\'\/img\/detail\/minusss_white\.png\'\)\] {
-  background-image: url('/img/detail/minusss_white.png');
-}
-
-.bg-\[url\(\'\/img\/detail\/plusss\.png\'\)\] {
-  background-image: url('/img/detail/plusss.png');
 }
 
 .bg-\[url\(\'\/img\/header\/group\.png\'\)\] {
