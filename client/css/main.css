@@ -557,12 +557,20 @@ input::-webkit-search-decoration,
   border-width: 0;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .absolute {
   position: absolute;
 }
 
 .relative {
   position: relative;
+}
+
+.sticky {
+  position: sticky;
 }
 
 .bottom-\[230px\] {
@@ -615,6 +623,42 @@ input::-webkit-search-decoration,
 
 .top-\[258px\] {
   top: 258px;
+}
+
+.right-\[40px\] {
+  right: 40px;
+}
+
+.-right-\[40px\] {
+  right: -40px;
+}
+
+.-right-\[120px\] {
+  right: -120px;
+}
+
+.-right-\[100px\] {
+  right: -100px;
+}
+
+.-right-\[80px\] {
+  right: -80px;
+}
+
+.-right-\[50px\] {
+  right: -50px;
+}
+
+.right-\[50px\] {
+  right: 50px;
+}
+
+.bottom-1 {
+  bottom: 0.25rem;
+}
+
+.right-4 {
+  right: 1rem;
 }
 
 .z-\[1\] {
@@ -1531,6 +1575,14 @@ input::-webkit-search-decoration,
 
 .bg-toggleOn {
   background-image: url('./assets/img/orderList/Check.png') no-repeat -4px -4px/100%;
+}
+
+.bg-\[url\(\'\/img\/cart\/close\.png\'\)\] {
+  background-image: url('/img/cart/close.png');
+}
+
+.bg-\[url\(\'\/img\/header\/group\.png\'\)\] {
+  background-image: url('/img/header/group.png');
 }
 
 .bg-auto {
