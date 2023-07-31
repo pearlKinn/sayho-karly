@@ -438,6 +438,13 @@ html {
   font-family: Pretendard, system-ui, sans-serif;
 }
 
+input::-webkit-search-decoration,
+  input::-webkit-search-cancel-button,
+  input::-webkit-search-results-decoration,
+  input::-webkit-search-results-button {
+  display: none;
+}
+
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
@@ -652,6 +659,10 @@ html {
   margin-bottom: 2.5rem;
 }
 
+.mb-14 {
+  margin-bottom: 3.5rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -720,6 +731,10 @@ html {
   margin-left: 0.5rem;
 }
 
+.ml-4 {
+  margin-left: 1rem;
+}
+
 .ml-\[200px\] {
   margin-left: 200px;
 }
@@ -764,6 +779,10 @@ html {
   margin-top: 4rem;
 }
 
+.mt-20 {
+  margin-top: 5rem;
+}
+
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -792,16 +811,12 @@ html {
   margin-top: 80px;
 }
 
-.mb-14 {
-  margin-bottom: 3.5rem;
+.mb-6 {
+  margin-bottom: 1.5rem;
 }
 
-.mt-20 {
-  margin-top: 5rem;
-}
-
-.ml-4 {
-  margin-left: 1rem;
+.mb-7 {
+  margin-bottom: 1.75rem;
 }
 
 .box-border {
@@ -968,10 +983,6 @@ html {
   height: 58px;
 }
 
-.h-\[600vh\] {
-  height: 600vh;
-}
-
 .h-\[60px\] {
   height: 60px;
 }
@@ -988,6 +999,10 @@ html {
   height: 72px;
 }
 
+.h-\[800vh\] {
+  height: 800vh;
+}
+
 .h-\[84px\] {
   height: 84px;
 }
@@ -996,16 +1011,20 @@ html {
   height: 880px;
 }
 
-.h-\[670px\] {
-  height: 670px;
-}
-
 .h-\[898px\] {
   height: 898px;
 }
 
-.h-\[800vh\] {
-  height: 800vh;
+.h-\[357px\] {
+  height: 357px;
+}
+
+.h-\[417px\] {
+  height: 417px;
+}
+
+.h-\[226px\] {
+  height: 226px;
 }
 
 .w-20 {
@@ -1014,6 +1033,10 @@ html {
 
 .w-9 {
   width: 2.25rem;
+}
+
+.w-\[100px\] {
+  width: 100px;
 }
 
 .w-\[1010px\] {
@@ -1160,6 +1183,10 @@ html {
   width: 742px;
 }
 
+.w-\[750px\] {
+  width: 750px;
+}
+
 .w-\[82px\] {
   width: 82px;
 }
@@ -1176,16 +1203,16 @@ html {
   width: 100%;
 }
 
-.w-\[100px\] {
-  width: 100px;
+.w-\[477px\] {
+  width: 477px;
 }
 
-.w-\[750px\] {
-  width: 750px;
+.w-\[140px\] {
+  width: 140px;
 }
 
-.w-\[50px\] {
-  width: 50px;
+.w-\[486px\] {
+  width: 486px;
 }
 
 .cursor-pointer {
@@ -1228,10 +1255,6 @@ html {
 
 .items-center {
   align-items: center;
-}
-
-.justify-start {
-  justify-content: flex-start;
 }
 
 .justify-end {
@@ -1296,10 +1319,6 @@ html {
 
 .border {
   border-width: 1px;
-}
-
-.border-2 {
-  border-width: 2px;
 }
 
 .border-y {
@@ -1712,6 +1731,10 @@ html {
   line-height: 1rem;
 }
 
+.text-\[37\.8px\] {
+  font-size: 37.8px;
+}
+
 .font-\[12px\] {
   font-weight: 12px;
 }
@@ -1750,6 +1773,10 @@ html {
 
 .leading-normal {
   line-height: 1.5;
+}
+
+.leading-5 {
+  line-height: 1.25rem;
 }
 
 .tracking-tight {
