@@ -1702,6 +1702,10 @@ input::-webkit-search-decoration,
   padding-top: 24px;
 }
 
+.pt-\[28px\] {
+  padding-top: 28px;
+}
+
 .pt-\[80px\] {
   padding-top: 80px;
 }

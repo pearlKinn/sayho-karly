@@ -17,6 +17,9 @@
     />
     <link rel="stylesheet" href="./css/main.css" />
     <script src="./js/signup.js" type="module"></script>
+    <!-- <script src="./js/login.js" type="module"></script>
+    <script src="./js/logout.js" type="module"></script> -->
+    <script src="./js/render.js" type="module"></script>
     <title>회원가입</title>
   </head>
 
@@ -472,12 +475,6 @@
                     aria-invalid="false"
                     aria-live="assertive"
                   />
-                  <!-- <div
-                    class="errorMessage hidden text-[12.003px] font-semibold text-infoError"
-                    id="userPhoneError"
-                  >
-                    휴대폰 번호를 입력해주세요
-                  </div> -->
                 </div>
                 <button
                   type="submit"
@@ -608,7 +605,7 @@
               </div>
             </section>
             <section class="termsOfUse flex gap-[8px] py-[20px]">
-              <span class="allAgree h-[44px] w-[139px] font-semibold"
+              <span class="h-[44px] w-[139px] font-semibold"
                 >이용약관동의<sup class="font-semibold text-infoError"
                   >*</sup
                 ></span
@@ -619,7 +616,7 @@
                     type="checkbox"
                     id="agreeAll"
                     name="agreeCheck"
-                    class="checkAgree h-[24px] w-[24px] appearance-none bg-toggleOn"
+                    class="allAgree h-[24px] w-[24px] appearance-none bg-toggleOn"
                     required
                     style="
                       background-image: url(/assets/img/register/isChecked=false.svg);

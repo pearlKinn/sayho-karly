@@ -10,6 +10,9 @@
       type="image/xml+svg"
     />
     <link rel="stylesheet" href="./css/main.css" />
+    <!-- <script src="./js/login.js" type="module"></script> -->
+    <script src="./js/logout.js" type="module"></script>
+    <script src="./js/render.js" type="module"></script>
     <script src="./js/main.js" type="module"></script>
     <title>project</title>
   </head>
@@ -38,14 +41,17 @@
 
         <div class="ulType memberSystem mb-3 mt-3 flex flex-nowrap justify-end">
           <ul class="div__memberSystem flex flex-nowrap">
-            <li class="memberSystem__first font-semibold text-[#5f0080]">
+            <li class="memberSystemRegister font-semibold text-[#5f0080]">
               <a href="/signup.html">회원가입　</a>
             </li>
-            <li class="memberSystem__second">
+            <li class="memberSystemLogin">
               <span class="divider" aria-hidden="true">ㅣ</span
-              ><a href="/login.html">　로그인　</a>
+              ><a href="/login.html">로그인</a>
             </li>
-            <li class="memberSystem__third">
+            <li class="memberSystemLogout hidden">
+              <a href="/login.html">로그아웃</a>
+            </li>
+            <li class="memberSystemCustomerService">
               <span class="divider" aria-hidden="true">ㅣ</span
               ><span>　고객센터 ▼</span>
             </li>

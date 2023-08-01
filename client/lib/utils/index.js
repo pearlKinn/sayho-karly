@@ -6,3 +6,6 @@ export * from './typeOf.js';
 export * from './tiger.js';
 export * from './storage.js';
 export * from './validation.js'
+export * from './logout.js'
+export * from './generateRandomID.js'
+export * from './elementVisible.js'
