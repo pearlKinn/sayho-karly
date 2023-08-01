@@ -5,6 +5,7 @@ import { insertLast } from '../lib/dom/insert.js';
 async function handleCartList() {
   try {
     const result = await loadStorage('cartItems');
+    console.log(result);
 
     const renderCarts = [];
 
@@ -16,6 +17,7 @@ async function handleCartList() {
       renderCarts.push(response.data);
     }
     renderFood(renderCarts);
+    console.log(renderCarts);
   } catch (error) {
     console.error('에러', error);
   }

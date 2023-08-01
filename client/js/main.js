@@ -8,11 +8,19 @@ import {
   xhrPromise,
   saveStorage,
 } from '../lib/index.js';
+document.addEventListener('DOMContentLoaded', function () {
+  const bannerX = document.querySelector('.topBar__X');
+  const topBanner = document.querySelector('.topBar');
 
+  bannerX.addEventListener('click', function () {
+    topBanner.style.display = 'none';
+  });
+});
+
+//
 function handleModal() {
   const modal = getNode('.modal');
   const modalClose = getNode('.cartOrder__close');
-  console.log(modalClose);
 
   const addCartBtn = getNode('.cartOrder__button');
   const modalProductName = getNode('.btnList__h');
@@ -49,6 +57,10 @@ function handleModal() {
 
     // 업데이트된 상품 목록을 스토리지에 저장
     saveStorage('cartItems', cartItems);
+    modal.classList.add('hidden');
+    //cartAlert
+    const cartAlert = getNode('.cartAlert');
+    cartAlert.classList.remove('hidden');
   }
 
   addCartBtn.addEventListener('click', submitCart);
@@ -76,14 +88,16 @@ function handleOpenMoadal(item) {
 
 function renderProducts(products) {
   // 상품 렌더링 및 이벤트 리스너 추가
-  const mainProductList = getNode('.mainProductList'); // 가져온거 뿌려줄 부모인 DIV를 찾아준것
+  const productContainer = getNodes('.mainProductList'); // 가져온거 뿌려줄 부모인 DIV를 찾아준것
 
   products.forEach((item) => {
     // 상품 반복
     const productCardTemplate = /* HTML */ `
-      <ul class=" relative">
+      <ul class="relative ">
         <li class="relative mb-4" style="width:240px">
-          <img class="" src="./assets/${item.image.thumbnail}" alt="" />
+          <a href="">
+            <img class="" src="./assets/${item.image.thumbnail}" alt=""
+          /></a>
         </li>
         <li class="mb-2 w-[230px] bg-red-200 text-base" style="width:220px">
           ${item.name}
@@ -97,13 +111,14 @@ function renderProducts(products) {
         </li>
       </ul>
     `;
+    productContainer.forEach((div) => {
+      insertLast(div, productCardTemplate);
 
-    insertLast(mainProductList, productCardTemplate);
+      const lastProductOpenButton =
+        div.lastElementChild.querySelector('.openButton'); // 각 상품의 장바구니 버튼
 
-    const lastProductOpenButton =
-      mainProductList.lastElementChild.querySelector('.openButton'); // 각 상품의 장바구니 버튼
-
-    lastProductOpenButton.addEventListener('click', handleOpenMoadal(item));
+      lastProductOpenButton.addEventListener('click', handleOpenMoadal(item));
+    });
   });
 }
 
@@ -115,7 +130,6 @@ async function handleProductList() {
   renderProducts(products);
   return products;
 }
-
 (function setEvent() {
   const modalBox = getNode('.modalBox');
   modalBox.addEventListener('click', handleProductQuantity);
@@ -124,10 +138,6 @@ async function handleProductList() {
 window.addEventListener('DOMContentLoaded', handleProductList); //dom이 준비가 되면 콜백함수 실행
 
 const clickItemSet = getNode('#clickItemSet');
-
-// 썸네일 클릭시 스토리지에 등록하는 함수
-// const testText = '미안하다 이거보여주려고 어그로끌었다.';
-// console.log(testText.slice(3));
 
 async function handleClickItem(e) {
   const target = e.target.closest('img');
@@ -155,7 +165,6 @@ clickItemSet.addEventListener('click', handleClickItem);
 //수량증감 함수
 let count = 1;
 let total = count;
-console.log(total);
 
 let priceTotal = total;
 
