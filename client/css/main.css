@@ -637,14 +637,6 @@ input::-webkit-search-decoration,
   top: 258px;
 }
 
-.top-\[10\%\] {
-  top: 10%;
-}
-
-.top-\[100px\] {
-  top: 100px;
-}
-
 .right-0 {
   right: 0px;
 }
@@ -653,16 +645,52 @@ input::-webkit-search-decoration,
   top: -100px;
 }
 
+.top-\[100px\] {
+  top: 100px;
+}
+
 .top-\[50px\] {
   top: 50px;
 }
 
-.left-1\/2 {
-  left: 50%;
+.right-\[50px\] {
+  right: 50px;
 }
 
-.top-full {
-  top: 100%;
+.right-\[0px\] {
+  right: 0px;
+}
+
+.right-\[200px\] {
+  right: 200px;
+}
+
+.right-\[-20px\] {
+  right: -20px;
+}
+
+.right-\[-30px\] {
+  right: -30px;
+}
+
+.right-\[-50px\] {
+  right: -50px;
+}
+
+.right-\[-40px\] {
+  right: -40px;
+}
+
+.right-\[-28px\] {
+  right: -28px;
+}
+
+.bottom-0 {
+  bottom: 0px;
+}
+
+.right-\[100px\] {
+  right: 100px;
 }
 
 .z-10 {
@@ -675,6 +703,10 @@ input::-webkit-search-decoration,
 
 .z-\[1\] {
   z-index: 1;
+}
+
+.z-50 {
+  z-index: 50;
 }
 
 .mx-2 {
@@ -1303,15 +1335,6 @@ input::-webkit-search-decoration,
   width: 100%;
 }
 
-.-translate-x-1\/2 {
-  --tw-translate-x: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.transform {
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -1578,11 +1601,6 @@ input::-webkit-search-decoration,
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-red-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
 }
 
 .bg-fuchsia-200 {
@@ -2023,9 +2041,33 @@ input::-webkit-search-decoration,
   color: rgb(156 163 175 / var(--tw-placeholder-opacity));
 }
 
+.opacity-0 {
+  opacity: 0;
+}
+
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.transition-opacity {
+  transition-property: opacity;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}
+
+.ease-in-out {
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .after\:hidden::after {

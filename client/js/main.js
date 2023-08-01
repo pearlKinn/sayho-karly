@@ -8,6 +8,8 @@ import {
   xhrPromise,
   saveStorage,
 } from '../lib/index.js';
+
+//팝업창 닫기
 document.addEventListener('DOMContentLoaded', function () {
   const bannerX = document.querySelector('.topBar__X');
   const topBanner = document.querySelector('.topBar');
@@ -17,13 +19,14 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-//
+//모달창
 function handleModal() {
   const modal = getNode('.modal');
   const modalClose = getNode('.cartOrder__close');
 
   const addCartBtn = getNode('.cartOrder__button');
   const modalProductName = getNode('.btnList__h');
+  // const cartAlertImg = getNode('.btnList__Img');
 
   function handleModalOpen() {
     modal.classList.remove('hidden');
@@ -35,6 +38,7 @@ function handleModal() {
 
   async function submitCart() {
     const productId = attr(modalProductName, 'data-id');
+
     const quantity = getNode('.quantity').innerText;
 
     console.log('Id: ' + productId, '수량: ' + quantity);
@@ -58,11 +62,17 @@ function handleModal() {
     // 업데이트된 상품 목록을 스토리지에 저장
     saveStorage('cartItems', cartItems);
     modal.classList.add('hidden');
-    //cartAlert
+    //cartAlert 보이기
     const cartAlert = getNode('.cartAlert');
     cartAlert.classList.remove('hidden');
+
+    // 3초 후에 hidden 클래스 다시 추가하기
+    setTimeout(() => {
+      cartAlert.classList.add('hidden');
+    }, 3000); // 3000 밀리초 = 3초
   }
 
+  // 나머지 이벤트 핸들러 등록은 그대로 유지
   addCartBtn.addEventListener('click', submitCart);
   modalClose.addEventListener('click', handleModalClose);
 
