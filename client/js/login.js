@@ -11,6 +11,10 @@ const IdInput = getNode('.loginIdInput');
 const passwordInput = getNode('.loginPwdInput');
 const loginBtn = getNode('.loginBtn');
 
+if (loginBtn) {
+  loginBtn.addEventListener('click', handleLogin);
+}
+
 function handleLogin(e) {
   e.preventDefault();
   const Id = IdInput.value;
@@ -28,9 +32,4 @@ function handleLogin(e) {
 
 addValidateForInputEvent(IdInput, emailReg);
 addValidateForInputEvent(passwordInput, pwReg);
-try{
-loginBtn.addEventListener('click', handleLogin);
    
-}catch{
-  throw new Error('로그인이 되어 있는 상태 입니다.')
-}

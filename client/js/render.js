@@ -19,7 +19,6 @@ window.addEventListener('load', () => {
       const memberSystemLogout = getNode('.memberSystemLogout');
       const memberSystemRegister = getNode('.memberSystemRegister');
       const memberSystemLogin = getNode('.memberSystemLogin');
-
       makeVisible(memberSystemRegister, memberSystemLogin);
       makeHidden(memberSystemLogout);
     }
