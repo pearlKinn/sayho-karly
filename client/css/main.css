@@ -1562,10 +1562,6 @@ input::-webkit-search-decoration,
   background-image: url('/assets/img/cart/allow.png');
 }
 
-.bg-\[url\(\'\/assets\/img\/cart\/checked\.png\'\)\] {
-  background-image: url('/assets/img/cart/checked.png');
-}
-
 .bg-\[url\(\'\/assets\/img\/cart\/close\.png\'\)\] {
   background-image: url('/assets/img/cart/close.png');
 }

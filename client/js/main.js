@@ -29,14 +29,24 @@ function handleModal() {
 
     console.log('Id: ' + productId, '수량: ' + quantity);
 
-    // data.json에 저장
-    // const response = await tiger.post('http://localhost:3000/carts', {
-    //   productId: productId,
-    //   quantity: quantity,
-    // });
+    // 기존에 저장된 상품 목록을 가져옴
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
 
-    // 스토리지에 저장
-    saveStorage(productId, quantity);
+    // 현재 상품이 이미 저장되어 있는지 확인
+    const existingItemIndex = cartItems.findIndex(
+      (item) => item.productId === productId
+    );
+
+    if (existingItemIndex !== -1) {
+      // 이미 저장된 상품이면 수량 업데이트
+      cartItems[existingItemIndex].quantity += parseInt(quantity);
+    } else {
+      // 새로운 상품이면 배열에 추가
+      cartItems.push({ productId, quantity: parseInt(quantity) });
+    }
+
+    // 업데이트된 상품 목록을 스토리지에 저장
+    saveStorage('cartItems', cartItems);
   }
 
   addCartBtn.addEventListener('click', submitCart);
@@ -51,10 +61,12 @@ function handleOpenMoadal(item) {
   return function () {
     const modalProductName = getNode('.btnList__h');
     const modalProductPrice = getNode('.btnList__won');
+    const modalProductTotalPrice = getNode('.btnListTotal');
 
     attr(modalProductName, 'data-id', item.id);
     modalProductName.innerText = item.name;
     modalProductPrice.innerText = item.price + '원';
+    modalProductTotalPrice.innerText = item.price + '원';
 
     handleModalOpen();
   };
@@ -93,39 +105,84 @@ function renderProducts(products) {
   });
 }
 
-//수량증감 함수
-let count = 1;
-function handleProductQuantity(e) {
-  const target = e.target.closest('button');
-  console.log(target);
-
-  const quantity = getNode('.quantity');
-
-  if (!target) return;
-  console.log(target);
-  console.log(quantity);
-  if (target.classList.contains('btnList__add')) {
-    // console.log('.btnList__add');
-    quantity.textContent = ++count;
-  } else if (quantity.textContent === '1') return;
-  else if (target.classList.contains('btnList__remove')) {
-    quantity.textContent = --count;
-  }
-}
-
-(function setEvent() {
-  const modalBox = getNode('.modalBox');
-  modalBox.addEventListener('click', handleProductQuantity);
-})();
-
-//자기 자신을 실행 즉시실행함수 전역오염 X
-
 async function handleProductList() {
   const response = await tiger.get('http://localhost:3000/products');
   const products = response.data; // 배열 4개 들어있다.
 
   //상품 목록 렌더링
   renderProducts(products);
+  return products;
 }
 
+let itemData = await handleProductList();
+
+//수량증감 함수
+let count = 1;
+let total = itemData[1].price;
+console.log(total);
+
+let priceTotal = total;
+
+function handleProductQuantity(e) {
+  const target = e.target.closest('button');
+  const modalProductTotalPrice = getNode('.btnListTotal');
+
+  const quantity = getNode('.quantity');
+
+  if (!target) return;
+
+  if (target.classList.contains('btnList__add')) {
+    quantity.textContent = ++count;
+    priceTotal += total;
+    modalProductTotalPrice.textContent = `${priceTotal}원`;
+  } else if (quantity.textContent === '1') return;
+  else if (target.classList.contains('btnList__remove')) {
+    quantity.textContent = --count;
+    priceTotal -= total;
+    modalProductTotalPrice.textContent = `${priceTotal}원`;
+  }
+}
+
+//자기 자신을 실행 즉시실행함수 전역오염 X
+
 window.addEventListener('DOMContentLoaded', handleProductList); //dom이 준비가 되면 콜백함수 실행
+
+(function setEvent() {
+  const modalBox = getNode('.modalBox');
+  modalBox.addEventListener('click', handleProductQuantity);
+})();
+
+// swiper
+
+new Swiper('.mySwiper', {
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false, //버튼을 눌러도 오토플레이가 멈추지 않음
+  },
+  spaceBetween: 30,
+  loop: true,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
+// 최근 본 상품 스크롤 걸리게
+
+const content = document.querySelector('.scrollFixedContainer');
+const wing = document.querySelector('.fixedMenu');
+
+// 컨텐츠 영역부터 브라우저 최상단까지의 길이 구하기
+const contentTop = content.getBoundingClientRect().top + window.scrollY;
+
+window.addEventListener('scroll', function () {
+  if (window.scrollY >= contentTop) {
+    wing.classList.add('fixed');
+  } else {
+    wing.classList.remove('fixed');
+  }
+});
