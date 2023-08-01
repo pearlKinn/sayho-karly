@@ -152,7 +152,7 @@ clickItemSet.addEventListener('click', handleClickItem);
 
 //수량증감 함수
 let count = 1;
-let total = itemData[1].price;
+let total = count;
 console.log(total);
 
 let priceTotal = total;

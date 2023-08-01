@@ -15,13 +15,10 @@ async function handleCartList() {
       );
       const products = response.data;
       renderCarts.push(response.data);
-      console.log(renderCarts);
     }
     renderFood(renderCarts);
-    // const waterList = getNode('.water__list');
-    // console.log(waterList);
   } catch (error) {
-    console.error('Error while handling cart list:', error);
+    console.error('에러', error);
   }
 }
 
@@ -30,8 +27,6 @@ window.addEventListener('DOMContentLoaded', handleCartList);
 function renderFood(products) {
   const btnList = getNode('.water__list');
   products.forEach((item) => {
-    console.log(item);
-
     const productFoodTemplate = /* HTML */ `
       <li
         class="btnList flex h-[118px] w-[742px] items-center gap-2 bg-no-repeat"
@@ -81,7 +76,6 @@ let isChecked = false;
 
 function handleToggle(e) {
   const target = e.target;
-  console.log(target);
   isChecked = !isChecked;
   if (isChecked) {
     target.style.backgroundImage =
