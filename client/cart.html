@@ -10,7 +10,7 @@
       type="image/xml+svg"
     />
     <link rel="stylesheet" href="./css/main.css" />
-    <script src="./js/main.js" type="module"></script>
+    <script src="./js/cart.js" type="module"></script>
     <title>project</title>
   </head>
 
@@ -294,9 +294,13 @@
           <div class="cartSelectAll border-b border-black">
             <div class="py-auto flex h-14 gap-2">
               <div class="flex items-center gap-2">
-                <div
-                  class="h-[24px] w-[24px] bg-[url('/assets/img/cart/checked.png')] bg-cover"
-                ></div>
+                <input
+                  type="checkbox"
+                  style="
+                    background-image: url(/assets/img/register/isChecked=true.svg);
+                  "
+                  class="checkAll h-[24px] w-[24px] appearance-none bg-cover"
+                />
                 <!-- flex와 items-center 클래스를 추가하여 세로로 중앙 정렬 -->
                 <label for="cartCheckbox1" class="cartCheckbox cursor-pointer">
                   <span class="cartChoice h-14 items-center leading-normal"
@@ -326,11 +330,16 @@
             </div>
           </div>
           <!--  토글영역 -->
-          <div class="water__list hidden">
-            <ul>
-              <li class="btnList flex h-[118px] w-[742px] items-center gap-2">
+          <div>
+            <ul class="water__list">
+              <li
+                class="btnList flex h-[118px] w-[742px] items-center gap-2 bg-no-repeat"
+              >
                 <div
-                  class="h-[24px] w-[24px] bg-[url('/assets/img/cart/checked.png')] bg-cover"
+                  style="
+                    background-image: url(/assets/img/register/isChecked=true.svg);
+                  "
+                  class="checkList h-[24px] w-[24px] bg-cover"
                 ></div>
                 <img src="./assets/img/cart/cart.png" alt="상품 탱탱쫄면" />
                 <span class="btnList__h w-[345px]"
@@ -357,7 +366,10 @@
               </li>
               <li class="btnList flex h-[118px] w-[742px] items-center gap-2">
                 <div
-                  class="h-[24px] w-[24px] bg-[url('/assets/img/cart/checked.png')] bg-cover"
+                  style="
+                    background-image: url(/assets/img/register/isChecked=true.svg);
+                  "
+                  class="checkList h-[24px] w-[24px] bg-cover"
                 ></div>
                 <img src="./assets/img/cart/cart.png" alt="상품 탱탱쫄면" />
                 <span class="btnList__h w-[345px]"
@@ -408,9 +420,13 @@
           <div class="cartSelectAll border-t border-black">
             <div class="py-auto flex h-14 gap-2">
               <div class="flex items-center gap-2">
-                <div
-                  class="h-[24px] w-[24px] bg-[url('/assets/img/cart/checked.png')] bg-cover"
-                ></div>
+                <input
+                  type="checkbox"
+                  style="
+                    background-image: url(/assets/img/register/isChecked=true.svg);
+                  "
+                  class="checkAll h-[24px] w-[24px] appearance-none bg-cover"
+                />
                 <!-- flex와 items-center 클래스를 추가하여 세로로 중앙 정렬 -->
                 <label for="cartCheckbox1" class="cartCheckbox cursor-pointer">
                   <span class="cartChoice h-14 items-center leading-normal"
