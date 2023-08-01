@@ -1,5 +1,5 @@
 // 아이템 수량 체크하는 기능 구현하기
-import { getNode, getNodes, clearContents } from '../lib/index.js';
+import { getNode, getNodes, clearContents, loadStorage } from '../lib/index.js';
 
 const itemData = async () => {
   const response = await fetch('http://localhost:3000/products');
@@ -14,7 +14,7 @@ const itemData = async () => {
 
 const products = await itemData();
 
-function priceNameChange() {
+function priceNameChange(i) {
   // const itemImg = getNode('#priceImg');
   const itemName = getNodes('.itemName');
   const itemPrice = getNodes('.itemPrice');
@@ -24,40 +24,33 @@ function priceNameChange() {
   const itemInfo = getNode('.itemInfo');
 
   itemName.forEach((item) => {
-    item.textContent = products[1].name;
+    item.textContent = products[i].name;
   });
   itemPrice.forEach((item) => {
-    item.textContent = products[1].price.toLocaleString();
+    item.textContent = products[i].price.toLocaleString();
   });
   itemDesc.forEach((item) => {
-    item.textContent = products[1].description;
+    item.textContent = products[i].description;
   });
 
   // alt 속성은 함수 리팩토링 후 추가
-  itemMainImg.setAttribute('src', `/assets/${products[1].image.view}`);
-  itemBanner.setAttribute('src', `/assets/${products[1].image.banner}`);
-  itemInfo.setAttribute('src', `/assets/${products[1].image.info}`);
+  itemMainImg.setAttribute('src', `/assets/${products[i].image.view}`);
+  itemBanner.setAttribute('src', `/assets/${products[i].image.banner}`);
+  itemInfo.setAttribute('src', `/assets/${products[i].image.info}`);
 }
 
-priceNameChange();
-
-// function imgChange() {
-//   const itemMainImg = getNode('#itemMainImg');
-//   // console.log(products[1].image.view);
-//   itemMainImg.setAttribute('src', `/assets/${products[1].image.view}`);
-// }
-
-// imgChange();
-
-// 상품명 변경
-// function priceNameChange() {
-
-// }
+// loadStorage('0').then((value) => {
+//   for (let i = 0; i < products.length; i++) {
+//     if (value === products[i].image.thumbnail) {
+//       console.log(i);
+//     }
+//   }
+// });
 
 // 상품의 수량을 체크하는 함수입니다.
 function createHandleItemSelect(products) {
   let count = 1;
-  let total = Number(products[1].price);
+  let total = Number(products[i].price);
   let priceTotal = total;
 
   return function handleItemSelect(e) {
@@ -87,20 +80,35 @@ function createHandleItemSelect(products) {
 // 클로저 생성
 const handleItemSelect = createHandleItemSelect(products);
 
-// 상품의 id값과 수량 받아서 넘겨주는 함수 (setStorage써야하나?)
-// json값으로 관리하는 방법 ????
-function handleItemHandOver() {
-  const item = getNode('#itemQuantity');
-  const itemQuantity = Number(item.textContent);
-  console.log(itemQuantity);
-}
+const changeItemData = () => {
+  loadStorage('selectItem').then((value) => {
+    for (let i = 0; i < products.length; i++) {
+      if (value === products[i].image.thumbnail) {
+        priceNameChange(i);
+      }
+    }
+    // if
+  });
+};
+
+console.log(changeItemData());
+// function checkItemData(data) {
+//   products.forEach((item) => {
+//     const key = Object.keys(item).find((key) => item[key] === 4500);
+//     console.log(key);
+//     // if(key === data)
+//   });
+// }
+
+// checkItemData();
+changeItemData();
 
 (function btnEvent() {
   const dl = getNode('#itemSelect');
   dl.addEventListener('click', handleItemSelect);
 })();
 
-(function cartEvent() {
-  const shoppingCart = getNode('.shoppingCart');
-  shoppingCart.addEventListener('click', handleItemHandOver);
-})();
+// (function cartEvent() {
+//   const shoppingCart = getNode('.shoppingCart');
+//   shoppingCart.addEventListener('click', handleItemHandOver);
+// })();

@@ -67,7 +67,7 @@ function renderProducts(products) {
   products.forEach((item) => {
     // 상품 반복
     const productCardTemplate = /* HTML */ `
-      <ul class="relative ">
+      <ul class=" relative">
         <li class="relative mb-4" style="width:240px">
           <img class="" src="./assets/${item.image.thumbnail}" alt="" />
         </li>
@@ -113,11 +113,6 @@ function handleProductQuantity(e) {
   }
 }
 
-(function setEvent() {
-  const modalBox = getNode('.modalBox');
-  modalBox.addEventListener('click', handleProductQuantity);
-})();
-
 //자기 자신을 실행 즉시실행함수 전역오염 X
 
 async function handleProductList() {
@@ -128,4 +123,37 @@ async function handleProductList() {
   renderProducts(products);
 }
 
+(function setEvent() {
+  const modalBox = getNode('.modalBox');
+  modalBox.addEventListener('click', handleProductQuantity);
+})();
+
 window.addEventListener('DOMContentLoaded', handleProductList); //dom이 준비가 되면 콜백함수 실행
+
+const setItem = getNode('.selectItem');
+
+// 썸네일 클릭시 스토리지에 등록하는 함수
+// const testText = '미안하다 이거보여주려고 어그로끌었다.';
+// console.log(testText.slice(3));
+
+async function handleClickItem(e) {
+  const target = e.target.closest('img');
+  const targetThumbnail = attr(target, 'src').slice(9);
+
+  const response = await fetch('http://localhost:3000/products');
+  const data = await response.json();
+
+  data.forEach((item) => {
+    // console.log(JSON.stringify(item.image.thumbnail));
+    if (item.image.thumbnail === targetThumbnail) {
+      console.log('ok');
+      location.href = 'detail.html';
+      saveStorage('selectItem', item.image.thumbnail);
+      return item.image.thumbnail;
+    }
+  });
+
+  if (!target) return;
+}
+
+setItem.addEventListener('click', handleClickItem);

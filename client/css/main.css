@@ -1301,10 +1301,6 @@ input::-webkit-search-decoration,
   align-items: center;
 }
 
-.justify-start {
-  justify-content: flex-start;
-}
-
 .justify-end {
   justify-content: flex-end;
 }

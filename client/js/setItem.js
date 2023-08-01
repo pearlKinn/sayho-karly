@@ -42,18 +42,18 @@ for (let key of keys) {
     // console.log(localStorage.getItem(key));
   }
 }
-
-const keyToCheck = await loadStorage('0');
-
-const value = localStorage.getItem(keyToCheck);
-
-if (value !== null) {
-  console.log(`로컬 스토리지에서 ${keyToCheck}의 값은 ${value} 입니다.`);
-} else {
-  console.log(
-    `${keyToCheck}에 해당하는 값이 로컬 스토리지에 존재하지 않습니다.`
-  );
-}
+loadStorage('0')
+  .then((value) => {
+    // 비동기적으로 성공적으로 데이터를 가져온 경우
+    // console.log(`로컬 스토리지에서 '0'의 값은 ${value} 입니다.`);
+    if (value === 'product-ekfk') {
+      console.log('ok');
+    }
+  })
+  .catch((error) => {
+    // 비동기적으로 데이터를 가져오는데 실패한 경우
+    console.error(error.message);
+  });
 
 // 메인에서 스토리지 추가하는 기능
 //   loadStorage('9').then(console.log('saa')).catch(console.log('dd'));
