@@ -12,6 +12,8 @@ import {
 function handleModal() {
   const modal = getNode('.modal');
   const modalClose = getNode('.cartOrder__close');
+  console.log(modalClose);
+
   const addCartBtn = getNode('.cartOrder__button');
   const modalProductName = getNode('.btnList__h');
 
