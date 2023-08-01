@@ -39,18 +39,24 @@ function priceNameChange(i) {
   itemInfo.setAttribute('src', `/assets/${products[i].image.info}`);
 }
 
-// loadStorage('0').then((value) => {
-//   for (let i = 0; i < products.length; i++) {
-//     if (value === products[i].image.thumbnail) {
-//       console.log(i);
-//     }
-//   }
-// });
+const changeItemData = () => {
+  return loadStorage('selectItem').then((value) => {
+    for (let i = 0; i < products.length; i++) {
+      if (value === products[i].image.thumbnail) {
+        priceNameChange(i);
+        return i;
+      }
+    }
+  });
+};
+changeItemData();
+
+let num = await changeItemData();
 
 // 상품의 수량을 체크하는 함수입니다.
-function createHandleItemSelect(products) {
+function createHandleItemSelect(products, num) {
+  let total = Number(products[num].price);
   let count = 1;
-  let total = Number(products[i].price);
   let priceTotal = total;
 
   return function handleItemSelect(e) {
@@ -78,30 +84,7 @@ function createHandleItemSelect(products) {
   };
 }
 // 클로저 생성
-const handleItemSelect = createHandleItemSelect(products);
-
-const changeItemData = () => {
-  loadStorage('selectItem').then((value) => {
-    for (let i = 0; i < products.length; i++) {
-      if (value === products[i].image.thumbnail) {
-        priceNameChange(i);
-      }
-    }
-    // if
-  });
-};
-
-console.log(changeItemData());
-// function checkItemData(data) {
-//   products.forEach((item) => {
-//     const key = Object.keys(item).find((key) => item[key] === 4500);
-//     console.log(key);
-//     // if(key === data)
-//   });
-// }
-
-// checkItemData();
-changeItemData();
+const handleItemSelect = createHandleItemSelect(products, num);
 
 (function btnEvent() {
   const dl = getNode('#itemSelect');
