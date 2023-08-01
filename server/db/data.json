@@ -1,22 +1,6 @@
 {
   "products": [
     {
-      "id": "product-rksk",
-      "name": "[대구 반할만떡] 유부호만두",
-      "description": "유부로 속을 든든히 채운 군만두",
-      "price": 6900,
-      "saleRatio": 0.24,
-      "salePrice": 5244,
-      "image": {
-        "thumbnail": "ubuho/thumbnail.jpg",
-        "view": "ubuho/detail_view.jpg",
-        "banner": "ubuho/detail_banner.jpg",
-        "info": "ubuho/detail_info.jpg",
-        "alt": "유부호 만두"
-      },
-      "stock": 5
-    },
-    {
       "id": "product-ekfk",
       "name": "[풀무원] 탱탱쫄면 (4개입)",
       "description": "튀기지 않아 부드럽고 매콤한",

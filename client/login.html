@@ -10,8 +10,11 @@
       type="image/xml+svg"
     />
     <link rel="stylesheet" href="./css/main.css" />
-    <script src="./js/main.js" type="module"></script>
-    <title>project</title>
+    <script src="./js/render.js" type="module"></script>
+    <script src="./js/login.js" type="module"></script>
+    <!-- <script src="./js/logout.js" type="module"></script> -->
+
+    <title>로그인 - 칼리</title>
   </head>
 
   <body>
@@ -289,15 +292,15 @@
       >
         로그인
       </h2>
-      <div class="form-wrapper">
-        <form action="URL" class="login--form w-[340px]" method="post">
+      <div class="formWrapper">
+        <form action="URL" class="loginForm w-[340px]" method="post">
           <fieldset>
             <legend class="sr-only">로그인 폼</legend>
-            <div class="login__email mb-[12px]">
+            <div class="loginEmail mb-[12px]">
               <label for="userEmail" class="sr-only">아이디</label>
               <input
                 type="email"
-                class="login__input w-full rounded border border-gray-300 px-[20px] py-[12px] placeholder-gray-400"
+                class="loginIdInput w-full rounded border border-gray-300 px-[20px] py-[12px] placeholder-gray-400 focus:border-black focus:outline-none"
                 id="userEmail"
                 name="userEmail"
                 placeholder="아이디를 입력해주세요"
@@ -306,15 +309,17 @@
                 aria-describedby="userEmailError"
                 aria-live="assertive"
               />
-              <span class="error-message hidden" id="userEmailError"
+              <span
+                class="errorMessage hidden text-[12.003px] font-semibold text-infoError"
+                id="userEmailError"
                 >아이디는 이메일 형식으로 입력해 주세요.</span
               >
             </div>
-            <div class="login__password mb-[12px]">
+            <div class="loginPassword mb-[12px]">
               <label for="userPassword " class="sr-only">비밀번호</label>
               <input
                 type="password"
-                class="login__input radius w-full rounded border border-gray-300 px-[20px] py-[12px] placeholder-gray-400"
+                class="loginPwdInput radius w-full rounded border border-gray-300 px-[20px] py-[12px] placeholder-gray-400 focus:border-black focus:outline-none"
                 id="userPassword"
                 name="userPassword"
                 placeholder="비밀번호를 입력해주세요"
@@ -323,7 +328,9 @@
                 aria-describedby="userPasswordError"
                 aria-live="polite"
               />
-              <span class="error-message hidden" id="userPasswordError"
+              <span
+                class="errorMessage hidden text-[12.003px] font-semibold text-infoError"
+                id="userPasswordError"
                 >비밀번호는 특수문자를 포함하여 6자리 이상 16자리 이하로 입력해
                 주세요.</span
               >
@@ -354,7 +361,7 @@
           </div>
           <button
             type="submit"
-            class="login__btn mt-[28px] h-[54px] w-full rounded border bg-primary font-semibold text-white"
+            class="loginBtn mt-[28px] h-[54px] w-full rounded border bg-primary font-semibold text-white"
           >
             로그인
           </button>
@@ -367,10 +374,7 @@
       </div>
     </section>
 
-    <footer>
-      <div
-        class="color-gray100 text-conten mt-10 h-[357px] w-[477px] border-t"
-      ></div>
+    <footer class="w-full border-t pt-[28px]">
       <address class="mx-auto flex h-[417px] w-[1050px] justify-between">
         <div class="mb-4 flex flex-col">
           <span class="mb-4 text-xl font-bold">고객행복센터</span>
