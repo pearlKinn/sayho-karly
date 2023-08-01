@@ -1590,10 +1590,20 @@ input::-webkit-search-decoration,
   background-image: url('/assets/img/cart/waterDrop.png');
 }
 
+.bg-\[url\(\'\/assets\/img\/detail\/minusss_white\.png\'\)\] {
+  background-image: url('/assets/img/detail/minusss_white.png');
+}
+
+.bg-\[url\(\'\/assets\/img\/detail\/plusss\.png\'\)\] {
+  background-image: url('/assets/img/detail/plusss.png');
+}
+
 .bg-\[url\(\'\/assets\/img\/header\/group\.png\'\)\] {
   background-image: url('/assets/img/header/group.png');
 }
 
+<<<<<<< HEAD
+=======
 .bg-\[url\(\'\/assets\/img\/main\/Arrow_left\.png\'\)\] {
   background-image: url('/assets/img/main/Arrow_left.png');
 }
@@ -1610,6 +1620,7 @@ input::-webkit-search-decoration,
   background-image: url('/img/detail/plusss.png');
 }
 
+>>>>>>> develop
 .bg-toggleOn {
   background-image: url('./assets/img/orderList/Check.png') no-repeat -4px -4px/100%;
 }
