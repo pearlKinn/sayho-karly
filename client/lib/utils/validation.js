@@ -8,6 +8,8 @@ function validateInput(inputElement, validationFunction, target) {
   }
 }
 export function addValidateForInputEvent(input, inputReg) {
+  if(!input) return
+
   return input.addEventListener('input', () =>
     validateInput(input, inputReg, input.nextElementSibling)
   );

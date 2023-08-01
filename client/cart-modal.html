@@ -10,59 +10,14 @@
       type="image/xml+svg"
     />
     <link rel="stylesheet" href="./css/main.css" />
+    <script src="./js/render.js" type="module"></script>
+    <script src="./js/login.js" type="module"></script>
+    <script src="./js/logout.js" type="module"></script>
     <script src="./js/main.js" type="module"></script>
     <title>project</title>
   </head>
 
   <body>
-    <!-- 모달창 -->
-    <div class="openButton h-[300px] w-[400px] rounded-2xl p-6">
-      <span class="btnList__h block w-[345px]">[풀무원] 탱탱쫄면 (4개입)</span>
-      <div class="mb-9 mt-4 flex justify-between">
-        <span class="btnList__won">4,980원</span>
-        <div
-          class="btnGroup border-[#C4C4C4]] flex w-[84px] items-center gap-2 border"
-        >
-          <button
-            type="button"
-            class="btnList__remove h-[30px] w-[30px] bg-[url('/assets/img/cart/minus.png')] bg-auto bg-center bg-no-repeat"
-          ></button>
-          <span>1</span>
-          <button
-            type="button"
-            class="btnList__add btnList__remove h-[30px] w-[30px] bg-[url('/assets/img/cart/plus.png')] bg-auto bg-center bg-no-repeat"
-          ></button>
-        </div>
-      </div>
-
-      <div class="cartPayment__pay mt-6">
-        <div class="flex items-center justify-between">
-          <span>합계</span>
-          <span class="ml-12 text-[28.4px] font-semibold">40,680원</span>
-        </div>
-        <div class="mt-3 flex items-center justify-end text-[12px]">
-          <span
-            class="mr-2 block h-[18px] w-[37px] bg-[#FA622F] text-center text-xs leading-[18px] text-white"
-            >적립</span
-          >
-          <span class="font-semibold">구매시 50원 적립</span>
-        </div>
-      </div>
-      <div class="cartOrder mt-6 flex gap-2">
-        <button
-          type="submit"
-          class="cartOrder__button h-12 w-full cursor-pointer rounded border border-[#898989] bg-white text-center text-lg"
-        >
-          취소
-        </button>
-        <button
-          type="submit"
-          class="cartOrder__button h-12 w-full cursor-pointer rounded bg-purple-800 text-center text-lg text-white"
-        >
-          장바구니 담기
-        </button>
-      </div>
-    </div>
     <!-- aside -->
     <aside class="w-[254px]">
       <svg
