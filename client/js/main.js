@@ -36,7 +36,10 @@ function handleModal() {
     // });
 
     // 스토리지에 저장
-    saveStorage(productId, quantity);
+    // saveStorage(productId, quantity);
+    saveStorage('cartItems', [
+      { 'Id:productId': quantity, quantity: quantity },
+    ]);
   }
 
   addCartBtn.addEventListener('click', submitCart);
@@ -69,7 +72,9 @@ function renderProducts(products) {
     const productCardTemplate = /* HTML */ `
       <ul class="relative ">
         <li class="relative mb-4" style="width:240px">
-          <img class="" src="./assets/${item.image.thumbnail}" alt="" />
+          <a href="/">
+            <img class="" src="./assets/${item.image.thumbnail}" alt="" />
+          </a>
         </li>
         <li class="mb-2 w-[230px] bg-red-200 text-base" style="width:220px">
           ${item.name}
