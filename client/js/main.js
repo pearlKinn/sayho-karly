@@ -21,8 +21,8 @@ function handleModal() {
 
     console.log(productId, quantity);
     const response = await tiger.post('http://localhost:3000/carts', {
-      productId: productId,
-      quantity: quantity,
+      productId,
+      quantity,
     });
 
     console.log('response', response);

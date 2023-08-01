@@ -14,7 +14,7 @@ const itemData = async () => {
 
 const products = await itemData();
 
-async function priceNameChange() {
+function priceNameChange() {
   // const itemImg = getNode('#priceImg');
   const itemName = getNodes('.itemName');
   const itemPrice = getNodes('.itemPrice');
@@ -104,8 +104,3 @@ function handleItemHandOver() {
   const shoppingCart = getNode('.shoppingCart');
   shoppingCart.addEventListener('click', handleItemHandOver);
 })();
-
-// 1. json 파일 가져오기
-// function jsonDataGet() {
-//   let fetch
-// }
