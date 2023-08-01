@@ -1,13 +1,14 @@
 import {
-  addClass,
+  pwReg,
   getNode,
+  addClass,
+  getNodes,
+  emailReg,
   loadStorage,
-  refError,
   removeClass,
   saveStorage,
+  generateRandomID,
   addValidateForInputEvent,
-  emailReg,
-  pwReg,
 } from '../lib/index.js';
 
 const authBtn = getNode('.authBtn');
@@ -18,8 +19,9 @@ const emailInput = getNode('.userEmailInput');
 const PhoneInput = getNode('.userPhoneInput');
 const searchAddress = getNode('.searchAddressBtn');
 const passwordInput = getNode('.userPasswordInput');
-const checkDuplicate = getNode('.checkDuplicateBtn');
 const passwordCheckInput = getNode('.userCheckInput');
+const checkList = getNodes('.checkAgree');
+const checkAll = getNode('.allAgree');
 
 function handleCheckPwd(e) {
   const errorMessage = e.target.nextElementSibling;
@@ -70,20 +72,10 @@ function handleRegister(e) {
     if (!emailReg(id) || !pwReg(password)) {
       alert('알맞은 양식을 지켜주세요');
     } else {
-      saveStorage(id, { pwd: password, uniqueID: UID });
+      saveStorage('uniqueID', UID);
+      window.location.reload();
     }
   }
-}
-
-function handleCheckDuplicate(e) {
-  e.preventDefault();
-  const id = IdInput.value;
-  loadStorage(id).then((res) => {
-    if (!res) {
-      return;
-    }
-    alert('이미 사용 중인 아이디입니다. 다른 아이디를 입력해주세요.');
-  });
 }
 
 function openLinkInPopup(e) {
@@ -101,6 +93,52 @@ function hasNumber(text) {
   return regex.test(text);
 }
 
+let isChecked = false;
+function handleToggle(e) {
+  const target = e.target;
+  isChecked = !isChecked;
+
+  if (isChecked) {
+    target.style.backgroundImage =
+      'url(/assets/img/register/isChecked=true.svg)';
+  } else {
+    target.style.backgroundImage =
+      'url(/assets/img/register/isChecked=false.svg)';
+  }
+}
+
+checkList.forEach((item) => {
+  item.addEventListener('click', handleToggle);
+});
+
+function handleCheckAllToggle(checkbox) {
+  const isChecked = checkbox.checked;
+
+  checkList.forEach((item) => {
+    item.checked = isChecked;
+
+    // 배경 이미지 변경
+    if (isChecked) {
+      item.style.backgroundImage =
+        'url(/assets/img/register/isChecked=true.svg)';
+    } else {
+      item.style.backgroundImage =
+        'url(/assets/img/register/isChecked=false.svg)';
+    }
+  });
+  
+  // 배경 이미지 변경
+  if (isChecked) {
+    checkAll.style.backgroundImage =
+      'url(/assets/img/register/isChecked=true.svg)';
+  } else {
+    checkAll.style.backgroundImage =
+      'url(/assets/img/register/isChecked=false.svg)';
+  }
+}
+checkAll.addEventListener('click', function () {
+  handleCheckAllToggle(this);
+});
 addValidateForInputEvent(IdInput, emailReg);
 addValidateForInputEvent(passwordInput, pwReg);
 addValidateForInputEvent(emailInput, emailReg);
@@ -109,16 +147,11 @@ nameInput.addEventListener('input', handleCheckValidation);
 PhoneInput.addEventListener('input', handleCheckNumeric);
 searchAddress.addEventListener('click', openLinkInPopup);
 signupBtn.addEventListener('click', handleRegister);
-checkDuplicate.addEventListener('click', handleCheckDuplicate);
 
-function generateRandomID(length) {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  let randomID = '';
-
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    randomID += characters[randomIndex];
-  }
-
-  return randomID;
-}
+window.addEventListener('load', () => {
+  loadStorage('uniqueID').then((res) => {
+    if (res) {
+      window.location.href = '/';
+    }
+  });
+});
