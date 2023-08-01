@@ -61,10 +61,12 @@ function handleOpenMoadal(item) {
   return function () {
     const modalProductName = getNode('.btnList__h');
     const modalProductPrice = getNode('.btnList__won');
+    const modalProductTotalPrice = getNode('.btnListTotal');
 
     attr(modalProductName, 'data-id', item.id);
     modalProductName.innerText = item.name;
     modalProductPrice.innerText = item.price + '원';
+    modalProductTotalPrice.innerText = item.price + '원';
 
     handleModalOpen();
   };
@@ -103,35 +105,45 @@ function renderProducts(products) {
   });
 }
 
-//수량증감 함수
-let count = 1;
-function handleProductQuantity(e) {
-  const target = e.target.closest('button');
-  console.log(target);
-
-  const quantity = getNode('.quantity');
-
-  if (!target) return;
-  console.log(target);
-  console.log(quantity);
-  if (target.classList.contains('btnList__add')) {
-    // console.log('.btnList__add');
-    quantity.textContent = ++count;
-  } else if (quantity.textContent === '1') return;
-  else if (target.classList.contains('btnList__remove')) {
-    quantity.textContent = --count;
-  }
-}
-
-//자기 자신을 실행 즉시실행함수 전역오염 X
-
 async function handleProductList() {
   const response = await tiger.get('http://localhost:3000/products');
   const products = response.data; // 배열 4개 들어있다.
 
   //상품 목록 렌더링
   renderProducts(products);
+  return products;
 }
+
+let itemData = await handleProductList();
+
+//수량증감 함수
+let count = 1;
+let total = itemData[1].price;
+console.log(total);
+
+let priceTotal = total;
+
+function handleProductQuantity(e) {
+  const target = e.target.closest('button');
+  const modalProductTotalPrice = getNode('.btnListTotal');
+
+  const quantity = getNode('.quantity');
+
+  if (!target) return;
+
+  if (target.classList.contains('btnList__add')) {
+    quantity.textContent = ++count;
+    priceTotal += total;
+    modalProductTotalPrice.textContent = `${priceTotal}원`;
+  } else if (quantity.textContent === '1') return;
+  else if (target.classList.contains('btnList__remove')) {
+    quantity.textContent = --count;
+    priceTotal -= total;
+    modalProductTotalPrice.textContent = `${priceTotal}원`;
+  }
+}
+
+//자기 자신을 실행 즉시실행함수 전역오염 X
 
 window.addEventListener('DOMContentLoaded', handleProductList); //dom이 준비가 되면 콜백함수 실행
 

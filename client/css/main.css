@@ -1301,10 +1301,6 @@ input::-webkit-search-decoration,
   align-items: center;
 }
 
-.justify-start {
-  justify-content: flex-start;
-}
-
 .justify-end {
   justify-content: flex-end;
 }
@@ -1575,6 +1571,18 @@ input::-webkit-search-decoration,
 
 .bg-toggleOn {
   background-image: url('./assets/img/orderList/Check.png') no-repeat -4px -4px/100%;
+}
+
+.bg-\[url\(\'\/assets\/img\/register\/isChecked\=true\.svg\'\)\] {
+  background-image: url('/assets/img/register/isChecked=true.svg');
+}
+
+.bg-\[url\(\'\/assets\/img\/register\/isChecked\.svg\'\)\] {
+  background-image: url('/assets/img/register/isChecked.svg');
+}
+
+.bg-\[url\(\'\/assets\/img\/register\/isChecked\=false\.svg\'\)\] {
+  background-image: url('/assets/img/register/isChecked=false.svg');
 }
 
 .bg-auto {
