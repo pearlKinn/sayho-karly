@@ -121,7 +121,7 @@ async function handleProductList() {
 
 window.addEventListener('DOMContentLoaded', handleProductList); //dom이 준비가 되면 콜백함수 실행
 
-const setItem = getNode('.selectItem');
+const clickItemSet = getNode('#clickItemSet');
 
 // 썸네일 클릭시 스토리지에 등록하는 함수
 // const testText = '미안하다 이거보여주려고 어그로끌었다.';
@@ -147,8 +147,8 @@ async function handleClickItem(e) {
   if (!target) return;
 }
 
-setItem.addEventListener('click', handleClickItem);
-let itemData = await handleProductList();
+clickItemSet.addEventListener('click', handleClickItem);
+// let itemData = await handleProductList();
 
 //수량증감 함수
 let count = 1;

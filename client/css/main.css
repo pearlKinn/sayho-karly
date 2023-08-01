@@ -585,10 +585,6 @@ input::-webkit-search-decoration,
   left: 33%;
 }
 
-.left-\[350px\] {
-  left: 350px;
-}
-
 .left-\[406px\] {
   left: 406px;
 }
@@ -603,10 +599,6 @@ input::-webkit-search-decoration,
 
 .right-\[15px\] {
   right: 15px;
-}
-
-.right-\[350px\] {
-  right: 350px;
 }
 
 .right-\[406px\] {
@@ -1139,10 +1131,6 @@ input::-webkit-search-decoration,
   width: 18px;
 }
 
-.w-\[1920px\] {
-  width: 1920px;
-}
-
 .w-\[1px\] {
   width: 1px;
 }
@@ -1602,8 +1590,6 @@ input::-webkit-search-decoration,
   background-image: url('/assets/img/header/group.png');
 }
 
-<<<<<<< HEAD
-=======
 .bg-\[url\(\'\/assets\/img\/main\/Arrow_left\.png\'\)\] {
   background-image: url('/assets/img/main/Arrow_left.png');
 }
@@ -1612,15 +1598,6 @@ input::-webkit-search-decoration,
   background-image: url('/assets/img/main/Arrow_right.png');
 }
 
-.bg-\[url\(\'\/img\/detail\/minusss_white\.png\'\)\] {
-  background-image: url('/img/detail/minusss_white.png');
-}
-
-.bg-\[url\(\'\/img\/detail\/plusss\.png\'\)\] {
-  background-image: url('/img/detail/plusss.png');
-}
-
->>>>>>> develop
 .bg-toggleOn {
   background-image: url('./assets/img/orderList/Check.png') no-repeat -4px -4px/100%;
 }
