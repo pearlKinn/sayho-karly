@@ -2,11 +2,9 @@ import {
   tiger,
   attr,
   getNode,
-  getNodes,
   insertLast,
-  removeClass,
-  xhrPromise,
   saveStorage,
+  getNodes,
 } from '../lib/index.js';
 
 //팝업창 닫기
@@ -105,19 +103,23 @@ function renderProducts(products) {
     const productCardTemplate = /* HTML */ `
       <ul class="relative ">
         <li class="relative mb-4" style="width:240px">
-          <a href="">
-            <img
-              class=""
-              src="./assets/${item.image.thumbnail}"
-              alt="${item.image.alt}"
-          /></a>
+          <img
+            class=""
+            src="./assets/${item.image.thumbnail}"
+            alt="${item.image.alt}"
+          />
         </li>
         <li class="mb-2 w-[230px] bg-red-200 text-base" style="width:220px">
           ${item.name}
         </li>
         <li class="font-semibold">${item.price} 원</li>
 
-        <li class="absolute right-[15px] top-[258px]">
+        <li
+          style="position: absolute;
+        right: 15px;
+        top: 258px;
+        "
+        >
           <button class="openButton">
             <img src="./assets/img/main/cart.png" alt="장바구니" />
           </button>
@@ -148,7 +150,7 @@ async function handleProductList() {
   modalBox.addEventListener('click', handleProductQuantity);
 })();
 
-window.addEventListener('DOMContentLoaded', handleProductList); //dom이 준비가 되면 콜백함수 실행
+// window.addEventListener('DOMContentLoaded', handleProductList); //dom이 준비가 되면 콜백함수 실행
 
 const clickItemSet = getNode('#clickItemSet');
 
@@ -173,11 +175,11 @@ async function handleClickItem(e) {
 }
 
 clickItemSet.addEventListener('click', handleClickItem);
-// let itemData = await handleProductList();
+let itemData = await handleProductList();
 
 //수량증감 함수
 let count = 1;
-let total = count;
+let total = itemData[1].price;
 
 let priceTotal = total;
 
