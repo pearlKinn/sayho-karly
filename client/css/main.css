@@ -585,10 +585,6 @@ input::-webkit-search-decoration,
   left: 33%;
 }
 
-.left-\[406px\] {
-  left: 406px;
-}
-
 .left-\[66\%\] {
   left: 66%;
 }
@@ -599,10 +595,6 @@ input::-webkit-search-decoration,
 
 .right-\[10px\] {
   right: 10px;
-}
-
-.right-\[15px\] {
-  right: 15px;
 }
 
 .right-\[406px\] {
@@ -625,10 +617,6 @@ input::-webkit-search-decoration,
   top: 50%;
 }
 
-.top-1\/3 {
-  top: 33.333333%;
-}
-
 .top-\[10px\] {
   top: 10px;
 }
@@ -637,36 +625,8 @@ input::-webkit-search-decoration,
   top: 22%;
 }
 
-.top-\[258px\] {
-  top: 258px;
-}
-
 .top-\[50px\] {
   top: 50px;
-}
-
-.bottom-\[0px\] {
-  bottom: 0px;
-}
-
-.right-\[606px\] {
-  right: 606px;
-}
-
-.right-\[100px\] {
-  right: 100px;
-}
-
-.right-\[50px\] {
-  right: 50px;
-}
-
-.right-\[0px\] {
-  right: 0px;
-}
-
-.z-10 {
-  z-index: 10;
 }
 
 .z-50 {
@@ -1091,10 +1051,6 @@ input::-webkit-search-decoration,
   height: 84px;
 }
 
-.h-\[880px\] {
-  height: 880px;
-}
-
 .h-\[898px\] {
   height: 898px;
 }
@@ -1173,10 +1129,6 @@ input::-webkit-search-decoration,
 
 .w-\[244px\] {
   width: 244px;
-}
-
-.w-\[247px\] {
-  width: 247px;
 }
 
 .w-\[24px\] {
@@ -1279,6 +1231,10 @@ input::-webkit-search-decoration,
   width: 56px;
 }
 
+.w-\[59px\] {
+  width: 59px;
+}
+
 .w-\[600px\] {
   width: 600px;
 }
@@ -1307,10 +1263,6 @@ input::-webkit-search-decoration,
   width: 100%;
 }
 
-.w-\[59px\] {
-  width: 59px;
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -1327,10 +1279,6 @@ input::-webkit-search-decoration,
 
 .flex-row {
   flex-direction: row;
-}
-
-.flex-row-reverse {
-  flex-direction: row-reverse;
 }
 
 .flex-col {
@@ -1933,11 +1881,6 @@ input::-webkit-search-decoration,
   color: rgb(166 166 166 / var(--tw-text-opacity));
 }
 
-.text-accentOrange {
-  --tw-text-opacity: 1;
-  color: rgb(250 98 47 / var(--tw-text-opacity));
-}
-
 .text-content {
   --tw-text-opacity: 1;
   color: rgb(51 51 51 / var(--tw-text-opacity));
@@ -1993,10 +1936,6 @@ input::-webkit-search-decoration,
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
-.line-through {
-  text-decoration-line: line-through;
-}
-
 .placeholder-gray-400::-moz-placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(156 163 175 / var(--tw-placeholder-opacity));
@@ -2025,6 +1964,10 @@ input::-webkit-search-decoration,
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.disabled\:cursor-not-allowed:disabled {
+  cursor: not-allowed;
 }
 
 .disabled\:border-gray-300:disabled {

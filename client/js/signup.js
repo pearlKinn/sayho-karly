@@ -121,7 +121,8 @@ checkList.forEach((item, idx) => {
   item.addEventListener('click', (e) => handleChecked(e, idx));
 });
 
-function handleAllAgreeChecked(e) {
+function handleAllAgreeChecked() {
+  
   if (allAgreeCheckedValue) {
     allAgreeCheckedValue = false;
     checkAll.style.backgroundImage =
@@ -140,6 +141,8 @@ function handleAllAgreeChecked(e) {
         'url(/assets/img/register/isChecked=true.svg)';
       return true;
     });
+    removeClass(signupBtn, 'disabled:cursor-not-allowed')
+    signupBtn.disabled = false
   }
 
   /* 
