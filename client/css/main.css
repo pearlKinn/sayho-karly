@@ -569,6 +569,10 @@ input::-webkit-search-decoration,
   position: relative;
 }
 
+.sticky {
+  position: sticky;
+}
+
 .bottom-1 {
   bottom: 0.25rem;
 }
@@ -639,6 +643,54 @@ input::-webkit-search-decoration,
 
 .top-\[258px\] {
   top: 258px;
+}
+
+.bottom-\[130px\] {
+  bottom: 130px;
+}
+
+.bottom-\[330px\] {
+  bottom: 330px;
+}
+
+.bottom-\[530px\] {
+  bottom: 530px;
+}
+
+.top-\[530px\] {
+  top: 530px;
+}
+
+.left-\[0\] {
+  left: 0;
+}
+
+.top-\[0\] {
+  top: 0;
+}
+
+.bottom-1\/2 {
+  bottom: 50%;
+}
+
+.bottom-\[630px\] {
+  bottom: 630px;
+}
+
+.bottom-\[580px\] {
+  bottom: 580px;
+}
+
+.right-\[100px\] {
+  right: 100px;
+}
+
+.bottom-\[50px\] {
+  bottom: 50px;
+}
+
+.right-\[50px\] {
+  right: 50px;
 }
 
 .z-\[1000\] {
@@ -1955,10 +2007,6 @@ input::-webkit-search-decoration,
 .focus\:outline-none:focus {
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-
-.disabled\:pointer-events-none:disabled {
-  pointer-events: none;
 }
 
 .disabled\:cursor-not-allowed:disabled {

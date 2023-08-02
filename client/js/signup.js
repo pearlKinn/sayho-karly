@@ -9,7 +9,6 @@ import {
   saveStorage,
   generateRandomID,
   addValidateForInputEvent,
-  attr,
 } from '../lib/index.js';
 
 const authBtn = getNode('.authBtn');
@@ -122,7 +121,7 @@ checkList.forEach((item, idx) => {
   item.addEventListener('click', (e) => handleChecked(e, idx));
 });
 
-function handleAllAgreeChecked(e) {
+function handleAllAgreeChecked() {
   
   if (allAgreeCheckedValue) {
     allAgreeCheckedValue = false;
