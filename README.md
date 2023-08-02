@@ -50,7 +50,8 @@
 ## 기능구현 코드리뷰
 
 </br>
-#### ⭐️  이호 : 상세페이지, 장바구니
+
+#### ⭐️ 이호 : 상세페이지, 장바구니
 [메인 상품리스트]
 - 메인페이지 상품 클릭시 해당 상품 스토리지에 selectItem 저장 및 상세 페이지로 이동. 
   
@@ -90,7 +91,7 @@
 
 </br></br>
 
-###⭐️ 김진주 : 회원가입,로그인
+#### ⭐️ 김진주 : 회원가입,로그인
 </br>
 
 [회원가입]
@@ -123,7 +124,7 @@
 
 </br></br>
 
-###⭐️ 이수연 : 메인페이지
+#### ⭐️ 이수연 : 메인페이지
 </br>
 
 [상단 띠배너]
@@ -142,11 +143,10 @@
 
 ## 구현기능
 ### 메인 캐러셀 구현
-  ![](https://cdn.discordapp.com/attachments/1133636447342174229/1136173600542556240/karly_banner.gif)
+![](https://cdn.discordapp.com/attachments/1133636447342174229/1136173600542556240/karly_banner.gif)
 ### 장바구니 구현
 ![](https://cdn.discordapp.com/attachments/1133636447342174229/1136173755564036196/main_cart.gif)
-
-  ![](https://cdn.discordapp.com/attachments/1133636447342174229/1136173630305353728/karly_cartadd.gif)
+![](https://cdn.discordapp.com/attachments/1133636447342174229/1136173630305353728/karly_cartadd.gif)
 ### 회원가입 구현
 ![](https://cdn.discordapp.com/attachments/1133636447342174229/1136173695321251940/karly_id.gif)
 ### 로그인 구현
@@ -154,6 +154,4 @@
 
 ### 상품 자세히 보기 구현
 ![](https://cdn.discordapp.com/attachments/1133636447342174229/1136174059261022258/detail_down.gif)
-
-
 ![](https://cdn.discordapp.com/attachments/1133636447342174229/1136174075337773056/detail_cart.gif)
