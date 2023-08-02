@@ -5,8 +5,7 @@ import { insertLast } from '../lib/dom/insert.js';
 async function handleCartList() {
   try {
     const result = await loadStorage('cartItems');
-    console.log(result);
-
+    // console.log(result);
     const renderCarts = [];
 
     for (const item of result) {
@@ -15,23 +14,46 @@ async function handleCartList() {
       );
       const products = response.data;
       renderCarts.push(response.data);
-      console.log(renderCarts);
     }
+
     renderFood(renderCarts);
     // const waterList = getNode('.water__list');
     // console.log(waterList);
+    return result;
   } catch (error) {
-    console.error('Error while handling cart list:', error);
+    // console.error('Error while handling cart list:', error);
   }
 }
 
 window.addEventListener('DOMContentLoaded', handleCartList);
+// let loadFoodNum = await handleCartList();
+// console.log(loadFoodNum);
+// function foodLoadToStorage() {}
 
-function renderFood(products) {
+// 스토리지의 아이템id값을 체크하고 먼역 일치한다면 quantity를 뿌려주는 기능 구현
+async function renderFood(products) {
   const btnList = getNode('.water__list');
-  products.forEach((item) => {
-    console.log(item);
+  const foodDataLoad = await loadStorage('cartItems');
+  // console.log(foodDataLoad);
 
+  const foodDataQuantities = foodDataLoad.map((item) => {
+    const foodDataItem = foodDataLoad.find((foodItem) => {
+      // console.log(item.productId, foodItem);
+      if (item.quantity === foodItem.quantity) {
+        return foodItem.quantity;
+      }
+    });
+
+    return foodDataItem ? foodDataItem.quantity : 0;
+  });
+
+  // async function renderFood(products) {
+  //   const btnList = getNode('.water__list');
+  //   const foodDataLoad = await loadStorage('cartItems');
+
+  products.forEach((item, index) => {
+    const quantity = foodDataQuantities[index];
+    // console.log(foodDataQuantities);
     const productFoodTemplate = /* HTML */ `
       <li
         class="btnList flex h-[118px] w-[742px] items-center gap-2 bg-no-repeat"
@@ -55,7 +77,7 @@ function renderFood(products) {
             type="button"
             class="btnList__remove h-[30px] w-[30px] bg-[url('/assets/img/cart/minus.png')] bg-auto bg-center bg-no-repeat"
           ></button>
-          <span>1</span>
+          <span class="itemquan">${quantity}</span>
           <button
             type="button"
             class="btnList__add btnList__remove h-[30px] w-[30px] bg-[url('/assets/img/cart/plus.png')] bg-auto bg-center bg-no-repeat"
@@ -132,3 +154,39 @@ checkAll.forEach((checkbox) => {
     handleCheckAllToggle(this);
   });
 });
+
+//상품수량에 버튼 클릭이벤트
+// const addBtns = getNodes('.btnList__add');
+// const add
+
+function createHandleItemSelect() {
+  let total = 1;
+  let count = 1;
+  let priceTotal = total;
+
+  return function handleItmeQuantity(e) {
+    const target = e.target.closest('button');
+    const itemquan = getNode('.itemquan');
+
+    if (!target) return;
+    // console.log(e.target);
+    if (target.classList.contains('btnList__add')) {
+      count++;
+      itemquan.textContent = count;
+      priceTotal += total;
+    } else if (itemquan.text === '1') {
+      return;
+    } else if (target.classList.contains('btnList__remove')) {
+      count--;
+      itemquan.textContent = count;
+      priceTotal -= total;
+    }
+  };
+}
+
+const handleItmeQuantity = createHandleItemSelect();
+
+(function itemQuantityEvent() {
+  const addMinusBtn = getNode('.cart__left');
+  addMinusBtn.addEventListener('click', handleItmeQuantity);
+})();

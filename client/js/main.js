@@ -1,13 +1,4 @@
-import {
-  tiger,
-  attr,
-  getNode,
-  getNodes,
-  insertLast,
-  removeClass,
-  xhrPromise,
-  saveStorage,
-} from '../lib/index.js';
+import { tiger, attr, getNode, insertLast, saveStorage } from '../lib/index.js';
 
 function handleModal() {
   const modal = getNode('.modal');
@@ -119,7 +110,7 @@ async function handleProductList() {
   modalBox.addEventListener('click', handleProductQuantity);
 })();
 
-window.addEventListener('DOMContentLoaded', handleProductList); //dom이 준비가 되면 콜백함수 실행
+// window.addEventListener('DOMContentLoaded', handleProductList); //dom이 준비가 되면 콜백함수 실행
 
 const clickItemSet = getNode('#clickItemSet');
 
@@ -148,7 +139,7 @@ async function handleClickItem(e) {
 }
 
 clickItemSet.addEventListener('click', handleClickItem);
-// let itemData = await handleProductList();
+let itemData = await handleProductList();
 
 //수량증감 함수
 let count = 1;
