@@ -15,13 +15,11 @@ async function handleCartList() {
       );
       const products = response.data;
       renderCarts.push(response.data);
-      console.log(renderCarts);
     }
     renderFood(renderCarts);
-    // const waterList = getNode('.water__list');
-    // console.log(waterList);
+    console.log(renderCarts);
   } catch (error) {
-    console.error('Error while handling cart list:', error);
+    console.error('에러', error);
   }
 }
 
@@ -30,8 +28,6 @@ window.addEventListener('DOMContentLoaded', handleCartList);
 function renderFood(products) {
   const btnList = getNode('.water__list');
   products.forEach((item) => {
-    console.log(item);
-
     const productFoodTemplate = /* HTML */ `
       <li
         class="btnList flex h-[118px] w-[742px] items-center gap-2 bg-no-repeat"
@@ -70,65 +66,68 @@ function renderFood(products) {
     `;
 
     insertLast(btnList, productFoodTemplate);
+    toggleCheckboxes();
   });
 }
 
 //-------------------체크박스 선택 토글
-const checkList = getNodes('.checkList'); //여러개불러와야해
-const checkAll = getNodes('.checkAll');
 
-let isChecked = false;
+const toggleCheckboxes = () => {
+  const checkList = getNodes('.checkList');
+  const checkAll = getNodes('.checkAll');
 
-function handleToggle(e) {
-  const target = e.target;
-  console.log(target);
-  isChecked = !isChecked;
-  if (isChecked) {
-    target.style.backgroundImage =
-      "url('/assets/img/register/isChecked=true.svg')";
-  } else {
-    target.style.backgroundImage =
-      "url('/assets/img/register/isChecked=false.svg')";
+  let isChecked = false;
+
+  function handleToggle(e) {
+    const target = e.target;
+
+    isChecked = !isChecked;
+    if (isChecked) {
+      target.style.backgroundImage =
+        "url('/assets/img/register/isChecked=true.svg')";
+    } else {
+      target.style.backgroundImage =
+        "url('/assets/img/register/isChecked=false.svg')";
+    }
   }
-}
-
-checkList.forEach((item) => {
-  item.addEventListener('click', handleToggle);
-});
-
-function handleCheckAllToggle(checkbox) {
-  const isChecked = checkbox.checked;
 
   checkList.forEach((item) => {
-    item.checked = isChecked;
-
-    // 배경 이미지 변경
-    if (isChecked) {
-      item.style.backgroundImage =
-        'url(/assets/img/register/isChecked=true.svg)';
-    } else {
-      item.style.backgroundImage =
-        'url(/assets/img/register/isChecked=false.svg)';
-    }
+    item.addEventListener('click', handleToggle);
   });
+
+  function handleCheckAllToggle(checkbox) {
+    const isChecked = checkbox.checked;
+
+    checkList.forEach((item) => {
+      item.checked = isChecked;
+
+      // 배경 이미지 변경
+      if (isChecked) {
+        item.style.backgroundImage =
+          'url(/assets/img/register/isChecked=true.svg)';
+      } else {
+        item.style.backgroundImage =
+          'url(/assets/img/register/isChecked=false.svg)';
+      }
+    });
+    checkAll.forEach((checkbox) => {
+      if (isChecked) {
+        checkbox.style.backgroundImage =
+          'url(/assets/img/register/isChecked=true.svg)';
+      } else {
+        checkbox.style.backgroundImage =
+          'url(/assets/img/register/isChecked=false.svg)';
+      }
+    });
+  }
+
+  checkList.forEach((item) => {
+    item.addEventListener('click', handleToggle);
+  });
+
   checkAll.forEach((checkbox) => {
-    if (isChecked) {
-      checkbox.style.backgroundImage =
-        'url(/assets/img/register/isChecked=true.svg)';
-    } else {
-      checkbox.style.backgroundImage =
-        'url(/assets/img/register/isChecked=false.svg)';
-    }
+    checkbox.addEventListener('click', function () {
+      handleCheckAllToggle(this);
+    });
   });
-}
-
-checkList.forEach((item) => {
-  item.addEventListener('click', handleToggle);
-});
-
-// checkAll[0]와 checkAll[1] 모두에게 이벤트 등록
-checkAll.forEach((checkbox) => {
-  checkbox.addEventListener('click', function () {
-    handleCheckAllToggle(this);
-  });
-});
+};
