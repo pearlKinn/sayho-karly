@@ -22,6 +22,8 @@ const passwordInput = getNode('.userPasswordInput');
 const passwordCheckInput = getNode('.userCheckInput');
 const checkList = getNodes('.checkAgree');
 const checkAll = getNode('.allAgree');
+let checkedValues = new Array(4).fill(false);
+let allAgreeCheckedValue = false;
 
 function handleCheckPwd(e) {
   const errorMessage = e.target.nextElementSibling;
@@ -93,52 +95,95 @@ function hasNumber(text) {
   return regex.test(text);
 }
 
-let isChecked = false;
-function handleToggle(e) {
+function handleChecked(e, checkedValueIdx) {
   const target = e.target;
-  isChecked = !isChecked;
-
-  if (isChecked) {
+  checkedValues[checkedValueIdx] = !checkedValues[checkedValueIdx];
+  if (checkedValues[checkedValueIdx]) {
+    // 임의의 checkedValues를 체크했을 때
     target.style.backgroundImage =
       'url(/assets/img/register/isChecked=true.svg)';
-  } else {
-    target.style.backgroundImage =
-      'url(/assets/img/register/isChecked=false.svg)';
-  }
-}
-
-checkList.forEach((item) => {
-  item.addEventListener('click', handleToggle);
-});
-
-function handleCheckAllToggle(checkbox) {
-  const isChecked = checkbox.checked;
-
-  checkList.forEach((item) => {
-    item.checked = isChecked;
-
-    // 배경 이미지 변경
-    if (isChecked) {
-      item.style.backgroundImage =
+    if (!checkedValues.includes(false)) {
+      allAgreeCheckedValue = true;
+      checkAll.style.backgroundImage =
         'url(/assets/img/register/isChecked=true.svg)';
-    } else {
-      item.style.backgroundImage =
-        'url(/assets/img/register/isChecked=false.svg)';
     }
-  });
-  
-  // 배경 이미지 변경
-  if (isChecked) {
-    checkAll.style.backgroundImage =
-      'url(/assets/img/register/isChecked=true.svg)';
   } else {
+    // 임의의 checkedValues를 체크가 해제됐을 때
+    allAgreeCheckedValue = false;
     checkAll.style.backgroundImage =
+      'url(/assets/img/register/isChecked=false.svg)';
+    target.style.backgroundImage =
       'url(/assets/img/register/isChecked=false.svg)';
   }
 }
-checkAll.addEventListener('click', function () {
-  handleCheckAllToggle(this);
+
+checkList.forEach((item, idx) => {
+  item.addEventListener('click', (e) => handleChecked(e, idx));
 });
+
+function handleAllAgreeChecked() {
+  
+  if (allAgreeCheckedValue) {
+    allAgreeCheckedValue = false;
+    checkAll.style.backgroundImage =
+      'url(/assets/img/register/isChecked=false.svg)';
+    checkedValues = checkedValues.map((_, idx) => {
+      checkList[idx].style.backgroundImage =
+        'url(/assets/img/register/isChecked=false.svg)';
+      return false;
+    });
+  } else {
+    allAgreeCheckedValue = true;
+    checkAll.style.backgroundImage =
+      'url(/assets/img/register/isChecked=true.svg)';
+    checkedValues = checkedValues.map((_, idx) => {
+      checkList[idx].style.backgroundImage =
+        'url(/assets/img/register/isChecked=true.svg)';
+      return true;
+    });
+    removeClass(signupBtn, 'disabled:cursor-not-allowed')
+    signupBtn.disabled = false
+  }
+
+  /* 
+  [해제된 전체동의를 눌러서 체크하는 경우]
+  allCheckedValue = false
+  1. 전체동의 클릭을 누른다
+  2. allCheckedValue = true
+  3. 전체동의에 대한 체크이미지를 교체한다
+  4. checkedValues 모든 값을 트루로 바꿔준다.
+  5. checkedValues 이미지를 체크된 이미지로 교체한다
+
+  [체크된 전체동의하기 체크를 눌러 해제해 줬을 때] 
+  1. allCheckedValue = false
+  2. allCheckedValue를 이미지 교체한다.
+  3. checkedValues의 값들을 모두 false로 바꿔준다.
+  4. checkedValues의 이미지를 교체한다.
+
+
+  [체크된 checkedValues를 하나라도 해제했을 때]
+  1. 임의의 checkedValues 클릭한다.
+  2. 클릭된 checkedValues를 false로 바꿔준다.
+  - 이미지를 교체한다.
+  3. allCheckedValue를 false로 바꿔준다..
+  4. allCheckedValue의 이미지를 교체한다.
+  
+  [4가지 모두 체크했을 때 전체 체크하는 경우]
+  allCheckedValue = false
+  1. 임의의 checkedValues 클릭한다. 
+  2.  클릭된 checkedValues  true로 바뀐다. 
+  - 클릭된 checkedValues의 이미지를 교체한다.
+  3. checkedValues 중 false가 있는지 관찰한다. => checkedValues.includes(false)
+  4. false가 없다면 allCheckedValue를 true로 바꿔준다 (false가 있다면 패스)
+  5. allCheckedValue가 true로 바뀐다.  
+  6. allCheckedValue 이미지를 교체한다.
+
+
+
+  */
+}
+
+checkAll.addEventListener('click', handleAllAgreeChecked);
 addValidateForInputEvent(IdInput, emailReg);
 addValidateForInputEvent(passwordInput, pwReg);
 addValidateForInputEvent(emailInput, emailReg);

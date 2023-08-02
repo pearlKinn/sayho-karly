@@ -13,17 +13,14 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
     />
-    <!-- jQuery -->
-    <!-- <script src="path/to/jquery.min.js"></script> -->
-    <!-- Swiper JS -->
-    <!-- <script src="path/to/swiper.min.js"></script> -->
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="./css/main.css" />
-    <!-- <script src="./js/login.js" type="module"></script> -->
+
     <script src="./js/logout.js" type="module"></script>
     <script src="./js/render.js" type="module"></script>
     <script src="./js/main.js" type="module"></script>
-    <title>project</title>
+    <title>Karly-마켓칼리/뷰티칼리</title>
   </head>
 
   <body>
@@ -55,7 +52,7 @@
             </li>
             <li class="memberSystemLogin">
               <span class="divider" aria-hidden="true">ㅣ</span
-              ><a href="/login.html">로그인</a>
+              ><a href="/login.html"> 　로그인　 </a>
             </li>
             <li class="memberSystemLogout hidden">
               <a href="/login.html">로그아웃</a>
@@ -74,12 +71,14 @@
 
           <ul class="ulType logo flex items-center">
             <li class="logo__image h-[42px]; w-[82px]">
-              <img src="./assets/img/header/logo.png" alt="칼리로고" />
+              <a href="/"
+                ><img src="./assets/img/header/logo.png" alt="칼리로고"
+              /></a>
             </li>
             <li
               class="logo__market pl-3 text-[21.3px] font-bold text-[#5f0080]"
             >
-              <span class="">마켓칼리</span>
+              <a href="/"> <span class="">마켓칼리</span></a>
             </li>
             <li class="logo__beauty text-[21.3px]">
               <span class="divider text-gray-200" aria-hidden="true">ㅣ</span
@@ -118,18 +117,46 @@
 
           <ul class="ulType imoji flex">
             <li class="imoji__location pr-5">
-              <img src="./assets/img/header/Location.png" alt="장소 이모지" />
+              <img src="./assets/img/header/Location.png" alt="장소" />
             </li>
             <li class="iomji__heart">
-              <img src="./assets/img/header/Heart.png" alt="하트모양 이모지" />
+              <img src="./assets/img/header/Heart.png" alt="찜" />
             </li>
-            <li class="imoji__shopping pl-5">
+            <li class="imoji__shopping relative pl-5">
               <a href="/cart.html">
-                <img
-                  src="./assets/img/header/Cart-1.png"
-                  alt="장바구니 이모지"
-                />
+                <img src="./assets/img/header/Cart-1.png" alt="장바구니" />
               </a>
+              <!-- aside -->
+              <aside
+                class="cartAlert absolute right-[-28px] top-[50px] z-50 hidden w-[254px] bg-white"
+              >
+                <svg
+                  class="mb-[-6px] ml-[200px]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="18"
+                  viewBox="0 0 20 18"
+                  fill="none"
+                >
+                  <path d="M10 1L18.6603 13.75H1.33975L10 1Z" fill="white" />
+                  <path d="M1 13.5L10 1L18.5 13.5" stroke="#C4C4C4" />
+                </svg>
+                <div
+                  class="flex h-[100px] items-center border border-[#C4C4C4] p-5"
+                >
+                  <img
+                    src="./assets/img/cart/cart.png"
+                    alt="상품 탱탱쫄면"
+                    class="btnList__Img mr-5 h-[60px] w-[46px]"
+                  />
+                  <div>
+                    <span class="btnList__h block text-[12px] text-[#A6A6A6]"
+                      >[풀무원] 탱탱쫄면 (4개입)</span
+                    >
+                    <p class="text-[12px]">장바구니에 상품을 담았습니다.</p>
+                  </div>
+                </div>
+              </aside>
             </li>
           </ul>
         </div>
@@ -146,122 +173,10 @@
       <div class="category flex h-6 items-center">
         <img
           src="././assets/img/header/hanburger_black.png"
-          alt=""
+          alt="카테고리"
           class="category__image pr-3"
         />
         <span class="category__word font-semibold">카테고리</span>
-        <div class="categoryHover hidden h-[880px] w-[247px]">
-          <div class="menu__div">
-            <div class="menu__icon present">
-              <span class="menu__word">선물하기</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon vegetable">
-              <span class="menu__word">채소</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon fruit">
-              <span class="menu__word">과일ㆍ견과ㆍ쌀</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon fish">
-              <span class="menu__word">수산ㆍ해산ㆍ건어물</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon meat">
-              <span class="menu__word">정육ㆍ계란</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon soup">
-              <span class="menu__word">국ㆍ반찬ㆍ메인요리</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon salad">
-              <span class="menu__word">샐러드ㆍ간편식</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon noodle">
-              <span class="menu__word">면ㆍ양념ㆍ오일</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon water">
-              <span class="menu__word">생수ㆍ음료ㆍ우유ㆍ커피</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon snack">
-              <span class="menu__word">간식ㆍ과자ㆍ떡</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon bread">
-              <span class="menu__word">베이커리ㆍ치즈ㆍ델리</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon healthFood">
-              <span class="menu__word">건강식품</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon wine">
-              <span class="menu__word">와인</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon koreanAlcohol">
-              <span class="menu__word">전통주</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon living">
-              <span class="menu__word">생활용품ㆍ리빙ㆍ캠핑</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon skinCare">
-              <span class="menu__word">스킨케어ㆍ메이크업</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon hair">
-              <span class="menu__word">헤어ㆍ바디ㆍ구강</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon kitchen">
-              <span class="menu__word">주방용품</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon homeApplience">
-              <span class="menu__word">가전제품</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon pet">
-              <span class="menu__word">반려동물</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon baby">
-              <span class="menu__word">베이비ㆍ키즈ㆍ완구</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon travel">
-              <span class="menu__word">여행ㆍ티켓</span>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- 네비게이션 중앙 바 -->
@@ -355,41 +270,44 @@
           </div>
         </div>
       </div>
-
-      <div class="scrollFixedContainer">
-        <!-- 이상품어때요? -->
-        <section class="swiper mySwiper relative mb-[52px]">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-              <img src="./assets/img/main/banner01.png" alt="" />
-            </div>
-            <div class="swiper-slide">
-              <img src="./assets/img/main/banner02.png" alt="" />
-            </div>
-            <div class="swiper-slide">
-              <img src="./assets/img/main/banner03.png" alt="" />
-            </div>
-            <div class="swiper-slide">
-              <img src="./assets/img/main/banner05.png" alt="" />
-            </div>
+      <!-- 스와이퍼 -->
+      <section
+        style="max-width: 1900px"
+        class="swiper mySwiper max-[1050px]: mx-auto mb-[52px]"
+      >
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="./assets/img/main/banner01.png" alt="컬리 과일 가게" />
           </div>
-          <div
-            style="width: 52px"
-            class="swiper-button-prev z-100 ml-40 h-[52px] w-[52px] bg-[url('/assets/img/main/Arrow_left.png')] bg-cover bg-no-repeat after:hidden"
-          ></div>
-          <div
-            style="width: 52px"
-            class="swiper-button-next mr-60 h-[52px] w-[52px] bg-[url('/assets/img/main/Arrow_right.png')] bg-cover bg-no-repeat after:hidden"
-          ></div>
-          <div
-            class="swiper-pagination"
-            style="--swiper-theme-color: #5f0080"
-          ></div>
-          <!-- <div
-          class="swiper-pagination absolute bottom-[28px] right-[440px] w-12 rounded-2xl bg-gray700 bg-opacity-30 px-3 text-xs font-semibold text-white"
-        ></div> -->
-        </section>
+          <div class="swiper-slide">
+            <img src="./assets/img/main/banner02.png" alt="이달의 카드 혜택" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/main/banner03.png" alt="컬리 피플위크" />
+          </div>
+          <div class="swiper-slide">
+            <img src="./assets/img/main/banner05.png" alt="특가" />
+          </div>
+        </div>
+        <div
+          style="width: 52px"
+          class="swiper-button-prev ml-80 h-[52px] w-[52px] bg-[url('/assets/img/main/Arrow_left.png')] bg-cover bg-no-repeat after:hidden"
+        ></div>
+        <div
+          style="width: 52px"
+          class="swiper-button-next mr-80 h-[52px] w-[52px] bg-[url('/assets/img/main/Arrow_right.png')] bg-cover bg-no-repeat after:hidden"
+        ></div>
+        <div
+          class="swiper-pagination"
+          style="--swiper-theme-color: #5f0080"
+        ></div>
+        <!-- <div
+        class="swiper-pagination absolute bottom-[28px] right-[440px] w-12 rounded-2xl bg-gray700 bg-opacity-30 px-3 text-xs font-semibold text-white"
+      ></div> -->
+      </section>
 
+      <!-- 이상품어때요? -->
+      <div class="scrollFixedContainer">
         <section
           id="clickItemSet"
           class="relative mb-20 flex flex-col items-center"
@@ -397,78 +315,7 @@
           <h2 class="mb-10 text-[28.43px] font-bold">이 상품 어때요?</h2>
           <div
             class="mainProductList flex w-[1050px] flex-row content-center justify-between"
-          >
-            <!-- <ul class="relative">
-            <li class="relative mb-4">
-              <img src="./assets/img/main/slide1.png" alt="" />
-            </li>
-            <li class="mb-2 text-base">
-              &#91;풀무원&#93; 탱탱쫄면 &#40;4개입&#41;
-            </li>
-            <li class="font-semibold">4,980 원</li>
-            <li class="absolute right-[15px] top-[258px]">
-              <img
-                src="./assets/img/main/cart.png"
-                class="modalButton"
-                alt=""
-              />
-            </li>
-          </ul>
-          <ul class="relative">
-            <li class="mb-4">
-              <img src="./assets/img/main/slide2.png" alt="" />
-            </li>
-            <li class="mb-2 text-base">
-              &#91;온더바디&#93; 죠르디 시카 자석 선쿠션
-            </li>
-            <li class="font-semibold">32,500 원</li>
-            <li class="absolute right-[15px] top-[258px]">
-              <img
-                src="./assets/img/main/cart.png"
-                class="modalButton"
-                alt=""
-              />
-            </li>
-          </ul>
-          <ul class="relative">
-            <li class="mb-4">
-              <img src="./assets/img/main/slide3.png" alt="" />
-            </li>
-            <li class="mb-2 text-base">유기농 밀키퀸 현미 4kg</li>
-            <li class="font-semibold">25,000 원</li>
-            <li class="absolute right-[15px] top-[258px]">
-              <img
-                src="./assets/img/main/cart.png"
-                class="modalButton"
-                alt=""
-              />
-            </li>
-          </ul>
-          <ul class="relative">
-            <li class="mb-4">
-              <img src="./assets/img/main/slide4.png" alt="" />
-            </li>
-            <li class="mb-2 text-base">&#91;프로쉬&#93; 베이비 세탁세제</li>
-            <li class="mb-2 flex flex-row-reverse justify-end">
-              <span class="font-semibold">24,000원</span>
-              <span class="mr-2 font-semibold text-accentOrange">24&#37;</span>
-            </li>
-            <li class="text-xs text-gray400 line-through">18,900원</li>
-            <li class="absolute right-[15px] top-[258px]">
-              <img
-                src="./assets/img/main/cart.png"
-                class="modalButton"
-                alt=""
-              />
-            </li>
-          </ul> -->
-          </div>
-          <button class="absolute bottom-[230px] right-[406px]">
-            <img src="./assets/img/main/Group.png" alt="" />
-          </button>
-          <button class="absolute bottom-[230px] left-[406px]">
-            <img src="./assets/img/main/Group.png" alt="" />
-          </button>
+          ></div>
         </section>
         <!-- 배너 -->
         <section class="mb-[92px] flex justify-center">
@@ -482,64 +329,7 @@
           <h2 class="mb-10 text-[28.43px] font-bold">놓치면 후회할 가격</h2>
           <div
             class="mainProductList flex w-[1050px] flex-row content-center justify-between"
-          >
-            <ul class="relative">
-              <li class="mb-4">
-                <img src="./assets/img/main/slide1.png" alt="" />
-              </li>
-              <li class="mb-2 text-base">
-                &#91;풀무원&#93; 탱탱쫄면 &#40;4개입&#41;
-              </li>
-              <li class="font-semibold">4,980 원</li>
-              <li class="absolute right-[15px] top-[258px]">
-                <img src="./assets/img/main/cart.png" alt="" />
-              </li>
-            </ul>
-            <ul class="relative">
-              <li class="mb-4">
-                <img src="./assets/img/main/slide2.png" alt="" />
-              </li>
-              <li class="mb-2 text-base">
-                &#91;온더바디&#93; 죠르디 시카 자석 선쿠션
-              </li>
-              <li class="font-semibold">32,500 원</li>
-              <li class="absolute right-[15px] top-[258px]">
-                <img src="./assets/img/main/cart.png" alt="" />
-              </li>
-            </ul>
-            <ul class="relative">
-              <li class="mb-4">
-                <img src="./assets/img/main/slide3.png" alt="" />
-              </li>
-              <li class="mb-2 text-base">유기농 밀키퀸 현미 4kg</li>
-              <li class="font-semibold">25,000 원</li>
-              <li class="absolute right-[15px] top-[258px]">
-                <img src="./assets/img/main/cart.png" alt="" />
-              </li>
-            </ul>
-            <ul class="relative">
-              <li class="mb-4">
-                <img src="./assets/img/main/slide4.png" alt="" />
-              </li>
-              <li class="mb-2 text-base">&#91;프로쉬&#93; 베이비 세탁세제</li>
-              <li class="mb-2 flex flex-row-reverse justify-end">
-                <span class="font-semibold">24,000원</span>
-                <span class="mr-2 font-semibold text-accentOrange"
-                  >24&#37;</span
-                >
-              </li>
-              <li class="text-xs text-gray400 line-through">18,900원</li>
-              <li class="absolute right-[15px] top-[258px]">
-                <img src="./assets/img/main/cart.png" alt="" />
-              </li>
-            </ul>
-          </div>
-          <button class="absolute bottom-[230px] right-[406px]">
-            <img src="./assets/img/main/Group.png" alt="" />
-          </button>
-          <button class="absolute bottom-[230px] left-[406px]">
-            <img src="./assets/img/main/Group.png" alt="" />
-          </button>
+          ></div>
         </section>
       </div>
       <!-- 최근 본 상품 -->
@@ -547,20 +337,20 @@
         class="fixedMenu fixed right-[40px] top-1/2 w-20 border border-gray200 bg-white text-center"
       >
         <button class="my-2">
-          <img src="./assets/img/main/icon-arrow_up.svg" alt="" />
+          <img src="./assets/img/main/icon-arrow_up.svg" alt="위로 이동" />
         </button>
         <h6 class="mb-2 text-xs font-semibold">최근 본 상품</h6>
         <ul class="flex flex-col items-center">
           <li class="mb-1">
-            <img src="./assets/img/main/visual.png" alt="" />
+            <img src="./assets/img/main/visual.png" alt="탱탱쫄면" />
           </li>
           <li class="mb-1">
-            <img src="./assets/img/main/visual2.png" alt="" />
+            <img src="./assets/img/main/visual2.png" alt="프로쉬 세제" />
           </li>
-          <li><img src="./assets/img/main/visual3.png" alt="" /></li>
+          <li><img src="./assets/img/main/visual3.png" alt="쿠션" /></li>
         </ul>
         <button class="my-2">
-          <img src="./assets/img/main/icon-arrow_down.svg" alt="" />
+          <img src="./assets/img/main/icon-arrow_down.svg" alt="아래로 이동" />
         </button>
       </div>
     </main>
@@ -568,7 +358,9 @@
     <!-- -----푸터 -->
     <footer>
       <div class="color-gray100 text-conten mb-10 border-t"></div>
-      <address class="mx-auto flex h-[417px] w-[1050px] justify-between">
+      <address
+        class="mx-auto flex h-[417px] w-[1050px] justify-between not-italic"
+      >
         <div class="mb-4 flex flex-col">
           <span class="mb-4 text-xl font-bold">고객행복센터</span>
           <span class="mb-4 font-semibold">
