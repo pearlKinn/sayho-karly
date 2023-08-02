@@ -1,13 +1,14 @@
 import {
-  addClass,
+  pwReg,
   getNode,
+  addClass,
+  getNodes,
+  emailReg,
   loadStorage,
-  refError,
   removeClass,
   saveStorage,
+  generateRandomID,
   addValidateForInputEvent,
-  emailReg,
-  pwReg,
 } from '../lib/index.js';
 
 const authBtn = getNode('.authBtn');
@@ -18,8 +19,11 @@ const emailInput = getNode('.userEmailInput');
 const PhoneInput = getNode('.userPhoneInput');
 const searchAddress = getNode('.searchAddressBtn');
 const passwordInput = getNode('.userPasswordInput');
-const checkDuplicate = getNode('.checkDuplicateBtn');
 const passwordCheckInput = getNode('.userCheckInput');
+const checkList = getNodes('.checkAgree');
+const checkAll = getNode('.allAgree');
+let checkedValues = new Array(4).fill(false);
+let allAgreeCheckedValue = false;
 
 function handleCheckPwd(e) {
   const errorMessage = e.target.nextElementSibling;
@@ -70,20 +74,10 @@ function handleRegister(e) {
     if (!emailReg(id) || !pwReg(password)) {
       alert('알맞은 양식을 지켜주세요');
     } else {
-      saveStorage(id, { pwd: password, uniqueID: UID });
+      saveStorage('uniqueID', UID);
+      window.location.reload();
     }
   }
-}
-
-function handleCheckDuplicate(e) {
-  e.preventDefault();
-  const id = IdInput.value;
-  loadStorage(id).then((res) => {
-    if (!res) {
-      return;
-    }
-    alert('이미 사용 중인 아이디입니다. 다른 아이디를 입력해주세요.');
-  });
 }
 
 function openLinkInPopup(e) {
@@ -101,6 +95,95 @@ function hasNumber(text) {
   return regex.test(text);
 }
 
+function handleChecked(e, checkedValueIdx) {
+  const target = e.target;
+  checkedValues[checkedValueIdx] = !checkedValues[checkedValueIdx];
+  if (checkedValues[checkedValueIdx]) {
+    // 임의의 checkedValues를 체크했을 때
+    target.style.backgroundImage =
+      'url(/assets/img/register/isChecked=true.svg)';
+    if (!checkedValues.includes(false)) {
+      allAgreeCheckedValue = true;
+      checkAll.style.backgroundImage =
+        'url(/assets/img/register/isChecked=true.svg)';
+    }
+  } else {
+    // 임의의 checkedValues를 체크가 해제됐을 때
+    allAgreeCheckedValue = false;
+    checkAll.style.backgroundImage =
+      'url(/assets/img/register/isChecked=false.svg)';
+    target.style.backgroundImage =
+      'url(/assets/img/register/isChecked=false.svg)';
+  }
+}
+
+checkList.forEach((item, idx) => {
+  item.addEventListener('click', (e) => handleChecked(e, idx));
+});
+
+function handleAllAgreeChecked() {
+  
+  if (allAgreeCheckedValue) {
+    allAgreeCheckedValue = false;
+    checkAll.style.backgroundImage =
+      'url(/assets/img/register/isChecked=false.svg)';
+    checkedValues = checkedValues.map((_, idx) => {
+      checkList[idx].style.backgroundImage =
+        'url(/assets/img/register/isChecked=false.svg)';
+      return false;
+    });
+  } else {
+    allAgreeCheckedValue = true;
+    checkAll.style.backgroundImage =
+      'url(/assets/img/register/isChecked=true.svg)';
+    checkedValues = checkedValues.map((_, idx) => {
+      checkList[idx].style.backgroundImage =
+        'url(/assets/img/register/isChecked=true.svg)';
+      return true;
+    });
+    removeClass(signupBtn, 'disabled:cursor-not-allowed')
+    signupBtn.disabled = false
+  }
+
+  /* 
+  [해제된 전체동의를 눌러서 체크하는 경우]
+  allCheckedValue = false
+  1. 전체동의 클릭을 누른다
+  2. allCheckedValue = true
+  3. 전체동의에 대한 체크이미지를 교체한다
+  4. checkedValues 모든 값을 트루로 바꿔준다.
+  5. checkedValues 이미지를 체크된 이미지로 교체한다
+
+  [체크된 전체동의하기 체크를 눌러 해제해 줬을 때] 
+  1. allCheckedValue = false
+  2. allCheckedValue를 이미지 교체한다.
+  3. checkedValues의 값들을 모두 false로 바꿔준다.
+  4. checkedValues의 이미지를 교체한다.
+
+
+  [체크된 checkedValues를 하나라도 해제했을 때]
+  1. 임의의 checkedValues 클릭한다.
+  2. 클릭된 checkedValues를 false로 바꿔준다.
+  - 이미지를 교체한다.
+  3. allCheckedValue를 false로 바꿔준다..
+  4. allCheckedValue의 이미지를 교체한다.
+  
+  [4가지 모두 체크했을 때 전체 체크하는 경우]
+  allCheckedValue = false
+  1. 임의의 checkedValues 클릭한다. 
+  2.  클릭된 checkedValues  true로 바뀐다. 
+  - 클릭된 checkedValues의 이미지를 교체한다.
+  3. checkedValues 중 false가 있는지 관찰한다. => checkedValues.includes(false)
+  4. false가 없다면 allCheckedValue를 true로 바꿔준다 (false가 있다면 패스)
+  5. allCheckedValue가 true로 바뀐다.  
+  6. allCheckedValue 이미지를 교체한다.
+
+
+
+  */
+}
+
+checkAll.addEventListener('click', handleAllAgreeChecked);
 addValidateForInputEvent(IdInput, emailReg);
 addValidateForInputEvent(passwordInput, pwReg);
 addValidateForInputEvent(emailInput, emailReg);
@@ -109,16 +192,11 @@ nameInput.addEventListener('input', handleCheckValidation);
 PhoneInput.addEventListener('input', handleCheckNumeric);
 searchAddress.addEventListener('click', openLinkInPopup);
 signupBtn.addEventListener('click', handleRegister);
-checkDuplicate.addEventListener('click', handleCheckDuplicate);
 
-function generateRandomID(length) {
-  const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
-  let randomID = '';
-
-  for (let i = 0; i < length; i++) {
-    const randomIndex = Math.floor(Math.random() * characters.length);
-    randomID += characters[randomIndex];
-  }
-
-  return randomID;
-}
+window.addEventListener('load', () => {
+  loadStorage('uniqueID').then((res) => {
+    if (res) {
+      window.location.href = '/';
+    }
+  });
+});

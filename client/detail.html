@@ -9,6 +9,10 @@
       type="image/xml+svg"
     />
     <link rel="stylesheet" href="./css/main.css" />
+    <script type="module" src="./js/setItem.js"></script>
+    <script src="./js/render.js" type="module"></script>
+    <script src="./js/login.js" type="module"></script>
+    <script src="./js/logout.js" type="module"></script>
     <script src="./js/detail.js" type="module"></script>
     <title>마켓컬리</title>
   </head>
@@ -36,14 +40,17 @@
 
         <div class="ulType memberSystem mb-3 mt-3 flex flex-nowrap justify-end">
           <ul class="div__memberSystem flex flex-nowrap">
-            <li class="memberSystem__first font-semibold text-[#5f0080]">
+            <li class="memberSystemRegister font-semibold text-[#5f0080]">
               <a href="/signup.html">회원가입　</a>
             </li>
-            <li class="memberSystem__second">
+            <li class="memberSystemLogin">
               <span class="divider" aria-hidden="true">ㅣ</span
-              ><a href="/login.html">　로그인　</a>
+              ><a href="/login.html"> 　로그인　 </a>
             </li>
-            <li class="memberSystem__third">
+            <li class="memberSystemLogout hidden">
+              <a href="/login.html">로그아웃</a>
+            </li>
+            <li class="memberSystemCustomerService">
               <span class="divider" aria-hidden="true">ㅣ</span
               ><span>　고객센터 ▼</span>
             </li>
@@ -57,12 +64,14 @@
 
           <ul class="ulType logo flex items-center">
             <li class="logo__image h-[42px]; w-[82px]">
-              <img src="./assets/img/header/logo.png" alt="칼리로고" />
+              <a href="/"
+                ><img src="./assets/img/header/logo.png" alt="칼리로고"
+              /></a>
             </li>
             <li
               class="logo__market pl-3 text-[21.3px] font-bold text-[#5f0080]"
             >
-              <span class="">마켓칼리</span>
+              <a href="/"> <span class="">마켓칼리</span></a>
             </li>
             <li class="logo__beauty text-[21.3px]">
               <span class="divider text-gray-200" aria-hidden="true">ㅣ</span
@@ -106,21 +115,50 @@
             <li class="iomji__heart">
               <img src="./assets/img/header/Heart.png" alt="하트모양 이모지" />
             </li>
-            <li class="imoji__shopping pl-5">
-              <a href="/">
+            <li class="imoji__shopping relative pl-5">
+              <a href="/cart.html">
                 <img
                   src="./assets/img/header/Cart-1.png"
                   alt="장바구니 이모지"
                 />
               </a>
+              <!-- aside -->
+              <aside
+                class="cartAlert absolute right-[-28px] top-[50px] z-50 hidden w-[254px] bg-white"
+              >
+                <svg
+                  class="mb-[-6px] ml-[200px]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="18"
+                  viewBox="0 0 20 18"
+                  fill="none"
+                >
+                  <path d="M10 1L18.6603 13.75H1.33975L10 1Z" fill="white" />
+                  <path d="M1 13.5L10 1L18.5 13.5" stroke="#C4C4C4" />
+                </svg>
+                <div
+                  class="flex h-[100px] items-center border border-[#C4C4C4] p-5"
+                >
+                  <img
+                    src="./assets/img/cart/cart.png"
+                    alt="상품 탱탱쫄면"
+                    class="btnList__Img mr-5 h-[60px] w-[46px]"
+                  />
+                  <div>
+                    <span class="btnList__h block text-[12px] text-[#A6A6A6]"
+                      >[풀무원] 탱탱쫄면 (4개입)</span
+                    >
+                    <p class="text-[12px]">장바구니에 상품을 담았습니다.</p>
+                  </div>
+                </div>
+              </aside>
             </li>
           </ul>
         </div>
       </div>
     </header>
-
     <!-- 네비게이션 부분 -->
-
     <nav
       class="nav mx-auto flex h-[72px] w-[1050px] items-center justify-between"
     >
@@ -129,122 +167,10 @@
       <div class="category flex h-6 items-center">
         <img
           src="././assets/img/header/hanburger_black.png"
-          alt=""
+          alt="카테고리"
           class="category__image pr-3"
         />
         <span class="category__word font-semibold">카테고리</span>
-        <div class="categoryHover hidden h-[880px] w-[247px]">
-          <div class="menu__div">
-            <div class="menu__icon present">
-              <span class="menu__word">선물하기</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon vegetable">
-              <span class="menu__word">채소</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon fruit">
-              <span class="menu__word">과일ㆍ견과ㆍ쌀</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon fish">
-              <span class="menu__word">수산ㆍ해산ㆍ건어물</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon meat">
-              <span class="menu__word">정육ㆍ계란</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon soup">
-              <span class="menu__word">국ㆍ반찬ㆍ메인요리</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon salad">
-              <span class="menu__word">샐러드ㆍ간편식</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon noodle">
-              <span class="menu__word">면ㆍ양념ㆍ오일</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon water">
-              <span class="menu__word">생수ㆍ음료ㆍ우유ㆍ커피</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon snack">
-              <span class="menu__word">간식ㆍ과자ㆍ떡</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon bread">
-              <span class="menu__word">베이커리ㆍ치즈ㆍ델리</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon healthFood">
-              <span class="menu__word">건강식품</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon wine">
-              <span class="menu__word">와인</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon koreanAlcohol">
-              <span class="menu__word">전통주</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon living">
-              <span class="menu__word">생활용품ㆍ리빙ㆍ캠핑</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon skinCare">
-              <span class="menu__word">스킨케어ㆍ메이크업</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon hair">
-              <span class="menu__word">헤어ㆍ바디ㆍ구강</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon kitchen">
-              <span class="menu__word">주방용품</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon homeApplience">
-              <span class="menu__word">가전제품</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon pet">
-              <span class="menu__word">반려동물</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon baby">
-              <span class="menu__word">베이비ㆍ키즈ㆍ완구</span>
-            </div>
-          </div>
-          <div class="menu__div">
-            <div class="menu__icon travel">
-              <span class="menu__word">여행ㆍ티켓</span>
-            </div>
-          </div>
-        </div>
       </div>
 
       <!-- 네비게이션 중앙 바 -->
@@ -287,6 +213,7 @@
             src="/assets/tangtang/detail_view.jpg"
             alt=""
             class="h-[514px] w-[400px]"
+            id="itemMainImg"
           />
         </div>
         <section class="infoWrapper w-[560px]">
@@ -296,12 +223,12 @@
               <h1 class="itemName text-[28.43px] font-semibold">
                 [풀무원] 탱탱쫄면 (4개입)
               </h1>
-              <h2 class="text-[16px] text-gray400">
+              <h2 class="itemDesc text-[16px] text-gray400">
                 튀기지 않아 부담 없는 매콤함
               </h2>
             </div>
             <div class="pirce mb-4">
-              <span class="text-[28.43px] font-semibold">4,980 </span>
+              <span class="itemPrice text-[28.43px] font-semibold">4,980</span>
               <span class="font-bold">원</span>
             </div>
             <div class="font-semibold text-primary">
@@ -365,7 +292,7 @@
                 </p>
               </dd>
             </dl>
-            <dl class="flex py-4">
+            <dl class="flex py-4" id="itemSelect">
               <dt class="h-[26px] w-[128px]">상품선택</dt>
               <dd>
                 <div
@@ -378,22 +305,28 @@
                     <div
                       class="btnBox flex h-[30px] w-[84px] items-center justify-between border border-solid"
                     >
-                      <button aria-label="수량내리기" class="h-[30px] w-[30px]">
+                      <button
+                        aria-label="수량내리기"
+                        class="itemDown h-[30px] w-[30px]"
+                      >
                         <span
-                          class="block h-[30px] w-[30px] bg-[url('/img/detail/minusss_white.png')] bg-center bg-no-repeat"
+                          class="block h-[30px] w-[30px] bg-[url('/assets/img/detail/minusss_white.png')] bg-center bg-no-repeat"
                         ></span>
                         <!-- <img src="./img/detail/Minus.png" alt="" /> -->
                       </button>
-                      <div class="mx-2">1</div>
-                      <button aria-label="수량올리기" class="h-[30px] w-[30px]">
+                      <div class="mx-2" id="itemQuantity">1</div>
+                      <button
+                        aria-label="수량올리기"
+                        class="itemUp h-[30px] w-[30px]"
+                      >
                         <span
-                          class="block h-[30px] w-[30px] bg-[url('/img/detail/plusss.png')] bg-center bg-no-repeat"
+                          class="block h-[30px] w-[30px] bg-[url('/assets/img/detail/plusss.png')] bg-center bg-no-repeat"
                         ></span>
                         <!-- <img src="./img/detail/Minus.png" alt="" /> -->
                       </button>
                     </div>
                     <div class="font-semibold">
-                      <span>4,980</span>
+                      <span class="itemPrice">4,980</span>
                       <span>원</span>
                     </div>
                   </div>
@@ -406,7 +339,7 @@
             <div class="py-7">
               <div class="price mb-2 font-semibold">
                 <span class="mr-4">총 상품금액:</span>
-                <span class="text-[28.43px]">4,990</span>
+                <span class="itemPrice totalPrice text-[28.43px]">4,980</span>
                 <span class="font-bold">원</span>
               </div>
               <div class="flex">
@@ -426,17 +359,19 @@
                 class="flex h-[56px] w-[56px] items-center justify-center rounded border border-solid p-1"
               >
                 <span aria-label="찜목록추가">
-                  <img src="./img/header/Heart.png" alt="" />
+                  <img src="/assets/img/header/Heart.png" alt="" />
                 </span>
               </button>
               <button
                 class="flex h-[56px] w-[56px] items-center justify-center rounded border border-solid p-1"
               >
                 <span aria-label="상품 알림설정">
-                  <img src="./img/detail/Group.png" alt="" />
+                  <img src="/assets/img/header/group.png" alt="" />
                 </span>
               </button>
-              <button class="h-[54px] w-[424px] rounded bg-primary">
+              <button
+                class="shoppingCart h-[54px] w-[424px] rounded bg-primary"
+              >
                 <span class="font-semibold text-white">장바구니 담기</span>
               </button>
             </div>
@@ -485,19 +420,21 @@
         <section class="mx-auto mb-24 w-[1050px]">
           <div class="mx-auto mb-20 w-[1050px]">
             <img
-              class="w-[1050px]"
-              src="/assets/img/tangtang/detail_banner.jpg"
+              class="itemBanner w-[1050px]"
+              src="/assets/tangtang/detail_banner.jpg"
               alt="풀무원상품 탱탱쫄면의 이미지"
             />
           </div>
 
-          <div class="h-[256px]">
-            <h3
-              class="flex flex-col items-center justify-center pb-9 text-[50px] font-bold text-content"
+          <div class="flex h-[256px] flex-col">
+            <small
+              class="itemDesc text-center text-[28.43px] font-semibold text-content"
+              >튀기지 않아 부담 없는 매콤함</small
             >
-              <small class="text-[28.43px] font-semibold text-content"
-                >튀기지 않아 부담 없는 매콤함</small
-              >
+
+            <h3
+              class="itemName flex flex-col items-center justify-center pb-9 text-[50px] font-bold text-content"
+            >
               [풀무원] 탱탱쫄면
             </h3>
             <p
@@ -530,14 +467,18 @@
             <div class="h-[283px]">
               <img
                 class="mx-auto mb-24 w-[1010px]"
-                src="./img/detail/karly_point.png"
+                src="/assets/img/detail/karly_point.png"
                 alt=""
               />
             </div>
-            <div class="h-[1066px]">
-              <img src="./assets/tangtang/detail_info.jpg" alt="" />
+            <div class="mt-20 h-[1066px]">
+              <img
+                class="itemInfo"
+                src="/assets/tangtang/detail_info.jpg"
+                alt=""
+              />
             </div>
-            <img src="./img/detail/karly_frame.png" alt="" />
+            <img src="/assets/img/detail/karly_frame.png" alt="" />
           </div>
         </section>
       </article>
@@ -633,7 +574,9 @@
               </div>
 
               <div class="text-xs font-normal">
-                <h5 class="mb-5 text-gray500">[풀무원] 탱탱쫄면 (4개입)</h5>
+                <h5 class="itemName mb-5 text-gray500">
+                  [풀무원] 탱탱쫄면 (4개입)
+                </h5>
                 <p class="mb-5">
                   너무 맛있어여~ <br />면이 쫄깃하고 양념도 짱맛나요!!
                 </p>
@@ -662,7 +605,9 @@
               </div>
 
               <div class="text-xs font-normal">
-                <h5 class="mb-5 text-gray500">[풀무원] 탱탱쫄면 (4개입)</h5>
+                <h5 class="itemName mb-5 text-gray500">
+                  [풀무원] 탱탱쫄면 (4개입)
+                </h5>
                 <p class="mb-5">
                   너무 맛있어여~ <br />면이 쫄깃하고 양념도 짱맛나요!!
                 </p>
@@ -691,7 +636,9 @@
               </div>
 
               <div class="text-xs font-normal">
-                <h5 class="mb-5 text-gray500">[풀무원] 탱탱쫄면 (4개입)</h5>
+                <h5 class="itemName mb-5 text-gray500">
+                  [풀무원] 탱탱쫄면 (4개입)
+                </h5>
                 <p class="mb-5">
                   너무 맛있어여~ <br />면이 쫄깃하고 양념도 짱맛나요!!
                 </p>
@@ -705,12 +652,12 @@
               <button
                 class="mr-2 flex h-[56px] w-[56px] items-center justify-center rounded border border-solid border-gray100 p-1"
               >
-                <img src="/img/detail/WhiteArrow_btn.png" alt="" />
+                <img src="/assets/img/detail/wihiteArrow.png" alt="" />
               </button>
               <button
                 class="ml-2 flex h-[56px] w-[56px] items-center justify-center rounded border border-solid border-gray100 p-1"
               >
-                <img src="/img/detail/arrow_btn.png" alt="" />
+                <img src="/assets/img/detail/pri_arrow.png" alt="" />
               </button>
             </div>
           </div>
@@ -789,7 +736,7 @@
                     >
                       <div class="mb-10 flex">
                         <span class="mr-4">
-                          <img src="/img/detail/question.png" alt="" />
+                          <img src="/assets/img/detail/question.png" alt="" />
                         </span>
                         <p>
                           스티로폼 박스도 손상되어 있어 포장이 터져 엉망이네요
@@ -799,7 +746,7 @@
                       </div>
                       <div class="flex">
                         <span class="mr-4">
-                          <img src="/img/detail/answer.png" alt="" />
+                          <img src="/assets/img/detail/answer.png" alt="" />
                         </span>
                         <div>
                           <p>
@@ -829,7 +776,7 @@
                           비밀글입니다.
                           <img
                             class="ml-4"
-                            src="/img/detail/rockk.png"
+                            src="/assets/img/detail/rock.png"
                             alt=""
                           />
                         </div>
@@ -848,7 +795,7 @@
                           비밀글입니다.
                           <img
                             class="ml-4"
-                            src="/img/detail/rockk.png"
+                            src="/assets/img/detail/rock.png"
                             alt=""
                           />
                         </div>
@@ -867,7 +814,7 @@
                           비밀글입니다.
                           <img
                             class="ml-4"
-                            src="/img/detail/rockk.png"
+                            src="/assets/img/detail/rock.png"
                             alt=""
                           />
                         </div>
@@ -886,7 +833,7 @@
                           비밀글입니다.
                           <img
                             class="ml-4"
-                            src="/img/detail/rockk.png"
+                            src="/assets/img/detail/rock.png"
                             alt=""
                           />
                         </div>
