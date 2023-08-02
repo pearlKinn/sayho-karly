@@ -35,8 +35,11 @@ function priceNameChange(i) {
 
   // alt 속성은 함수 리팩토링 후 추가
   itemMainImg.setAttribute('src', `/assets/${products[i].image.view}`);
+  itemMainImg.setAttribute('alt', `${products[i].image.alt}`);
   itemBanner.setAttribute('src', `/assets/${products[i].image.banner}`);
+  itemBanner.setAttribute('alt', `${products[i].image.alt}`);
   itemInfo.setAttribute('src', `/assets/${products[i].image.info}`);
+  itemInfo.setAttribute('alt', `${products[i].image.alt}`);
 }
 
 const changeItemData = () => {
