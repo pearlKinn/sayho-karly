@@ -106,6 +106,8 @@ function handleChecked(e, checkedValueIdx) {
       allAgreeCheckedValue = true;
       checkAll.style.backgroundImage =
         'url(/assets/img/register/isChecked=true.svg)';
+        removeClass(signupBtn, 'disabled:cursor-not-allowed')
+        signupBtn.disabled = false
     }
   } else {
     // 임의의 checkedValues를 체크가 해제됐을 때
@@ -114,6 +116,8 @@ function handleChecked(e, checkedValueIdx) {
       'url(/assets/img/register/isChecked=false.svg)';
     target.style.backgroundImage =
       'url(/assets/img/register/isChecked=false.svg)';
+      addClass(signupBtn, 'disabled:cursor-not-allowed')
+      signupBtn.disabled = true
   }
 }
 
@@ -132,6 +136,8 @@ function handleAllAgreeChecked() {
         'url(/assets/img/register/isChecked=false.svg)';
       return false;
     });
+   addClass(signupBtn, 'disabled:cursor-not-allowed')
+    signupBtn.disabled = true
   } else {
     allAgreeCheckedValue = true;
     checkAll.style.backgroundImage =
