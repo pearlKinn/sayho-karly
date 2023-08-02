@@ -4,3 +4,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    font-family: Pretendard, system-ui, sans-serif;
+  }
+
+  input::-webkit-search-decoration,
+  input::-webkit-search-cancel-button,
+  input::-webkit-search-results-decoration,
+  input::-webkit-search-results-button {
+    display: none;
+  }
+}
