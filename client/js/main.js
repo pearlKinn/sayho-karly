@@ -106,7 +106,10 @@ function renderProducts(products) {
       <ul class="relative ">
         <li class="relative mb-4" style="width:240px">
           <a href="">
-            <img class="" src="./assets/${item.image.thumbnail}" alt=""
+            <img
+              class=""
+              src="./assets/${item.image.thumbnail}"
+              alt="${item.image.alt}"
           /></a>
         </li>
         <li class="mb-2 w-[230px] bg-red-200 text-base" style="width:220px">

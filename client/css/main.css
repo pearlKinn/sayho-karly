@@ -593,6 +593,10 @@ input::-webkit-search-decoration,
   left: 66%;
 }
 
+.right-\[-28px\] {
+  right: -28px;
+}
+
 .right-\[10px\] {
   right: 10px;
 }
@@ -637,20 +641,20 @@ input::-webkit-search-decoration,
   top: 258px;
 }
 
-.right-0 {
-  right: 0px;
-}
-
-.top-\[-100px\] {
-  top: -100px;
-}
-
-.top-\[100px\] {
-  top: 100px;
-}
-
 .top-\[50px\] {
   top: 50px;
+}
+
+.bottom-\[0px\] {
+  bottom: 0px;
+}
+
+.right-\[606px\] {
+  right: 606px;
+}
+
+.right-\[100px\] {
+  right: 100px;
 }
 
 .right-\[50px\] {
@@ -661,40 +665,12 @@ input::-webkit-search-decoration,
   right: 0px;
 }
 
-.right-\[200px\] {
-  right: 200px;
-}
-
-.right-\[-20px\] {
-  right: -20px;
-}
-
-.right-\[-30px\] {
-  right: -30px;
-}
-
-.right-\[-50px\] {
-  right: -50px;
-}
-
-.right-\[-40px\] {
-  right: -40px;
-}
-
-.right-\[-28px\] {
-  right: -28px;
-}
-
-.bottom-0 {
-  bottom: 0px;
-}
-
-.right-\[100px\] {
-  right: 100px;
-}
-
 .z-10 {
   z-index: 10;
+}
+
+.z-50 {
+  z-index: 50;
 }
 
 .z-\[1000\] {
@@ -703,10 +679,6 @@ input::-webkit-search-decoration,
 
 .z-\[1\] {
   z-index: 1;
-}
-
-.z-50 {
-  z-index: 50;
 }
 
 .mx-2 {
@@ -1335,6 +1307,10 @@ input::-webkit-search-decoration,
   width: 100%;
 }
 
+.w-\[59px\] {
+  width: 59px;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -1533,11 +1509,6 @@ input::-webkit-search-decoration,
   border-color: rgb(107 33 168 / var(--tw-border-opacity));
 }
 
-.border-\[\#c4c4c4\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(196 196 196 / var(--tw-border-opacity));
-}
-
 .bg-\[\#5f0080\] {
   --tw-bg-opacity: 1;
   background-color: rgb(95 0 128 / var(--tw-bg-opacity));
@@ -1601,11 +1572,6 @@ input::-webkit-search-decoration,
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-fuchsia-200 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 208 254 / var(--tw-bg-opacity));
 }
 
 .bg-opacity-30 {
@@ -2041,33 +2007,9 @@ input::-webkit-search-decoration,
   color: rgb(156 163 175 / var(--tw-placeholder-opacity));
 }
 
-.opacity-0 {
-  opacity: 0;
-}
-
 .outline-none {
   outline: 2px solid transparent;
   outline-offset: 2px;
-}
-
-.transition-opacity {
-  transition-property: opacity;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-
-.duration-500 {
-  transition-duration: 500ms;
-}
-
-.ease-in-out {
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .after\:hidden::after {
