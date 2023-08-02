@@ -9,6 +9,7 @@ import {
   saveStorage,
   generateRandomID,
   addValidateForInputEvent,
+  attr,
 } from '../lib/index.js';
 
 const authBtn = getNode('.authBtn');
@@ -122,6 +123,7 @@ checkList.forEach((item, idx) => {
 });
 
 function handleAllAgreeChecked(e) {
+  
   if (allAgreeCheckedValue) {
     allAgreeCheckedValue = false;
     checkAll.style.backgroundImage =
@@ -140,6 +142,8 @@ function handleAllAgreeChecked(e) {
         'url(/assets/img/register/isChecked=true.svg)';
       return true;
     });
+    removeClass(signupBtn, 'disabled:cursor-not-allowed')
+    signupBtn.disabled = false
   }
 
   /* 
